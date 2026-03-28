@@ -143,407 +143,186 @@ body {
     </div>
     
     <style>
+        /* التنسيقات الأساسية (الهيدر والسيرش) كما هي */
         @keyframes pulse-new {
             0% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.7; transform: scale(1.1); }
             100% { opacity: 1; transform: scale(1); }
         }
-    </style>
-    
-    <style>
-        /* تنسيق الهيدر العلوي - معدل للألوان والفخامة */
-        header {
-            background-color: #2B090A !important; /* اللون العنابي المكتوم */
-            border-bottom: 2px solid #E3B361; /* خط ذهبي مطفي شيك */
-            position: absolute; /* عشان يختفي وأنت نازل سكرول */
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1001;
-            padding: 10px 0;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-    
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 15px;
+        header { background-color: #2B090A !important; border-bottom: 2px solid #E3B361; position: absolute; top: 0; left: 0; right: 0; z-index: 1001; padding: 10px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 0 15px; max-width: 1200px; margin: 0 auto; }
+        .logo-box img { max-height: 55px; width: auto; display: block; mix-blend-mode: lighten; }
+        .menu-icon, .cart-icon { color: #E3B361; font-size: 22px; cursor: pointer; position: relative; }
+        .cart-badge { position: absolute; top: -8px; right: -10px; background: #E3B361; color: #2B090A; font-size: 12px; padding: 2px 6px; border-radius: 50%; font-weight: bold; }
+        .search-container { padding: 12px 15px; text-align: center; position: absolute; top: 65px; width: 100%; z-index: 1000; background: linear-gradient(180deg, #2B090A 0%, #1a0505 100%); }
+        .search-input-wrapper { position: relative; max-width: 500px; margin: 0 auto; }
+        #menu-search { width: 100%; padding: 12px 40px 12px 45px; border-radius: 0 !important; border: 1px solid rgba(227, 179, 97, 0.4); border-bottom: 2px solid #E3B361; background: rgba(0, 0, 0, 0.4); color: #F6E6CF; font-size: 16px; outline: none; text-align: right; }
+        .search-icon { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: #E3B361; }
+        .clear-btn { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #F6E6CF; cursor: pointer; font-size: 22px; opacity: 0.6; }
+
+        /* ========================================= */
+        /* التعديل الجديد: تنسيق السلايدر 3D وتحسين الصور */
+        /* ========================================= */
+        
+        #dynamic-slider-container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
+            /* سر الـ 3D: Perspective يعطي عمق للمنظور */
+            perspective: 1200px; 
+            overflow: hidden;
         }
-    
-        /* سر الحركة اللي بتخلي اللوجو "مرسوم" */
-        .logo-box img {
-            max-height: 55px;
-            width: auto;
-            display: block;
-            mix-blend-mode: lighten; /* بيدمج اللوجو مع العنابي */
-        }
-    
-        .menu-icon, .cart-icon {
-            color: #E3B361; /* ذهبي مطفي */
-            font-size: 22px;
-            cursor: pointer;
-        }
-    
-        /* تنسيق شريط البحث الحاد */
-        .search-container {
-            padding: 12px 15px;
-            text-align: center;
-            position: absolute; /* خليه يتبع الهيدر ويختفي معاه */
-            top: 65px; /* تحت الهيدر بالظبط */
-            width: 100%;
-            z-index: 1000;
-            background: linear-gradient(180deg, #2B090A 0%, #1a0505 100%); /* تدرج فخم */
-        }
-    
-        .search-input-wrapper {
-            position: relative;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-    
-        /* جعل السيرش بزوايا حادة تماماً ومظبوط للاب والموبايل */
-        #menu-search {
-            width: 100%;
-            padding: 12px 40px 12px 45px;
-            border-radius: 0 !important; /* زوايا حادة كما طلبت */
-            border: 1px solid rgba(227, 179, 97, 0.4); /* حدود ذهبية شفافة */
-            border-bottom: 2px solid #E3B361; /* تمييز ذهبي من تحت */
-            background: rgba(0, 0, 0, 0.3); /* سواد شفاف يظهر العنابي */
-            color: #F6E6CF; /* اللون الكريمي */
-            font-size: 16px;
-            outline: none;
-            text-align: right;
-        }
-    
-        .search-icon {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #E3B361;
-        }
-    
-        .clear-btn {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #F6E6CF;
-            cursor: pointer;
-            font-size: 22px;
-            line-height: 1;
-            opacity: 0.6;
-        }
-    </style> 
 
-<header>
-    <div class="nav-container">
-        <div class="menu-icon" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
-        </div>
-
-        <div class="logo-box">
-            <img src="logo.png" alt="SPICY">
-        </div>
-
-        <div class="cart-icon" id="cart-icon" onclick="toggleCart()">
-            <i class="fas fa-shopping-basket"></i>
-            <span class="cart-badge" id="cart-count-badge">0</span>
-        </div>
-    </div>
-</header>
-
-<div class="search-container">
-    <div class="search-input-wrapper">
-        <input type="text" id="menu-search" onkeyup="searchMenu()" placeholder="ابحث عن أكلتك (بانيه، نوتيلا، زنجر)...">
-        
-        <i class="fas fa-search search-icon"></i>
-        
-        <span class="clear-btn" onclick="clearSearch()">&times;</span>
-    </div>
-</div>
-
-<section id="dynamic-slider-container" style="margin: 20px auto; width: 100%; max-width: 1200px;">
-    
-   <style>
-    @keyframes pulse-new {
-        0% { opacity: 1; transform: scale(1); }
-        50% { opacity: 0.7; transform: scale(1.1); }
-        100% { opacity: 1; transform: scale(1); }
-    }
-
-    /* 1. تنسيق الهيدر العلوي */
-    header {
-        background-color: #2B090A !important;
-        border-bottom: 2px solid #E3B361;
-        position: absolute; 
-        top: 0; left: 0; right: 0;
-        z-index: 1001;
-        padding: 10px 0;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    }
-
-    .nav-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 15px;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .logo-box img {
-        max-height: 55px;
-        width: auto;
-        display: block;
-        mix-blend-mode: lighten;
-    }
-
-    .menu-icon, .cart-icon {
-        color: #E3B361;
-        font-size: 22px;
-        cursor: pointer;
-    }
-
-    /* 2. تنسيق شريط البحث */
-    .search-container {
-        padding: 12px 15px;
-        text-align: center;
-        position: absolute;
-        top: 65px; 
-        width: 100%;
-        z-index: 1000;
-        background: linear-gradient(180deg, #2B090A 0%, #1a0505 100%);
-    }
-
-    .search-input-wrapper {
-        position: relative;
-        max-width: 500px;
-        margin: 0 auto;
-    }
-
-    #menu-search {
-        width: 100%;
-        padding: 12px 40px 12px 45px;
-        border-radius: 0 !important;
-        border: 1px solid rgba(227, 179, 97, 0.4);
-        border-bottom: 2px solid #E3B361;
-        background: rgba(0, 0, 0, 0.4);
-        color: #F6E6CF;
-        font-size: 16px;
-        outline: none;
-        text-align: right;
-    }
-
-    .search-icon {
-        position: absolute;
-        right: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: #E3B361;
-    }
-
-    /* 3. تنسيق السلايدر الاحترافي */
-    .slideshow-box {
-        position: relative;
-        width: 92%;
-        margin: 155px auto 20px auto; 
-        aspect-ratio: 16 / 9;
-        overflow: hidden;
-        background-color: #2B090A;
-        border-radius: 20px; 
-        border: 1px solid rgba(227, 179, 97, 0.3);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
-        z-index: 5;
-    }
-
-    .slide-item {
-        display: none;
-        width: 100%;
-        height: 100%;
-        position: relative;
-    }
-
-    .slide-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        /* التعديل: غمقت الصورة أكتر سنة عشان الكلام الأبيض والذهبي ينور ويتقرأ */
-        filter: brightness(0.6) contrast(1.1); 
-    }
-
-    /* التعديل: مكان الكلام شفاف تماماً مكتوب فوق البانر علطول */
-    .slide-content {
-        position: absolute;
-        right: 25px !important; /* مسافة من اليمين */
-        bottom: 20px !important; /* مسافة من تحت */
-        text-align: right;
-        z-index: 10;
-        max-width: 65%; /* تصغير الكادر عشان يبقى ملموم */
-        
-        /* التعديل الرئيسي: لغيت الـ background والـ padding والـ border */
-        background: transparent !important; 
-        padding: 0 !important;
-        border: none !important;
-        
-        /* تأثير ظل خفيف للكلام عشان يبقى مقروء حتى لو الصورة فاتحة */
-        text-shadow: 1px 1px 4px rgba(0,0,0,0.5); 
-    }
-
-    .slide-content h2 {
-        color: #ffffff;
-        font-size: 26px;
-        margin-bottom: 8px;
-        font-weight: bold;
-    }
-
-    .slide-content p {
-        color: #F6E6CF;
-        font-size: 14px;
-        margin-bottom: 18px;
-        line-height: 1.5;
-    }
-
-    .slide-btns {
-        display: flex;
-        gap: 12px;
-        justify-content: flex-start;
-    }
-
-    .btn-main {
-        background: #E3B361;
-        color: #2B090A;
-        padding: 8px 22px;
-        border-radius: 20px;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 14px;
-    }
-
-    .btn-sub {
-        border: 1px solid #ffffff;
-        color: #ffffff;
-        padding: 7px 21px;
-        border-radius: 20px;
-        text-decoration: none;
-        font-size: 14px;
-    }
-
-    .dots-wrapper {
-        text-align: center;
-        margin-top: -35px;
-        position: relative;
-        z-index: 10;
-    }
-
-    .dot-indicator {
-        height: 8px;
-        width: 20px;
-        margin: 0 4px;
-        background-color: rgba(246, 230, 207, 0.3);
-        border-radius: 10px;
-        display: inline-block;
-        transition: 0.4s;
-    }
-
-    .active-dot {
-        background-color: #E3B361 !important;
-        width: 30px;
-    }
-
-    @media (max-width: 768px) {
         .slideshow-box {
-            width: 94%;
-            aspect-ratio: 4 / 3;
-            margin-top: 150px;
+            position: relative;
+            width: 92%;
+            height: 480px; /* الارتفاع للشاشات الكبيرة */
+            margin: 155px auto 20px auto; 
+            /* للسماح للعناصر الداخلية بالدوران في الفراغ */
+            transform-style: preserve-3d; 
         }
+
+        .slide-item {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            /* حركة ناعمة ومحسنة */
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            /* وضعية البداية (بعيدة ومايلة) للـ 3D */
+            transform: rotateY(-20deg) translateZ(-150px) scale(0.9);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        /* الشريحة النشطة اللي في الوش */
+        .slide-item.active {
+            opacity: 1;
+            visibility: visible;
+            transform: rotateY(0deg) translateZ(0) scale(1);
+            z-index: 5;
+        }
+
+        .slide-item img {
+            width: 100%;
+            height: 100%;
+            /* التعديل الجوهري: object-fit يقص الزيادة ويمنع المط */
+            object-fit: cover; 
+            object-position: center;
+            filter: brightness(0.65) contrast(1.1); /* تغميق خفيف عشان الكلام ينور */
+        }
+
         .slide-content {
-            right: 15px !important;
-            bottom: 15px !important;
-            max-width: 85%;
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            text-align: right;
+            z-index: 10;
+            max-width: 80%;
+            /* إضافة تدرج أسود ورا الكلام عشان يوضح على أي صورة */
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 15px;
+            border-radius: 0 0 20px 0;
         }
-        .slide-content h2 { font-size: 20px; }
-        .slide-content p { font-size: 12px; }
-    }
-</style>
 
-<header>
-    <div class="nav-container">
-        <div class="menu-icon"><i class="fas fa-bars"></i></div>
-        <div class="logo-box">
-            <img src="logo.png" alt="Spicy Logo"> 
-        </div>
-        <div class="cart-icon"><i class="fas fa-shopping-basket"></i></div>
-    </div>
-</header>
+        .since-text { color:#E3B361; font-weight:bold; font-size:12px; margin-bottom:5px; }
+        .slide-content h2 { color: #ffffff; font-size: 28px; margin-bottom: 8px; }
+        .slide-content p { color: #F6E6CF; font-size: 15px; line-height: 1.5; margin-bottom: 15px; }
 
-<div class="search-container">
-    <div class="search-input-wrapper">
-        <i class="fas fa-search search-icon"></i>
-        <input type="text" id="menu-search" placeholder="ابحث عن أكلتك (بانيه، نوتيلا، زنجر)...">
-    </div>
-</div>
+        .slide-btns { display: flex; gap: 12px; justify-content: flex-start; }
+        .btn-main { background: #E3B361; color: #2B090A; padding: 10px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 14px; }
+        .btn-sub { border: 1px solid #ffffff; color: #ffffff; padding: 9px 24px; border-radius: 25px; text-decoration: none; font-size: 14px; }
 
-<div class="slideshow-box">
-    <div class="slide-item fade-animation" style="display: block;">
-        <img src="1.jpg" alt="عرض 1">
-        <div class="slide-content">
-            <p style="color:#E3B361; font-weight:bold; font-size:12px; margin-bottom:5px;">منذ 2010</p>
-            <h2>اسبايسي — مذاق عالمي أصيل</h2>
-            <p>أقوى عروض التوفير على سندوتشات الزنجر والكرسبي<br>تجهيز طازج يومياً يوصلك لحد البيت.</p>
-            <div class="slide-btns">
-                <a href="#" class="btn-main">شاهد المنيو</a>
-                <a href="tel:19905" class="btn-sub">اتصل الآن</a>
-            </div>
-        </div>
-    </div>
+        /* تنسيق النقط (Dots) */
+        .dots-wrapper { text-align: center; margin-top: -30px; position: relative; z-index: 15; }
+        .dot-indicator { height: 8px; width: 25px; margin: 0 4px; background-color: rgba(227, 179, 97, 0.3); border-radius: 10px; display: inline-block; transition: 0.4s; }
+        .active-dot { background-color: #E3B361; width: 35px; }
+
+        /* ========================================= */
+        /* تعديلات الموبايل (Responsive) */
+        /* ========================================= */
+        @media (max-width: 768px) {
+            .slideshow-box {
+                height: 380px !important; /* ارتفاع طولي مناسب للموبايل */
+                margin-top: 145px;
+            }
+            .slide-item img { border-radius: 10px; }
+            .slide-content { right: 15px; bottom: 20px; max-width: 90%; padding: 10px; }
+            .slide-content h2 { font-size: 19px !important; }
+            .slide-content p { font-size: 12px !important; line-height: 1.3; }
+            .slide-btns { gap: 8px; }
+            .btn-main, .btn-sub { padding: 7px 15px; font-size: 12px; }
+        }
+    </style>
     
-    <div class="slide-item fade-animation">
-        <img src="2.jpg" alt="عرض 2">
-        <div class="slide-content">
-            <h2>زنجر من سبايسي.. مقرمش أكتر</h2>
-            <p>جرب خلطتنا الحارة السرية اللي هتوديك في حتة تانية.</p>
-            <div class="slide-btns">
-                <a href="#" class="btn-main">اطلب الآن</a>
+    <header>
+        <div class="nav-container">
+            <div class="menu-icon" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="logo-box">
+                <img src="logo.png" alt="SPICY">
+            </div>
+            <div class="cart-icon" id="cart-icon" onclick="toggleCart()">
+                <i class="fas fa-shopping-basket"></i>
+                <span class="cart-badge" id="cart-count-badge">0</span>
             </div>
         </div>
+    </header>
+    
+    <div class="search-container">
+        <div class="search-input-wrapper">
+            <input type="text" id="menu-search" onkeyup="searchMenu()" placeholder="ابحث عن أكلتك (بانيه، نوتيلا، زنجر)...">
+            <i class="fas fa-search search-icon"></i>
+            <span class="clear-btn" onclick="clearSearch()">&times;</span>
+        </div>
     </div>
-</div>
 
-<div class="dots-wrapper">
-    <span class="dot-indicator active-dot"></span>
-    <span class="dot-indicator"></span>
-</div>
-    <script>
-        let currentIdx = 0;
-        runSlides();
-
-        function runSlides() {
-            let slides = document.getElementsByClassName("slide-item");
-            let indicators = document.getElementsByClassName("dot-indicator");
+    <section id="dynamic-slider-container">
+        <div class="slideshow-box">
+            <div class="slide-item active">
+                <img src="1.jpg" alt="عرض 1">
+                <div class="slide-content">
+                    <p class="since-text">منذ 2010</p>
+                    <h2>اسبايسي — مذاق عالمي أصيل</h2>
+                    <p>أقوى عروض التوفير على سندوتشات الزنجر والكرسبي<br>تجهيز طازج يومياً يوصلك لحد البيت.</p>
+                    <div class="slide-btns">
+                        <a href="#" class="btn-main">شاهد المنيو</a>
+                        <a href="tel:19905" class="btn-sub">اتصل الآن</a>
+                    </div>
+                </div>
+            </div>
             
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  
-            }
-            
-            currentIdx++;
-            if (currentIdx > slides.length) {currentIdx = 1}    
-            
-            for (let i = 0; i < indicators.length; i++) {
-                indicators[i].className = indicators[i].className.replace(" active-dot", "");
-            }
-            
-            slides[currentIdx-1].style.display = "block";  
-            indicators[currentIdx-1].className += " active-dot";
-            
-            // تبديل كل ثانيتين
-            setTimeout(runSlides, 2000); 
-        }
-    </script>
-</section>
+            <div class="slide-item">
+                <img src="2.jpg" alt="عرض 2">
+                <div class="slide-content">
+                    <h2>زنجر من سبايسي.. مقرمش أكتر</h2>
+                    <p>جرب خلطتنا الحارة السرية اللي هتوديك في حتة تانية.</p>
+                    <div class="slide-btns">
+                        <a href="#" class="btn-main">اطلب الآن</a>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="slide-item">
+                <img src="3.jpg" alt="عرض 3">
+                <div class="slide-content">
+                    <h2>طعم الحكاية في سبايسي</h2>
+                    <p>كل اللي بتتمناه من قرمشة وطعم هتلاقيه عندنا.</p>
+                    <div class="slide-btns">
+                        <a href="#" class="btn-main">اطلب الآن</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="dots-wrapper">
+            <span class="dot-indicator active-dot"></span>
+            <span class="dot-indicator"></span>
+            <span class="dot-indicator"></span>
+        </div>
+    </section>
 <section id="offers" class="menu-section" style="display: block; direction: rtl; text-align: right; padding: 20px 10px 40px; background-color: #1a0505;">
     
     <h2 class="section-header" style="text-align: center; color: #E3B361; margin-bottom: 30px; font-size: 28px; font-family: 'Segoe UI', Tahoma, sans-serif;">
@@ -1517,6 +1296,7 @@ body {
                 console.error("لم يتم العثور على عنصر باسم side-cart");
             }
         }
+        
 
         function closeCart() {
             const cartElement = document.getElementById('side-cart');
@@ -1524,6 +1304,8 @@ body {
                 cartElement.classList.remove('active');
             }
         }
+        
     </script>
+    
 </body>
 </html>

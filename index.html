@@ -10,20 +10,32 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; -webkit-tap-highlight-color: transparent; }
       
 body { 
-    background: #0b0606; /* ده اللون الأسود الفحمي اللي اتفقنا عليه */
-    color: #fff; 
+    background: #2B090A; /* اللون النبيتي المكتوم اللي اخترته */
+    color: #F6E6CF; 
     padding-bottom: 90px; 
     scroll-behavior: smooth; 
 }
 
         /* --- Header --- */
         header { 
-    background: #1f0303; /* سيبه أسود زي ما هو أو خليه #0f0f0f */
-    border-bottom: 3px solid var(--main-red); 
-    position: sticky; 
+    /* تدرج لوني من العنابي للسواد بيدي فخامة رهيبة */
+    background: linear-gradient(180deg, #2B090A 0%, #1a0505 100%); 
+    
+    /* خط ذهبي رفيع وشيك بدل الأصفر */
+    border-bottom: 2px solid #E3B361; 
+    
+    position: absolute; 
     top: 0; 
+    left: 0;
+    right: 0;
     z-index: 1000; 
-    padding: 12px 0; 
+    padding: 15px 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.6); /* ظل خفيف عشان يفصل الهيدر عن المنيو */
+}
+
+/* لو حابب تخلي الأيقونات (السلة والمنيو) لونها ذهبي بدل الأصفر */
+.header i, .fa-shopping-basket, .fa-bars {
+    color: #E3B361 !important;
 }
         .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
         .logo-box img { height: 45px; filter: drop-shadow(0 0 8px var(--main-red)); }
@@ -126,101 +138,106 @@ body {
     
         <div style="margin-top: 50px; text-align: center; color: #888; font-size: 11px;">
             Designed & Developed by<br>
-            <span style="color: #c71919; font-weight: bold; font-size: 13px;">Eng. Karam Khaled </span>
+            <span style="color: #c71919; font-weight: bold; font-size: 13px;">Eng. Mahmoud Khaled </span>
         </div>
     </div>
     
     <style>
-    @keyframes pulse-new {
-        0% { opacity: 1; transform: scale(1); }
-        50% { opacity: 0.7; transform: scale(1.1); }
-        100% { opacity: 1; transform: scale(1); }
-    }
+        @keyframes pulse-new {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
     </style>
-
-<style>
-    /* تنسيق الهيدر العلوي */
-    header {
-        background-color: #000 !important;
-        border-bottom: 2px solid #ffcc00; /* خط ذهبي فخم */
-        position: sticky;
-        top: 0;
-        z-index: 1001;
-        padding: 10px 0;
-    }
-
-    .nav-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 15px;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    /* سر الحركة اللي بتخلي اللوجو "مرسوم" */
-    .logo-box img {
-        max-height: 55px; /* مقاس مثالي للموبايل */
-        width: auto;
-        display: block;
-        mix-blend-mode: lighten; /* بيدمج اللوجو مع السواد ويخفي أي خلفية باهتة */
-    }
-
-    .menu-icon, .cart-icon {
-        color: #ffcc00;
-        font-size: 22px;
-        cursor: pointer;
-    }
-
-    /* تنسيق شريط البحث الحاد */
-    .search-container {
-        padding: 12px 15px;
-        text-align: center;
-        position: sticky;
-        top: 65px; /* عشان يجي تحت الهيدر بالظبط */
-        z-index: 1000;
-        background: #000;
-    }
-
-    .search-input-wrapper {
-        position: relative;
-        max-width: 500px;
-        margin: 0 auto;
-    }
-
-    /* جعل السيرش بزوايا حادة تماماً ومظبوط للاب والموبايل */
-    #menu-search {
-        width: 100%;
-        padding: 12px 40px 12px 45px;
-        border-radius: 0 !important; /* زوايا حادة كما طلبت */
-        border: 1px solid #333; /* حدود هادية شيك */
-        border-bottom: 2px solid #ffcc00; /* تمييز ذهبي من تحت */
-        background: #111;
-        color: white;
-        font-size: 16px;
-        outline: none;
-        text-align: right;
-    }
-
-    .search-icon {
-        position: absolute;
-        right: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: #ffcc00;
-    }
-
-    .clear-btn {
-        position: absolute;
-        left: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: #666;
-        cursor: pointer;
-        font-size: 22px;
-        line-height: 1;
-    }
-</style>
+    
+    <style>
+        /* تنسيق الهيدر العلوي - معدل للألوان والفخامة */
+        header {
+            background-color: #2B090A !important; /* اللون العنابي المكتوم */
+            border-bottom: 2px solid #E3B361; /* خط ذهبي مطفي شيك */
+            position: absolute; /* عشان يختفي وأنت نازل سكرول */
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            padding: 10px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+    
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    
+        /* سر الحركة اللي بتخلي اللوجو "مرسوم" */
+        .logo-box img {
+            max-height: 55px;
+            width: auto;
+            display: block;
+            mix-blend-mode: lighten; /* بيدمج اللوجو مع العنابي */
+        }
+    
+        .menu-icon, .cart-icon {
+            color: #E3B361; /* ذهبي مطفي */
+            font-size: 22px;
+            cursor: pointer;
+        }
+    
+        /* تنسيق شريط البحث الحاد */
+        .search-container {
+            padding: 12px 15px;
+            text-align: center;
+            position: absolute; /* خليه يتبع الهيدر ويختفي معاه */
+            top: 65px; /* تحت الهيدر بالظبط */
+            width: 100%;
+            z-index: 1000;
+            background: linear-gradient(180deg, #2B090A 0%, #1a0505 100%); /* تدرج فخم */
+        }
+    
+        .search-input-wrapper {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+    
+        /* جعل السيرش بزوايا حادة تماماً ومظبوط للاب والموبايل */
+        #menu-search {
+            width: 100%;
+            padding: 12px 40px 12px 45px;
+            border-radius: 0 !important; /* زوايا حادة كما طلبت */
+            border: 1px solid rgba(227, 179, 97, 0.4); /* حدود ذهبية شفافة */
+            border-bottom: 2px solid #E3B361; /* تمييز ذهبي من تحت */
+            background: rgba(0, 0, 0, 0.3); /* سواد شفاف يظهر العنابي */
+            color: #F6E6CF; /* اللون الكريمي */
+            font-size: 16px;
+            outline: none;
+            text-align: right;
+        }
+    
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #E3B361;
+        }
+    
+        .clear-btn {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #F6E6CF;
+            cursor: pointer;
+            font-size: 22px;
+            line-height: 1;
+            opacity: 0.6;
+        }
+    </style> 
 
 <header>
     <div class="nav-container">
@@ -251,96 +268,255 @@ body {
 
 <section id="dynamic-slider-container" style="margin: 20px auto; width: 100%; max-width: 1200px;">
     
-    <style>
-        /* برواز السلايدر - يتغير مقاسه تلقائياً حسب الجهاز */
+   <style>
+    @keyframes pulse-new {
+        0% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.7; transform: scale(1.1); }
+        100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* 1. تنسيق الهيدر العلوي */
+    header {
+        background-color: #2B090A !important;
+        border-bottom: 2px solid #E3B361;
+        position: absolute; 
+        top: 0; left: 0; right: 0;
+        z-index: 1001;
+        padding: 10px 0;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 15px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .logo-box img {
+        max-height: 55px;
+        width: auto;
+        display: block;
+        mix-blend-mode: lighten;
+    }
+
+    .menu-icon, .cart-icon {
+        color: #E3B361;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+    /* 2. تنسيق شريط البحث */
+    .search-container {
+        padding: 12px 15px;
+        text-align: center;
+        position: absolute;
+        top: 65px; 
+        width: 100%;
+        z-index: 1000;
+        background: linear-gradient(180deg, #2B090A 0%, #1a0505 100%);
+    }
+
+    .search-input-wrapper {
+        position: relative;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    #menu-search {
+        width: 100%;
+        padding: 12px 40px 12px 45px;
+        border-radius: 0 !important;
+        border: 1px solid rgba(227, 179, 97, 0.4);
+        border-bottom: 2px solid #E3B361;
+        background: rgba(0, 0, 0, 0.4);
+        color: #F6E6CF;
+        font-size: 16px;
+        outline: none;
+        text-align: right;
+    }
+
+    .search-icon {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #E3B361;
+    }
+
+    /* 3. تنسيق السلايدر الاحترافي */
+    .slideshow-box {
+        position: relative;
+        width: 92%;
+        margin: 155px auto 20px auto; 
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        background-color: #2B090A;
+        border-radius: 20px; 
+        border: 1px solid rgba(227, 179, 97, 0.3);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+        z-index: 5;
+    }
+
+    .slide-item {
+        display: none;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    .slide-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* التعديل: غمقت الصورة أكتر سنة عشان الكلام الأبيض والذهبي ينور ويتقرأ */
+        filter: brightness(0.6) contrast(1.1); 
+    }
+
+    /* التعديل: مكان الكلام شفاف تماماً مكتوب فوق البانر علطول */
+    .slide-content {
+        position: absolute;
+        right: 25px !important; /* مسافة من اليمين */
+        bottom: 20px !important; /* مسافة من تحت */
+        text-align: right;
+        z-index: 10;
+        max-width: 65%; /* تصغير الكادر عشان يبقى ملموم */
+        
+        /* التعديل الرئيسي: لغيت الـ background والـ padding والـ border */
+        background: transparent !important; 
+        padding: 0 !important;
+        border: none !important;
+        
+        /* تأثير ظل خفيف للكلام عشان يبقى مقروء حتى لو الصورة فاتحة */
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.5); 
+    }
+
+    .slide-content h2 {
+        color: #ffffff;
+        font-size: 26px;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+    .slide-content p {
+        color: #F6E6CF;
+        font-size: 14px;
+        margin-bottom: 18px;
+        line-height: 1.5;
+    }
+
+    .slide-btns {
+        display: flex;
+        gap: 12px;
+        justify-content: flex-start;
+    }
+
+    .btn-main {
+        background: #E3B361;
+        color: #2B090A;
+        padding: 8px 22px;
+        border-radius: 20px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .btn-sub {
+        border: 1px solid #ffffff;
+        color: #ffffff;
+        padding: 7px 21px;
+        border-radius: 20px;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .dots-wrapper {
+        text-align: center;
+        margin-top: -35px;
+        position: relative;
+        z-index: 10;
+    }
+
+    .dot-indicator {
+        height: 8px;
+        width: 20px;
+        margin: 0 4px;
+        background-color: rgba(246, 230, 207, 0.3);
+        border-radius: 10px;
+        display: inline-block;
+        transition: 0.4s;
+    }
+
+    .active-dot {
+        background-color: #E3B361 !important;
+        width: 30px;
+    }
+
+    @media (max-width: 768px) {
         .slideshow-box {
-            position: relative;
-            width: 100%;
-            /* نسبة الطول للعرض (21:9 للاب توب وتتعدل للموبايل) */
-            aspect-ratio: 21 / 9; 
-            overflow: hidden;
-            background-color: #000;
-            border: 1px solid #333;
+            width: 94%;
+            aspect-ratio: 4 / 3;
+            margin-top: 150px;
         }
-
-        /* الصور */
-        .slide-item {
-            display: none;
-            width: 100%;
-            height: 100%;
+        .slide-content {
+            right: 15px !important;
+            bottom: 15px !important;
+            max-width: 85%;
         }
+        .slide-content h2 { font-size: 20px; }
+        .slide-content p { font-size: 12px; }
+    }
+</style>
 
-        .slide-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* أهم سطر: بيخلي الصورة تملأ البرواز بالكامل بدون مط */
-        }
-
-        /* تأثير التلاشي (Fade) */
-        .fade-animation {
-            animation: fadeEffect 1.5s;
-        }
-
-        @keyframes fadeEffect {
-            from {opacity: 0.4} 
-            to {opacity: 1}
-        }
-
-        /* حاوية النقط */
-        .dots-wrapper {
-            text-align: center;
-            margin-top: -30px; /* تظهر فوق الصورة من تحت بشكل شيك */
-            position: relative;
-            z-index: 10;
-        }
-
-        .dot-indicator {
-            height: 10px;
-            width: 10px;
-            margin: 0 5px;
-            background-color: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            display: inline-block;
-            transition: 0.6s;
-        }
-
-        .active-dot {
-            background-color: #ffcc00 !important; /* لون النقطة النشطة ذهبي */
-            transform: scale(1.3); /* تكبير بسيط للنقطة النشطة */
-        }
-
-        /* 📱 تعديلات خاصة للموبايل والأيباد */
-        @media (max-width: 768px) {
-            .slideshow-box {
-                aspect-ratio: 16 / 9; /* يخلي السلايدر "أطول" شوية في الموبايل */
-            }
-            .dot-indicator {
-                height: 8px;
-                width: 8px;
-            }
-        }
-    </style>
-
-    <div class="slideshow-box">
-        <div class="slide-item fade-animation">
-            <img src="1.jpg" alt="عرض 1">
+<header>
+    <div class="nav-container">
+        <div class="menu-icon"><i class="fas fa-bars"></i></div>
+        <div class="logo-box">
+            <img src="logo.png" alt="Spicy Logo"> 
         </div>
+        <div class="cart-icon"><i class="fas fa-shopping-basket"></i></div>
+    </div>
+</header>
 
-        <div class="slide-item fade-animation">
-            <img src="2.jpg" alt="عرض 2">
-        </div>
+<div class="search-container">
+    <div class="search-input-wrapper">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="menu-search" placeholder="ابحث عن أكلتك (بانيه، نوتيلا، زنجر)...">
+    </div>
+</div>
 
-        <div class="slide-item fade-animation">
-            <img src="3.jpg" alt="عرض 3">
+<div class="slideshow-box">
+    <div class="slide-item fade-animation" style="display: block;">
+        <img src="1.jpg" alt="عرض 1">
+        <div class="slide-content">
+            <p style="color:#E3B361; font-weight:bold; font-size:12px; margin-bottom:5px;">منذ 2010</p>
+            <h2>اسبايسي — مذاق عالمي أصيل</h2>
+            <p>أقوى عروض التوفير على سندوتشات الزنجر والكرسبي<br>تجهيز طازج يومياً يوصلك لحد البيت.</p>
+            <div class="slide-btns">
+                <a href="#" class="btn-main">شاهد المنيو</a>
+                <a href="tel:19905" class="btn-sub">اتصل الآن</a>
+            </div>
         </div>
     </div>
-
-    <div class="dots-wrapper">
-        <span class="dot-indicator"></span>
-        <span class="dot-indicator"></span>
-        <span class="dot-indicator"></span>
+    
+    <div class="slide-item fade-animation">
+        <img src="2.jpg" alt="عرض 2">
+        <div class="slide-content">
+            <h2>زنجر من سبايسي.. مقرمش أكتر</h2>
+            <p>جرب خلطتنا الحارة السرية اللي هتوديك في حتة تانية.</p>
+            <div class="slide-btns">
+                <a href="#" class="btn-main">اطلب الآن</a>
+            </div>
+        </div>
     </div>
+</div>
 
+<div class="dots-wrapper">
+    <span class="dot-indicator active-dot"></span>
+    <span class="dot-indicator"></span>
+</div>
     <script>
         let currentIdx = 0;
         runSlides();
@@ -368,323 +544,280 @@ body {
         }
     </script>
 </section>
-    <section id="offers">
-        <h2 class="section-header">🎁 عروض التوفير (الأحد والاثنين)</h2>
-        <div class="menu-grid">
-            
-            <div class="card-item" style="border: 2px solid var(--main-red); background: #1a1a1a; padding: 15px; border-radius: 20px; text-align: center;">
-                <h3 style="color: #fff; margin-bottom: 5px;">العرض الأول (عمار)</h3>
-                <p style="color: #bbb; font-size: 13px; margin-bottom: 10px;">كريب بانيه أو كرسبي + وافل</p>
-                <div style="margin-bottom: 10px;">
-                    <span style="text-decoration: line-through; color: #666; font-size: 12px;">110 ج</span>
-                    <span style="color: var(--gold); font-size: 1.3rem; font-weight: bold; display: block;">90 ج.م</span>
-                </div>
-                <div class="qty-control" style="background: #000; border-radius: 10px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
-                    <button onclick="updateCart('العرض الأول (عمار)', 90, -1)">-</button>
-                    <span id="qty-العرض الأول (عمار)" style="color: #fff;">0</span>
-                    <button onclick="updateCart('العرض الأول (عمار)', 90, 1)">+</button>
-                </div>
-            </div>
-
-            <div class="card-item" style="border: 2px solid var(--main-red); background: #1a1a1a; padding: 15px; border-radius: 20px; text-align: center;">
-                <h3 style="color: #fff; margin-bottom: 5px;">العرض الثاني (جو)</h3>
-                <p style="color: #bbb; font-size: 13px; margin-bottom: 10px;">كريب زنجر + وافل + كانز</p>
-                <div style="margin-bottom: 10px;">
-                    <span style="text-decoration: line-through; color: #666; font-size: 12px;">145 ج</span>
-                    <span style="color: var(--gold); font-size: 1.3rem; font-weight: bold; display: block;">125 ج.م</span>
-                </div>
-                <div class="qty-control" style="background: #000; border-radius: 10px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
-                    <button onclick="updateCart('العرض الثاني (جو)', 125, -1)">-</button>
-                    <span id="qty-العرض الثاني (جو)" style="color: #fff;">0</span>
-                    <button onclick="updateCart('العرض الثاني (جو)', 125, 1)">+</button>
-                </div>
-            </div>
-
-            <div class="card-item" style="border: 2px solid var(--main-red); background: #1a1a1a; padding: 15px; border-radius: 20px; text-align: center;">
-                <h3 style="color: #fff; margin-bottom: 5px;">العرض الثالث (سبايسي)</h3>
-                <p style="color: #bbb; font-size: 13px; margin-bottom: 10px;">2 بيتزا فراخ وسط</p>
-                <div style="margin-bottom: 10px;">
-                    <span style="text-decoration: line-through; color: #666; font-size: 12px;">260 ج</span>
-                    <span style="color: var(--gold); font-size: 1.3rem; font-weight: bold; display: block;">240 ج.م</span>
-                </div>
-                <div class="qty-control" style="background: #000; border-radius: 10px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
-                    <button onclick="updateCart('العرض الثالث (سبايسي)', 240, -1)">-</button>
-                    <span id="qty-العرض الثالث (سبايسي)" style="color: #fff;">0</span>
-                    <button onclick="updateCart('العرض الثالث (سبايسي)', 240, 1)">+</button>
-                </div>
-            </div>
-
-            <div class="card-item" style="border: 2px solid var(--main-red); background: #1a1a1a; padding: 15px; border-radius: 20px; text-align: center;">
-                <h3 style="color: #fff; margin-bottom: 5px;">العرض الرابع (عم عماد)</h3>
-                <p style="color: #bbb; font-size: 13px; margin-bottom: 10px;">بيتزا فراخ كبيرة + بيتزا فراخ تشيكن رانش</p>
-                <div style="margin-bottom: 10px;">
-                    <span style="text-decoration: line-through; color: #666; font-size: 12px;">320 ج</span>
-                    <span style="color: var(--gold); font-size: 1.3rem; font-weight: bold; display: block;">280 ج.م</span>
-                </div>
-                <div class="qty-control" style="background: #000; border-radius: 10px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
-                    <button onclick="updateCart('العرض الرابع (عم عماد)', 280, -1)">-</button>
-                    <span id="qty-العرض الرابع (عم عماد)" style="color: #fff;">0</span>
-                    <button onclick="updateCart('العرض الرابع (عم عماد)', 280, 1)">+</button>
-                </div>
-            </div>
-
-        </div>
-    </div> </section>
-
-        <section id="pizza" class="container menu-section" style="direction: rtl; text-align: right; padding: 40px 10px;">
+<section id="offers" class="menu-section" style="display: block; direction: rtl; text-align: right; padding: 20px 10px 40px; background-color: #1a0505;">
     
-            <h2 class="section-header" style="text-align: center; color: #ffcc00; margin-bottom: 30px; font-size: 28px;">
-                <i class="fas fa-pizza-slice"></i> منيو البيتزا الإيطالية 🔥
-            </h2>
+    <h2 class="section-header" style="text-align: center; color: #E3B361; margin-bottom: 30px; font-size: 28px; font-family: 'Segoe UI', Tahoma, sans-serif;">
+        <i class="fas fa-gift"></i> عروض التوفير (الأحد والاثنين) 🔥
+    </h2>
+
+    <div class="menu-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto;">
         
-            <div class="menu-grid"></div>
-        
-            <script>
-                (function() {
-                    const pizzaItems = [
-                        { id: "p1", name: "بيتزا جمبري رانش", sizes: { "وسط": 200, "كبير": 240 }, isNew: true },
-                        { id: "p2", name: "بيتزا مارجريتا", sizes: { "وسط": 90, "كبير": 110 } },
-                        { id: "p3", name: "بيتزا خضروات", sizes: { "وسط": 90, "كبير": 110 } },
-                        { id: "p4", name: "بيتزا بانيه قطع", sizes: { "وسط": 90, "كبير": 110 } },
-                        { id: "p5", name: "بيتزا مشروم", sizes: { "وسط": 90, "كبير": 110 } },
-                        { id: "p6", name: "بيتزا عشاق الجبنة", sizes: { "وسط": 100, "كبير": 120 } },
-                        { id: "p7", name: "بيتزا لحمة مفرومة", sizes: { "وسط": 100, "كبير": 120 } },
-                        { id: "p8", name: "بيتزا سلامي", sizes: { "وسط": 120, "كبير": 140 } },
-                        { id: "p9", name: "بيتزا سجق شرقي", sizes: { "وسط": 100, "كبير": 120 } },
-                        { id: "p10", name: "بيتزا هوت دوج", sizes: { "وسط": 100, "كبير": 120 } },
-                        { id: "p11", name: "بيتزا بسطرمة", sizes: { "وسط": 120, "كبير": 140 } },
-                        { id: "p12", name: "بيتزا شاورما فراخ", sizes: { "وسط": 130, "كبير": 150 } },
-                        { id: "p13", name: "بيتزا شاورما لحمة", sizes: { "وسط": 130, "كبير": 150 } },
-                        { id: "p14", name: "بيتزا شيش طاووق", sizes: { "وسط": 130, "كبير": 150 } },
-                        { id: "p15", name: "بيتزا فاهيتا", sizes: { "وسط": 130, "كبير": 150 } },
-                        { id: "p16", name: "بيتزا تشيكن رانش", sizes: { "وسط": 140, "كبير": 170 } },
-                        { id: "p17", name: "بيتزا تشيكن باربكيو", sizes: { "وسط": 130, "كبير": 160 } },
-                        { id: "p18", name: "بيتزا تشيكن ليدر", sizes: { "وسط": 130, "كبير": 160 }, isNew: true },
-                        { id: "p19", name: "بيتزا زنجر سوبريم", sizes: { "وسط": 140, "كبير": 170 } },
-                        { id: "p20", name: "بيتزا ميكس لحوم", sizes: { "وسط": 120, "كبير": 150 } },
-                        { id: "p21", name: "بيتزا كريزي تشيكن", sizes: { "وسط": 130, "كبير": 160 } },
-                        { id: "p22", name: "بيتزا ميكس فراخ", sizes: { "وسط": 140, "كبير": 170 } },
-                        { id: "p23", name: "بيتزا جمبري", sizes: { "وسط": 180, "كبير": 220 } },
-                        { id: "p24", name: "بيتزا فواكه البحر", sizes: { "وسط": 200, "كبير": 240 } },
-                        { id: "p25", name: "بيتزا عمار", price: 160, isNew: true },
-                        { id: "p26", name: "بيتزا الملكة", price: 170, isNew: true },
-                        { id: "p27", name: "بيتزا سوبريم فراخ", price: 170 },
-                        { id: "p28", name: "بيتزا تشيكن سبايسي", price: 170 }
-                    ];
-        
-                    const p_grid = document.querySelector('#pizza .menu-grid');
-                    const activePizza = {};
-        
-                    pizzaItems.forEach(item => {
-                        let sizeHTML = '';
-                        let defaultPrice = item.price || Object.values(item.sizes)[0];
-        
-                        if (item.sizes) {
-                            sizeHTML = `
-                                <div class="pizza-sizes" style="display: flex; gap: 5px; justify-content: center; margin-bottom: 10px;">
-                                    ${Object.entries(item.sizes).map(([size, price], idx) => `
-                                        <button onclick="changePizzaSize('${item.id}', '${size}', ${price}, '${item.name}')" 
-                                                class="p-btn-${item.id} ${idx === 0 ? 'active' : ''}" 
-                                                style="font-size: 11px; padding: 4px 10px; border-radius: 5px; cursor: pointer; border: 1px solid var(--gold); background: ${idx === 0 ? 'var(--gold)' : 'transparent'}; color: ${idx === 0 ? '#000' : '#fff'}; transition: 0.2s;">
-                                            ${size}
-                                        </button>
-                                    `).join('')}
-                                </div>
-                                <div class="price-box" style="text-align: center; margin-bottom: 12px; border-top: 1px solid #333; padding-top: 10px;">
-                                    <span id="p-price-${item.id}" style="color: var(--gold); font-size: 1.4rem; font-weight: bold;">${defaultPrice} ج.م</span>
-                                </div>
-                            `;
-                        } else {
-                            sizeHTML = `
-                                <div style="height: 26px; margin-bottom: 10px; text-align: center; color: #ccc; font-size: 12px;">كبير فقط</div>
-                                <div class="price-box" style="text-align: center; margin-bottom: 12px; border-top: 1px solid #333; padding-top: 10px;">
-                                    <span style="color: var(--gold); font-size: 1.4rem; font-weight: bold;">${defaultPrice} ج.م</span>
-                                </div>
-                            `;
-                        }
-        
-                        p_grid.innerHTML += `
-                            <div class="card-item" style="position: relative; border-radius: 18px; background: var(--card-bg); padding: 15px; display: flex; flex-direction: column; border: 1px solid #222; transition: 0.3s; box-sizing: border-box;">
-                                ${item.isNew ? '<div style="position: absolute; top: 10px; right: 10px; background: #ffcc00; color: black; padding: 2px 8px; font-size: 10px; font-weight: bold; border-radius: 5px; z-index: 10;">NEW ✨</div>' : ''}
-                                <div class="item-info" style="margin-top: 15px;">
-                                    <h3 style="margin-bottom: 15px; font-size: 1.1rem; color: #fff; text-align: right;">${item.name}</h3>
-                                </div>
-                                ${sizeHTML}
-                                <div class="qty-control" style="background: #000; border: 1px solid #333; border-radius: 10px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
-                                    <button onclick="updatePizzaQty('${item.id}', -1, '${item.name}', ${defaultPrice})" style="color: #ff4d4d; border: none; background: none; cursor: pointer; padding: 5px 10px;">-</button>
-                                    <span id="p-qty-${item.id}" style="color: #fff;">0</span>
-                                    <button onclick="updatePizzaQty('${item.id}', 1, '${item.name}', ${defaultPrice})" style="color: #2ecc71; border: none; background: none; cursor: pointer; padding: 5px 10px;">+</button>
-                                </div>
-                            </div>
-                        `;
-                    });
-        
-                    window.changePizzaSize = function(id, size, price, name) {
-                        document.getElementById(`p-price-${id}`).innerText = price + ' ج.م';
-                        activePizza[id] = { name: `${name} ${size}`, price: price };
-                        const btns = document.querySelectorAll(`.p-btn-${id}`);
-                        btns.forEach(b => {
-                            if(b.innerText.trim() === size) { 
-                                b.style.background = 'var(--gold)'; b.style.color = '#000'; 
-                            } else { 
-                                b.style.background = 'transparent'; b.style.color = '#fff'; 
-                            }
-                        });
-                    };
-        
-                    window.updatePizzaQty = function(id, change, name, defPrice) {
-                        const currentData = activePizza[id] || { 
-                            name: name + (pizzaItems.find(i=>i.id===id).sizes ? " " + Object.keys(pizzaItems.find(i=>i.id===id).sizes)[0] : ""), 
-                            price: defPrice 
-                        };
-                        updateCart(currentData.name, currentData.price, change);
-                        let qtySpan = document.getElementById(`p-qty-${id}`);
-                        let newQty = Math.max(0, parseInt(qtySpan.innerText) + change);
-                        qtySpan.innerText = newQty;
-                    };
-                })();
-            </script>
-        </section>
-        
+        <div class="card-item" style="background: #2B090A; border: 1px solid #E3B361; padding: 15px; border-radius: 20px; text-align: center; position: relative;">
+            <div style="position: absolute; top: -10px; right: 10px; background: #e74c3c; color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 12px; font-weight: bold; border: 1px solid #E3B361;">وفر 20ج</div>
+            <h3 style="color: #F6E6CF; margin: 10px 0 5px; font-size: 1.1rem;">العرض الأول (عمار)</h3>
+            <p style="color: #bbb; font-size: 12px; min-height: 35px;">كريب بانيه أو كرسبي + وافل</p>
+            <div style="margin: 10px 0;">
+                <span style="text-decoration: line-through; color: #888; font-size: 12px;">110 ج</span>
+                <span style="color: #E3B361; font-size: 1.4rem; font-weight: bold; display: block;">90 ج.م</span>
+            </div>
+            <div style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 6px; display: flex; align-items: center; justify-content: space-between; border: 1px solid rgba(227,179,97,0.1);">
+                <button onclick="updateCart('العرض الأول (عمار)', 90, -1)" style="color: #F6E6CF; background: rgba(255,255,255,0.05); border: none; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 20px;">-</button>
+                <span id="qty-العرض الأول (عمار)" style="color: #E3B361; font-weight: bold;">0</span>
+                <button onclick="updateCart('العرض الأول (عمار)', 90, 1)" style="color: #1a0505; background: #E3B361; border: none; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 20px;">+</button>
+            </div>
+        </div>
+
+        <div class="card-item" style="background: #2B090A; border: 1px solid #E3B361; padding: 15px; border-radius: 20px; text-align: center; position: relative;">
+            <div style="position: absolute; top: -10px; right: 10px; background: #e74c3c; color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 12px; font-weight: bold; border: 1px solid #E3B361;">وفر 20ج</div>
+            <h3 style="color: #F6E6CF; margin: 10px 0 5px; font-size: 1.1rem;">العرض الثاني (جو)</h3>
+            <p style="color: #bbb; font-size: 12px; min-height: 35px;">كريب زنجر + وافل + كانز</p>
+            <div style="margin: 10px 0;">
+                <span style="text-decoration: line-through; color: #888; font-size: 12px;">145 ج</span>
+                <span style="color: #E3B361; font-size: 1.4rem; font-weight: bold; display: block;">125 ج.م</span>
+            </div>
+            <div style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 6px; display: flex; align-items: center; justify-content: space-between; border: 1px solid rgba(227,179,97,0.1);">
+                <button onclick="updateCart('العرض الثاني (جو)', 125, -1)" style="color: #F6E6CF; background: rgba(255,255,255,0.05); border: none; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 20px;">-</button>
+                <span id="qty-العرض الثاني (جو)" style="color: #E3B361; font-weight: bold;">0</span>
+                <button onclick="updateCart('العرض الثاني (جو)', 125, 1)" style="color: #1a0505; background: #E3B361; border: none; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 20px;">+</button>
+            </div>
+        </div>
+
+        <div class="card-item" style="background: #2B090A; border: 1px solid #E3B361; padding: 15px; border-radius: 20px; text-align: center; position: relative;">
+            <div style="position: absolute; top: -10px; right: 10px; background: #e74c3c; color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 12px; font-weight: bold; border: 1px solid #E3B361;">وفر 20ج</div>
+            <h3 style="color: #F6E6CF; margin: 10px 0 5px; font-size: 1.1rem;">العرض الثالث (سبايسي)</h3>
+            <p style="color: #bbb; font-size: 12px; min-height: 35px;">2 بيتزا فراخ وسط</p>
+            <div style="margin: 10px 0;">
+                <span style="text-decoration: line-through; color: #888; font-size: 12px;">260 ج</span>
+                <span style="color: #E3B361; font-size: 1.4rem; font-weight: bold; display: block;">240 ج.م</span>
+            </div>
+            <div style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 6px; display: flex; align-items: center; justify-content: space-between; border: 1px solid rgba(227,179,97,0.1);">
+                <button onclick="updateCart('العرض الثالث (سبايسي)', 240, -1)" style="color: #F6E6CF; background: rgba(255,255,255,0.05); border: none; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 20px;">-</button>
+                <span id="qty-العرض الثالث (سبايسي)" style="color: #E3B361; font-weight: bold;">0</span>
+                <button onclick="updateCart('العرض الثالث (سبايسي)', 240, 1)" style="color: #1a0505; background: #E3B361; border: none; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 20px;">+</button>
+            </div>
+        </div>
+
+        <div class="card-item" style="background: #2B090A; border: 1px solid #E3B361; padding: 15px; border-radius: 20px; text-align: center; position: relative;">
+            <div style="position: absolute; top: -10px; right: 10px; background: #e74c3c; color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 12px; font-weight: bold; border: 1px solid #E3B361;">وفر 40ج</div>
+            <h3 style="color: #F6E6CF; margin: 10px 0 5px; font-size: 1.1rem;">العرض الرابع (عم عماد)</h3>
+            <p style="color: #bbb; font-size: 12px; min-height: 35px;">بيتزا فراخ كبيرة + بيتزا فراخ رانش</p>
+            <div style="margin: 10px 0;">
+                <span style="text-decoration: line-through; color: #888; font-size: 12px;">320 ج</span>
+                <span style="color: #E3B361; font-size: 1.4rem; font-weight: bold; display: block;">280 ج.م</span>
+            </div>
+            <div style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 6px; display: flex; align-items: center; justify-content: space-between; border: 1px solid rgba(227,179,97,0.1);">
+                <button onclick="updateCart('العرض الرابع (عم عماد)', 280, -1)" style="color: #F6E6CF; background: rgba(255,255,255,0.05); border: none; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 20px;">-</button>
+                <span id="qty-العرض الرابع (عم عماد)" style="color: #E3B361; font-weight: bold;">0</span>
+                <button onclick="updateCart('العرض الرابع (عم عماد)', 280, 1)" style="color: #1a0505; background: #E3B361; border: none; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 20px;">+</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section id="pizza" class="menu-section pizza" style="display: none; direction: rtl; text-align: right; padding: 20px 10px 40px; background-color: #1a0505;">
+    
+    <h2 class="section-header" style="text-align: center; color: #E3B361; margin-bottom: 30px; font-size: 28px; font-family: 'Segoe UI', Tahoma, sans-serif;">
+        <i class="fas fa-pizza-slice"></i> منيو البيتزا الإيطالية 🔥
+    </h2>
+
+    <div class="menu-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto;">
+        </div>
+
+    <script>
+        (function() {
+            const pizzaItems = [
+                { id: "p1", name: "بيتزا جمبري رانش", sizes: { "وسط": 200, "كبير": 240 }, isNew: true },
+                { id: "p2", name: "بيتزا مارجريتا", sizes: { "وسط": 90, "كبير": 110 } },
+                { id: "p3", name: "بيتزا خضروات", sizes: { "وسط": 90, "كبير": 110 } },
+                { id: "p4", name: "بيتزا بانيه قطع", sizes: { "وسط": 90, "كبير": 110 } },
+                { id: "p5", name: "بيتزا مشروم", sizes: { "وسط": 90, "كبير": 110 } },
+                { id: "p6", name: "بيتزا عشاق الجبنة", sizes: { "وسط": 100, "كبير": 120 } },
+                { id: "p7", name: "بيتزا لحمة مفرومة", sizes: { "وسط": 100, "كبير": 120 } },
+                { id: "p8", name: "بيتزا سلامي", sizes: { "وسط": 120, "كبير": 140 } },
+                { id: "p9", name: "بيتزا سجق شرقي", sizes: { "وسط": 100, "كبير": 120 } },
+                { id: "p10", name: "بيتزا هوت دوج", sizes: { "وسط": 100, "كبير": 120 } },
+                { id: "p11", name: "بيتزا بسطرمة", sizes: { "وسط": 120, "كبير": 140 } },
+                { id: "p12", name: "بيتزا شاورما فراخ", sizes: { "وسط": 130, "كبير": 150 } },
+                { id: "p13", name: "بيتزا شاورما لحمة", sizes: { "وسط": 130, "كبير": 150 } },
+                { id: "p14", name: "بيتزا شيش طاووق", sizes: { "وسط": 130, "كبير": 150 } },
+                { id: "p15", name: "بيتزا فاهيتا", sizes: { "وسط": 130, "كبير": 150 } },
+                { id: "p16", name: "بيتزا تشيكن رانش", sizes: { "وسط": 140, "كبير": 170 } },
+                { id: "p17", name: "بيتزا تشيكن باربكيو", sizes: { "وسط": 130, "كبير": 160 } },
+                { id: "p18", name: "بيتزا تشيكن ليدر", sizes: { "وسط": 130, "كبير": 160 }, isNew: true },
+                { id: "p19", name: "بيتزا زنجر سوبريم", sizes: { "وسط": 140, "كبير": 170 } },
+                { id: "p20", name: "بيتزا ميكس لحوم", sizes: { "وسط": 120, "كبير": 150 } },
+                { id: "p21", name: "بيتزا كريزي تشيكن", sizes: { "وسط": 130, "كبير": 160 } },
+                { id: "p22", name: "بيتزا ميكس فراخ", sizes: { "وسط": 140, "كبير": 170 } },
+                { id: "p23", name: "بيتزا جمبري", sizes: { "وسط": 180, "كبير": 220 } },
+                { id: "p24", name: "بيتزا فواكه البحر", sizes: { "وسط": 200, "كبير": 240 } },
+                { id: "p25", name: "بيتزا عمار", price: 160, isNew: true },
+                { id: "p26", name: "بيتزا الملكة", price: 170, isNew: true },
+                { id: "p27", name: "بيتزا سوبريم فراخ", price: 170 },
+                { id: "p28", name: "بيتزا تشيكن سبايسي", price: 170 }
+            ];
+
+            const p_grid = document.querySelector('#pizza .menu-grid');
+            const activePizza = {};
+
+            pizzaItems.forEach(item => {
+                let sizeHTML = '';
+                let defaultPrice = item.price || Object.values(item.sizes)[0];
+
+                if (item.sizes) {
+                    sizeHTML = `
+                        <div class="pizza-sizes" style="display: flex; gap: 5px; justify-content: center; margin-bottom: 12px;">
+                            ${Object.entries(item.sizes).map(([size, price], idx) => `
+                                <button onclick="changePizzaSize('${item.id}', '${size}', ${price}, '${item.name}')" 
+                                        class="p-btn-${item.id} ${idx === 0 ? 'active' : ''}" 
+                                        style="font-size: 11px; padding: 5px 10px; border-radius: 8px; cursor: pointer; border: 1px solid #E3B361; 
+                                               background: ${idx === 0 ? '#E3B361' : 'transparent'}; 
+                                               color: ${idx === 0 ? '#1a0505' : '#F6E6CF'}; transition: 0.3s;">
+                                    ${size}
+                                </button>
+                            `).join('')}
+                        </div>
+                        <div class="price-box" style="text-align: center; margin-bottom: 15px; border-top: 1px solid rgba(227,179,97,0.1); padding-top: 10px;">
+                            <span id="p-price-${item.id}" style="color: #E3B361; font-size: 1.4rem; font-weight: bold;">${defaultPrice} ج.م</span>
+                        </div>
+                    `;
+                } else {
+                    sizeHTML = `
+                        <div style="height: 28px; margin-bottom: 12px; text-align: center; color: #888; font-size: 12px;">حجم عائلي كبير</div>
+                        <div class="price-box" style="text-align: center; margin-bottom: 15px; border-top: 1px solid rgba(227,179,97,0.1); padding-top: 10px;">
+                            <span style="color: #E3B361; font-size: 1.4rem; font-weight: bold;">${defaultPrice} ج.م</span>
+                        </div>
+                    `;
+                }
+
+                p_grid.innerHTML += `
+                    <div class="card-item" style="background: #2B090A; border-radius: 20px; padding: 15px; border: 1px solid rgba(227,179,97,0.1); position: relative; display: flex; flex-direction: column; transition: transform 0.2s;">
+                        ${item.isNew ? '<div style="position: absolute; top: 12px; left: 12px; background: #E3B361; color: #1a0505; padding: 2px 8px; font-size: 10px; font-weight: bold; border-radius: 5px; z-index: 5;">جديد ✨</div>' : ''}
+                        <h3 style="color: #F6E6CF; font-size: 1.1rem; margin: 10px 0 20px; text-align: right; min-height: 45px;">${item.name}</h3>
+                        ${sizeHTML}
+                        <div class="qty-control" style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 6px; display: flex; align-items: center; justify-content: space-between; border: 1px solid rgba(227,179,97,0.1);">
+                            <button onclick="updatePizzaQty('${item.id}', -1, '${item.name}', ${defaultPrice})" style="color: #F6E6CF; background: rgba(255,255,255,0.05); border: none; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 20px;">-</button>
+                            <span id="p-qty-${item.id}" style="color: #E3B361; font-weight: bold; font-size: 1.1rem;">0</span>
+                            <button onclick="updatePizzaQty('${item.id}', 1, '${item.name}', ${defaultPrice})" style="color: #1a0505; background: #E3B361; border: none; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 20px;">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            window.changePizzaSize = function(id, size, price, name) {
+                const priceEl = document.getElementById(`p-price-${id}`);
+                if(priceEl) priceEl.innerText = price + ' ج.م';
+                
+                activePizza[id] = { name: `${name} (${size})`, price: price };
+                
+                const btns = document.querySelectorAll(`.p-btn-${id}`);
+                btns.forEach(b => {
+                    if(b.innerText.trim() === size) { 
+                        b.style.background = '#E3B361'; b.style.color = '#1a0505'; 
+                    } else { 
+                        b.style.background = 'transparent'; b.style.color = '#F6E6CF'; 
+                    }
+                });
+            };
+
+            window.updatePizzaQty = function(id, change, name, defPrice) {
+                const itemData = pizzaItems.find(i => i.id === id);
+                const currentData = activePizza[id] || { 
+                    name: name + (itemData.sizes ? ` (${Object.keys(itemData.sizes)[0]})` : ""), 
+                    price: defPrice 
+                };
+                
+                if (typeof updateCart === 'function') {
+                    updateCart(currentData.name, currentData.price, change);
+                }
+                
+                let qtySpan = document.getElementById(`p-qty-${id}`);
+                if (qtySpan) {
+                    let newQty = Math.max(0, parseInt(qtySpan.innerText) + change);
+                    qtySpan.innerText = newQty;
+                }
+            };
+        })();
+    </script>
+</section>
        
      
-        <section id="sweet-crepe" class="container menu-section" style="direction: rtl; text-align: right; margin-bottom: 40px; padding: 0 10px;">
+<section id="sweet-crepe" class="menu-section" style="display: none; direction: rtl; text-align: right; padding: 20px 10px 40px; background-color: #1a0d05;">
     
-        <style>
-            #sweet-crepe .sweet-grid {
-                display: grid !important;
-                grid-template-columns: 1fr 1fr !important; /* عمودين بالعافية */
-                gap: 12px !important;
-                margin-top: 20px;
-            }
-    
-            #sweet-crepe .card-item {
-                background: #111 !important;
-                border: 1px solid #333 !important;
-                border-radius: 15px !important;
-                padding: 15px 5px !important;
-                text-align: center !important;
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                box-sizing: border-box !important;
-            }
-    
-            #sweet-crepe .emoji-icon {
-                font-size: 35px;
-                margin-bottom: 5px;
-            }
-    
-            #sweet-crepe h3 {
-                color: #fff !important;
-                margin: 8px 0 !important;
-                font-size: 14px !important;
-                font-weight: bold;
-            }
-    
-            #sweet-crepe .price-tag {
-                color: #ffcc00 !important;
-                font-size: 18px !important;
-                font-weight: bold;
-                margin-bottom: 12px;
-            }
-    
-            #sweet-crepe .controls-wrapper {
-                display: flex !important;
-                justify-content: space-between !important;
-                align-items: center !important;
-                background: #000 !important;
-                border: 1px solid #444 !important;
-                border-radius: 8px !important;
-                padding: 6px 10px !important;
-                width: 85% !important;
-            }
-    
-            #sweet-crepe .btn-control {
-                background: none !important;
-                border: none !important;
-                color: #ffcc00 !important;
-                cursor: pointer !important;
-                font-size: 22px !important;
-                font-weight: bold !important;
-                line-height: 1;
-            }
-    
-            #sweet-crepe .qty-num {
-                color: #fff !important;
-                font-weight: bold !important;
-                font-size: 16px !important;
-            }
-        </style>
-    
-        <h2 class="section-header" style="color: #ffcc00; text-align: center; font-size: 26px;">🍫 ركن الكريب الحلو</h2>
+    <h2 class="section-header" style="text-align: center; color: #E3B361; margin-bottom: 25px; font-size: 26px; font-family: 'Segoe UI', Tahoma, sans-serif;">
+        🍫 ركن الكريب الحلو
+    </h2>
+
+    <div class="sweet-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 800px; margin: 0 auto;">
         
-        <div class="sweet-grid">
-            <div class="card-item">
-                <span class="emoji-icon">🍫</span>
-                <h3>كريب شيكولاتة</h3>
-                <div class="price-tag">50 <small style="font-size: 12px;">ج</small></div>
-                <div class="controls-wrapper">
-                    <button class="btn-control" onclick="updateCart('كريب شيكولاتة', 50, 1)">+</button>
-                    <span id="qty-كريب شيكولاتة" class="qty-num">0</span>
-                    <button class="btn-control" onclick="updateCart('كريب شيكولاتة', 50, -1)">-</button>
-                </div>
-            </div>
-    
-            <div class="card-item">
-                <span class="emoji-icon">🍯</span>
-                <h3>كريب كراميل</h3>
-                <div class="price-tag">50 <small style="font-size: 12px;">ج</small></div>
-                <div class="controls-wrapper">
-                    <button class="btn-control" onclick="updateCart('كريب كراميل', 50, 1)">+</button>
-                    <span id="qty-كريب كراميل" class="qty-num">0</span>
-                    <button class="btn-control" onclick="updateCart('كريب كراميل', 50, -1)">-</button>
-                </div>
-            </div>
-    
-            <div class="card-item">
-                <span class="emoji-icon">⚪</span>
-                <h3>كريب وايت</h3>
-                <div class="price-tag">50 <small style="font-size: 12px;">ج</small></div>
-                <div class="controls-wrapper">
-                    <button class="btn-control" onclick="updateCart('كريب وايت', 50, 1)">+</button>
-                    <span id="qty-كريب وايت" class="qty-num">0</span>
-                    <button class="btn-control" onclick="updateCart('كريب وايت', 50, -1)">-</button>
-                </div>
-            </div>
-    
-            <div class="card-item">
-                <span class="emoji-icon">🍓</span>
-                <h3>كريب فواكه</h3>
-                <div class="price-tag">60 <small style="font-size: 12px;">ج</small></div>
-                <div class="controls-wrapper">
-                    <button class="btn-control" onclick="updateCart('كريب فواكه', 60, 1)">+</button>
-                    <span id="qty-كريب فواكه" class="qty-num">0</span>
-                    <button class="btn-control" onclick="updateCart('كريب فواكه', 60, -1)">-</button>
-                </div>
-            </div>
-    
-            <div class="card-item">
-                <span class="emoji-icon">🌰</span>
-                <h3>كريب بستاشيو</h3>
-                <div class="price-tag">70 <small style="font-size: 12px;">ج</small></div>
-                <div class="controls-wrapper">
-                    <button class="btn-control" onclick="updateCart('كريب بستاشيو', 70, 1)">+</button>
-                    <span id="qty-كريب بستاشيو" class="qty-num">0</span>
-                    <button class="btn-control" onclick="updateCart('كريب بستاشيو', 70, -1)">-</button>
-                </div>
+        <div class="card-item" style="background: #2b1709; border: 1px solid rgba(227,179,97,0.2); border-radius: 20px; padding: 15px 10px; text-align: center; display: flex; flex-direction: column; align-items: center; transition: 0.3s;">
+            <span style="font-size: 35px; margin-bottom: 5px;">🍫</span>
+            <h3 style="color: #F6E6CF; margin: 8px 0; font-size: 15px; font-weight: bold;">كريب شيكولاتة</h3>
+            <div style="color: #E3B361; font-size: 1.3rem; font-weight: bold; margin-bottom: 12px;">50 <small style="font-size: 12px;">ج</small></div>
+            <div style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 5px; display: flex; align-items: center; justify-content: space-between; width: 90%; border: 1px solid rgba(227,179,97,0.1);">
+                <button onclick="updateCart('كريب شيكولاتة', 50, -1)" style="color: #F6E6CF; background: none; border: none; width: 30px; height: 30px; cursor: pointer; font-size: 20px;">-</button>
+                <span id="qty-كريب شيكولاتة" style="color: #E3B361; font-weight: bold;">0</span>
+                <button onclick="updateCart('كريب شيكولاتة', 50, 1)" style="color: #1a0d05; background: #E3B361; border: none; width: 30px; height: 30px; border-radius: 8px; cursor: pointer; font-size: 20px;">+</button>
             </div>
         </div>
-    </section>
-    
- </div>
 
- <section id="crepes" class="container menu-section" style="direction: rtl; text-align: right; padding: 40px 10px;">
-    <h2 class="section-header"><i class="fas fa-box-open"></i> قسم الكريبات 🔥</h2>
+        <div class="card-item" style="background: #2b1709; border: 1px solid rgba(227,179,97,0.2); border-radius: 20px; padding: 15px 10px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <span style="font-size: 35px; margin-bottom: 5px;">🍯</span>
+            <h3 style="color: #F6E6CF; margin: 8px 0; font-size: 15px; font-weight: bold;">كريب كراميل</h3>
+            <div style="color: #E3B361; font-size: 1.3rem; font-weight: bold; margin-bottom: 12px;">50 <small style="font-size: 12px;">ج</small></div>
+            <div style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 5px; display: flex; align-items: center; justify-content: space-between; width: 90%; border: 1px solid rgba(227,179,97,0.1);">
+                <button onclick="updateCart('كريب كراميل', 50, -1)" style="color: #F6E6CF; background: none; border: none; width: 30px; height: 30px; cursor: pointer; font-size: 20px;">-</button>
+                <span id="qty-كريب كراميل" style="color: #E3B361; font-weight: bold;">0</span>
+                <button onclick="updateCart('كريب كراميل', 50, 1)" style="color: #1a0d05; background: #E3B361; border: none; width: 30px; height: 30px; border-radius: 8px; cursor: pointer; font-size: 20px;">+</button>
+            </div>
+        </div>
+
+        <div class="card-item" style="background: #2b1709; border: 1px solid rgba(227,179,97,0.2); border-radius: 20px; padding: 15px 10px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <span style="font-size: 35px; margin-bottom: 5px;">⚪</span>
+            <h3 style="color: #F6E6CF; margin: 8px 0; font-size: 15px; font-weight: bold;">كريب وايت</h3>
+            <div style="color: #E3B361; font-size: 1.3rem; font-weight: bold; margin-bottom: 12px;">50 <small style="font-size: 12px;">ج</small></div>
+            <div style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 5px; display: flex; align-items: center; justify-content: space-between; width: 90%; border: 1px solid rgba(227,179,97,0.1);">
+                <button onclick="updateCart('كريب وايت', 50, -1)" style="color: #F6E6CF; background: none; border: none; width: 30px; height: 30px; cursor: pointer; font-size: 20px;">-</button>
+                <span id="qty-كريب وايت" style="color: #E3B361; font-weight: bold;">0</span>
+                <button onclick="updateCart('كريب وايت', 50, 1)" style="color: #1a0d05; background: #E3B361; border: none; width: 30px; height: 30px; border-radius: 8px; cursor: pointer; font-size: 20px;">+</button>
+            </div>
+        </div>
+
+        <div class="card-item" style="background: #2b1709; border: 1px solid rgba(227,179,97,0.2); border-radius: 20px; padding: 15px 10px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <span style="font-size: 35px; margin-bottom: 5px;">🍓</span>
+            <h3 style="color: #F6E6CF; margin: 8px 0; font-size: 15px; font-weight: bold;">كريب فواكه</h3>
+            <div style="color: #E3B361; font-size: 1.3rem; font-weight: bold; margin-bottom: 12px;">60 <small style="font-size: 12px;">ج</small></div>
+            <div style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 5px; display: flex; align-items: center; justify-content: space-between; width: 90%; border: 1px solid rgba(227,179,97,0.1);">
+                <button onclick="updateCart('كريب فواكه', 60, -1)" style="color: #F6E6CF; background: none; border: none; width: 30px; height: 30px; cursor: pointer; font-size: 20px;">-</button>
+                <span id="qty-كريب فواكه" style="color: #E3B361; font-weight: bold;">0</span>
+                <button onclick="updateCart('كريب فواكه', 60, 1)" style="color: #1a0d05; background: #E3B361; border: none; width: 30px; height: 30px; border-radius: 8px; cursor: pointer; font-size: 20px;">+</button>
+            </div>
+        </div>
+
+        <div class="card-item" style="background: #2b1709; border: 1px solid rgba(227,179,97,0.2); border-radius: 20px; padding: 15px 10px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <span style="font-size: 35px; margin-bottom: 5px;">🌰</span>
+            <h3 style="color: #F6E6CF; margin: 8px 0; font-size: 15px; font-weight: bold;">كريب بستاشيو</h3>
+            <div style="color: #E3B361; font-size: 1.3rem; font-weight: bold; margin-bottom: 12px;">70 <small style="font-size: 12px;">ج</small></div>
+            <div style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 5px; display: flex; align-items: center; justify-content: space-between; width: 90%; border: 1px solid rgba(227,179,97,0.1);">
+                <button onclick="updateCart('كريب بستاشيو', 70, -1)" style="color: #F6E6CF; background: none; border: none; width: 30px; height: 30px; cursor: pointer; font-size: 20px;">-</button>
+                <span id="qty-كريب بستاشيو" style="color: #E3B361; font-weight: bold;">0</span>
+                <button onclick="updateCart('كريب بستاشيو', 70, 1)" style="color: #1a0d05; background: #E3B361; border: none; width: 30px; height: 30px; border-radius: 8px; cursor: pointer; font-size: 20px;">+</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="crepes" class="menu-section" style="display: none; direction: rtl; text-align: right; padding: 20px 10px 40px; background-color: #1a0505;">
     
-    <div class="menu-grid">
-        <script>
-            // مصفوفة البيانات (نفس البيانات السابقة)
+    <h2 class="section-header" style="text-align: center; color: #E3B361; margin-bottom: 30px; font-size: 28px; font-family: 'Segoe UI', Tahoma, sans-serif;">
+        <i class="fas fa-box-open"></i> قسم الكريبات 🔥
+    </h2>
+    
+    <div class="menu-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto;">
+        </div>
+
+    <script>
+        (function() {
             const items = [
                 { id: "1", name: "كريب بانيه", price: 60, ing: "بانيه بارد، فلفل، موزاريلا، كاتشب، مايونيز" },
                 { id: "2", name: "كريب زنجر", price: 80, ing: "زنجر، موزاريلا، كاتشب، مايونيز" },
@@ -724,254 +857,178 @@ body {
                 { id: "36", name: "كريب جمبري", price: 150, ing: "جمبري، فلفل، موزاريلا، كاتشب" },
                 { id: "37", name: "كريب سوبر فياجرا", price: 170, ing: "جمبري، كابوريا، فلفل، موزاريلا" }
             ];
-        
 
             const grid = document.querySelector('#crepes .menu-grid');
 
-items.forEach(item => {
-    // ركز هنا: ضفنا class="card-item" عشان البحث يشتغل
-    grid.innerHTML += `
-        <div class="card-item" style="position: relative; border-radius: 18px; background: var(--card-bg); padding: 15px; display: flex; flex-direction: column; border: 1px solid #222; transition: 0.3s;">
-            
-            <div style="position: absolute; top: 10px; right: 10px; background: var(--main-red); color: white; padding: 2px 8px; font-size: 10px; font-weight: bold; border-radius: 5px; z-index: 10;">10% OFF</div>
-            
-            <div class="item-info" style="margin-top: 15px;">
-                <h3 style="margin-bottom: 8px; font-size: 1.1rem; color: #fff; text-align: right;">${item.name}</h3>
-                <p style="font-size: 13px; color: #eee; line-height: 1.4; min-height: 40px; margin-bottom: 12px; text-align: right; background: rgba(255,255,255,0.03); padding: 8px; border-radius: 5px;">${item.ing}</p>
-            </div>
-            
-            <div class="price-box" style="display: flex; flex-direction: column; align-items: center; margin-bottom: 12px; border-top: 1px solid #333; padding-top: 10px;">
-                <span style="text-decoration: line-through; color: #666; font-size: 12px;">${Math.round(item.price * 1.1)} ج</span>
-                <span style="color: var(--gold); font-size: 1.3rem; font-weight: bold;">${item.price} ج.م</span>
-            </div>
-
-            <div class="qty-control" style="background: #000; border: 1px solid #333; border-radius: 10px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
-                <button onclick="updateCart('${item.name}', ${item.price}, -1)" style="color: #ff4d4d; border: none; background: none; cursor: pointer; padding: 5px 10px;">-</button>
-                <span id="qty-${item.name}" style="color: #fff;">0</span>
-                <button onclick="updateCart('${item.name}', ${item.price}, 1)" style="color: #2ecc71; border: none; background: none; cursor: pointer; padding: 5px 10px;">+</button>
-            </div>
-        </div>
-    `;
-});
-        </script>
-    </div>
-</section>
-
-<section id="waffles">
-    <h2 class="section-header" style="text-align: center; color: var(--gold); margin: 30px 0 20px;">🧇 ركن الوافل</h2>
-    <div class="menu-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; padding: 15px;">
-        
-        <div class="card-item" style="border: 1px solid #333; background: #1a1a1a; padding: 15px; border-radius: 20px; text-align: center;">
-            <h3 style="color: #fff; margin-bottom: 5px; font-size: 18px;">وافل شوكولاتة</h3>
-            <div style="margin-bottom: 10px;"><span style="color: var(--gold); font-size: 1.3rem; font-weight: bold;">50 ج.م</span></div>
-            <div class="qty-control" style="background: #000; border-radius: 10px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
-                <button onclick="updateCart('وافل شوكولاتة', 50, -1)">-</button>
-                <span id="qty-وافل شوكولاتة" style="color: #fff;">0</span>
-                <button onclick="updateCart('وافل شوكولاتة', 50, 1)">+</button>
-            </div>
-        </div>
-
-        <div class="card-item" style="border: 1px solid #333; background: #1a1a1a; padding: 15px; border-radius: 20px; text-align: center;">
-            <h3 style="color: #fff; margin-bottom: 5px; font-size: 18px;">وافل وايت</h3>
-            <div style="margin-bottom: 10px;"><span style="color: var(--gold); font-size: 1.3rem; font-weight: bold;">50 ج.م</span></div>
-            <div class="qty-control" style="background: #000; border-radius: 10px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
-                <button onclick="updateCart('وافل وايت', 50, -1)">-</button>
-                <span id="qty-وافل وايت" style="color: #fff;">0</span>
-                <button onclick="updateCart('وافل وايت', 50, 1)">+</button>
-            </div>
-        </div>
-
-        <div class="card-item" style="border: 1px solid #333; background: #1a1a1a; padding: 15px; border-radius: 20px; text-align: center;">
-            <h3 style="color: #fff; margin-bottom: 5px; font-size: 18px;">وافل كراميل</h3>
-            <div style="margin-bottom: 10px;"><span style="color: var(--gold); font-size: 1.3rem; font-weight: bold;">50 ج.م</span></div>
-            <div class="qty-control" style="background: #000; border-radius: 10px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
-                <button onclick="updateCart('وافل كراميل', 50, -1)">-</button>
-                <span id="qty-وافل كراميل" style="color: #fff;">0</span>
-                <button onclick="updateCart('وافل كراميل', 50, 1)">+</button>
-            </div>
-        </div>
-
-        <div class="card-item" style="border: 1px solid #333; background: #1a1a1a; padding: 15px; border-radius: 20px; text-align: center;">
-            <h3 style="color: #fff; margin-bottom: 5px; font-size: 18px;">وافل خوخ</h3>
-            <div style="margin-bottom: 10px;"><span style="color: var(--gold); font-size: 1.3rem; font-weight: bold;">50 ج.م</span></div>
-            <div class="qty-control" style="background: #000; border-radius: 10px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
-                <button onclick="updateCart('وافل خوخ', 50, -1)">-</button>
-                <span id="qty-وافل خوخ" style="color: #fff;">0</span>
-                <button onclick="updateCart('وافل خوخ', 50, 1)">+</button>
-            </div>
-        </div>
-
-        <div class="card-item" style="border: 1px solid #333; background: #1a1a1a; padding: 15px; border-radius: 20px; text-align: center;">
-            <h3 style="color: #fff; margin-bottom: 5px; font-size: 18px;">وافل نص شوكولاتة ونص وايت</h3>
-            <div style="margin-bottom: 10px;"><span style="color: var(--gold); font-size: 1.3rem; font-weight: bold;">60 ج.م</span></div>
-            <div class="qty-control" style="background: #000; border-radius: 10px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
-                <button onclick="updateCart('وافل نص شوكولاتة ونص وايت', 60, -1)">-</button>
-                <span id="qty-وافل نص شوكولاتة ونص وايت" style="color: #fff;">0</span>
-                <button onclick="updateCart('وافل نص شوكولاتة ونص وايت', 60, 1)">+</button>
-            </div>
-        </div>
-
-        <div class="card-item" style="border: 1px solid #333; background: #1a1a1a; padding: 15px; border-radius: 20px; text-align: center;">
-            <h3 style="color: #fff; margin-bottom: 5px; font-size: 18px;">وافل موز</h3>
-            <div style="margin-bottom: 10px;"><span style="color: var(--gold); font-size: 1.3rem; font-weight: bold;">60 ج.م</span></div>
-            <div class="qty-control" style="background: #000; border-radius: 10px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
-                <button onclick="updateCart('وافل موز', 60, -1)">-</button>
-                <span id="qty-وافل موز" style="color: #fff;">0</span>
-                <button onclick="updateCart('وافل موز', 60, 1)">+</button>
-            </div>
-        </div>
-
-        <div class="card-item" style="border: 1px solid #333; background: #1a1a1a; padding: 15px; border-radius: 20px; text-align: center;">
-            <h3 style="color: #fff; margin-bottom: 5px; font-size: 18px;">وافل ميكسات</h3>
-            <div style="margin-bottom: 10px;"><span style="color: var(--gold); font-size: 1.3rem; font-weight: bold;">60 ج.م</span></div>
-            <div class="qty-control" style="background: #000; border-radius: 10px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
-                <button onclick="updateCart('وافل ميكسات', 60, -1)">-</button>
-                <span id="qty-وافل ميكسات" style="color: #fff;">0</span>
-                <button onclick="updateCart('وافل ميكسات', 60, 1)">+</button>
-            </div>
-        </div>
-
-        <div class="card-item" style="border: 1px solid #333; background: #1a1a1a; padding: 15px; border-radius: 20px; text-align: center;">
-            <h3 style="color: #fff; margin-bottom: 5px; font-size: 18px;">وافل مانجا</h3>
-            <div style="margin-bottom: 10px;"><span style="color: var(--gold); font-size: 1.3rem; font-weight: bold;">60 ج.م</span></div>
-            <div class="qty-control" style="background: #000; border-radius: 10px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
-                <button onclick="updateCart('وافل مانجا', 60, -1)">-</button>
-                <span id="qty-وافل مانجا" style="color: #fff;">0</span>
-                <button onclick="updateCart('وافل مانجا', 60, 1)">+</button>
-            </div>
-        </div>
-
-        <div class="card-item" style="border: 1px solid #333; background: #1a1a1a; padding: 15px; border-radius: 20px; text-align: center;">
-            <h3 style="color: #fff; margin-bottom: 5px; font-size: 18px;">وافل أوريو</h3>
-            <div style="margin-bottom: 10px;"><span style="color: var(--gold); font-size: 1.3rem; font-weight: bold;">60 ج.م</span></div>
-            <div class="qty-control" style="background: #000; border-radius: 10px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
-                <button onclick="updateCart('وافل أوريو', 60, -1)">-</button>
-                <span id="qty-وافل أوريو" style="color: #fff;">0</span>
-                <button onclick="updateCart('وافل أوريو', 60, 1)">+</button>
-            </div>
-        </div>
-
-        <div class="card-item" style="border: 1px solid #333; background: #1a1a1a; padding: 15px; border-radius: 20px; text-align: center; position: relative;">
-            <span style="position: absolute; top: 10px; left: 10px; background: #ff0000; color: white; font-size: 9px; padding: 2px 8px; border-radius: 10px; font-weight: bold;">NEW</span>
-            <h3 style="color: #fff; margin-bottom: 5px; font-size: 18px;">وافل بستاشيو</h3>
-            <div style="margin-bottom: 10px;"><span style="color: var(--gold); font-size: 1.3rem; font-weight: bold;">70 ج.م</span></div>
-            <div class="qty-control" style="background: #000; border-radius: 10px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
-                <button onclick="updateCart('وافل بستاشيو', 70, -1)">-</button>
-                <span id="qty-وافل بستاشيو" style="color: #fff;">0</span>
-                <button onclick="updateCart('وافل بستاشيو', 70, 1)">+</button>
-            </div>
-        </div>
-
-        <div class="card-item" style="border: 1px solid #333; background: #1a1a1a; padding: 15px; border-radius: 20px; text-align: center;">
-            <h3 style="color: #fff; margin-bottom: 5px; font-size: 18px;">طاجن باوند كيك</h3>
-            <div style="margin-bottom: 10px;"><span style="color: var(--gold); font-size: 1.3rem; font-weight: bold;">60 ج.م</span></div>
-            <div class="qty-control" style="background: #000; border-radius: 10px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
-                <button onclick="updateCart('طاجن باوند كيك', 60, -1)">-</button>
-                <span id="qty-طاجن باوند كيك" style="color: #fff;">0</span>
-                <button onclick="updateCart('طاجن باوند كيك', 60, 1)">+</button>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<section id="sandwiches" class="container menu-section" style="direction: rtl; text-align: right; margin-bottom: 40px; padding: 0 10px;">
-    <h2 class="section-header"><i class="fas fa-bread-slice"></i> قسم السندوتشات 🥖</h2>
-    
-    <div class="menu-grid">
-        <script>
-            // مصفوفة البيانات للسندوتشات (نظام المجموعات للأحجام)
-            const sandwichItems = [
-                // أصناف بأحجام متعددة
-                { id: "s1", name: "ساندوتش شاورما فراخ", sizes: { "كيدز": 40, "وسط": 50, "فرنساوي": 70 }, isNew: true },
-                { id: "s2", name: "ساندوتش شاورما لحمة", sizes: { "كيدز": 40, "وسط": 50, "فرنساوي": 70 }, isNew: true },
-                { id: "s3", name: "ساندوتش دجاج بانيه", sizes: { "وسط": 25, "فرنساوي": 30 } },
-                { id: "s4", name: "ساندوتش كرسبي حار", sizes: { "وسط": 25, "فرنساوي": 30 } },
-                { id: "s5", name: "ساندوتش كفتة مشوية", sizes: { "وسط": 25, "فرنساوي": 30 } },
-                { id: "s6", name: "ساندوتش كبدة اسكندراني", sizes: { "وسط": 25, "فرنساوي": 30 } },
-                { id: "s7", name: "( سوسيس)ساندوتش هوت دوج ", sizes: { "وسط": 25, "فرنساوي": 30 } },
-                { id: "s8", name: "ساندوتش تشيكن بسنت", sizes: { "عادي": 60, "جامبو": 110 }, isNew: true },
-                { id: "s9", name: "ساندوتش تكساس", sizes: { "عادي": 60, "دبل": 110 }, isNew: true },
-
-                // أصناف حجم واحد
-                { id: "s10", name: "ساندوتش هامر (مكس لحم + صوص)", price: 60, isNew: true },
-                { id: "s11", name: "ساندوتش برجر لحمة (جديد)", price: 80, isNew: true },
-                { id: "s12", name: "ساندوتش تشيكن ماجنم", price: 60, isNew: true },
-                { id: "s13", name: "ساندوتش لبنه", price: 100, isNew: true },
-                { id: "s14", name: "ساندوتش تشيز برجر ماكدونالدز", price: 50 },
-                { id: "s15", name: "ساندوتش برجر لحمة", price: 25 },
-                { id: "s16", name: "ساندوتش  برجر بيض", price: 30 },
-                { id: "s17", name: "ساندوتش تشيكن تشيز برجر", price: 35 },
-                { id: "s18", name: "ساندوتش سبيشيال برجر", price: 40 },
-                { id: "s19", name: "ساندوتش زنجر سوبر بريم", price: 60 },
-                { id: "s20", name: "ساندوتش F 16", price: 65 },
-                { id: "s21", name: "ساندوتش 122", price: 65 },
-                { id: "s22", name: "ساندوتش شيش طاووق", price: 60 },
-                { id: "s23", name: "ساندوتش فاهيتا", price: 70 }
-            ];
-
-            const s_grid = document.querySelector('#sandwiches .menu-grid');
-
-            sandwichItems.forEach(item => {
-                let priceHTML = '';
-                let controlsHTML = '';
-
-                if (item.sizes) {
-                    // تصميم للأصناف اللي فيها أحجام (زي نظام البيتزا)
-                    let firstSize = Object.keys(item.sizes)[0];
-                    let firstPrice = item.sizes[firstSize];
-                    
-                    priceHTML = `
-                        <div class="size-selector" style="display: flex; gap: 5px; margin-bottom: 10px; justify-content: center;">
-                            ${Object.entries(item.sizes).map(([size, price], index) => `
-                                <button onclick="updatePrice('${item.id}', '${size}', ${price}, '${item.name}')" 
-                                        class="size-btn-${item.id} ${index === 0 ? 'active' : ''}" 
-                                        style="font-size: 10px; padding: 4px 8px; border-radius: 5px; cursor: pointer; border: 1px solid var(--gold); background: ${index === 0 ? 'var(--gold)' : 'transparent'}; color: ${index === 0 ? '#000' : '#fff'};">
-                                    ${size}
-                                </button>
-                            `).join('')}
-                        </div>
-                        <div class="price-box" style="text-align: center; margin-bottom: 12px; border-top: 1px solid #333; padding-top: 10px;">
-                            <span id="price-${item.id}" style="color: var(--gold); font-size: 1.3rem; font-weight: bold;">${firstPrice} ج.م</span>
-                        </div>
-                    `;
-                    
-                    controlsHTML = `
-                        <div class="qty-control" style="background: #000; border: 1px solid #333; border-radius: 10px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
-                            <button onclick="updateCartWithPrice('${item.id}', -1)" style="color: #ff4d4d; border: none; background: none; cursor: pointer; padding: 5px 10px;">-</button>
-                            <span id="qty-${item.id}" style="color: #fff;">0</span>
-                            <button onclick="updateCartWithPrice('${item.id}', 1)" style="color: #2ecc71; border: none; background: none; cursor: pointer; padding: 5px 10px;">+</button>
-                        </div>
-                    `;
-                } else {
-                    // تصميم للأصناف السعر الواحد
-                    priceHTML = `
-                        <div class="price-box" style="display: flex; flex-direction: column; align-items: center; margin-bottom: 12px; border-top: 1px solid #333; padding-top: 10px; margin-top: 25px;">
-                            <span style="color: var(--gold); font-size: 1.3rem; font-weight: bold;">${item.price} ج.م</span>
-                        </div>
-                    `;
-                    controlsHTML = `
-                        <div class="qty-control" style="background: #000; border: 1px solid #333; border-radius: 10px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
-                            <button onclick="updateCart('${item.name}', ${item.price}, -1)" style="color: #ff4d4d; border: none; background: none; cursor: pointer; padding: 5px 10px;">-</button>
-                            <span id="qty-${item.name}" style="color: #fff;">0</span>
-                            <button onclick="updateCart('${item.name}', ${item.price}, 1)" style="color: #2ecc71; border: none; background: none; cursor: pointer; padding: 5px 10px;">+</button>
-                        </div>
-                    `;
-                }
-
-                s_grid.innerHTML += `
-                    <div class="card-item" style="position: relative; border-radius: 18px; background: var(--card-bg); padding: 15px; display: flex; flex-direction: column; border: 1px solid #222; transition: 0.3s;">
-                        ${item.isNew ? `<div style="position: absolute; top: 10px; left: 10px; background: #ffcc00; color: black; padding: 2px 8px; font-size: 10px; font-weight: bold; border-radius: 5px; z-index: 10;">NEW ✨</div>` : ''}
+            items.forEach(item => {
+                grid.innerHTML += `
+                    <div class="card-item" style="position: relative; border-radius: 20px; background: #2B090A; padding: 15px; display: flex; flex-direction: column; border: 1.5px solid #E3B361; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
                         
-                        <div class="item-info" style="margin-top: 10px;">
-                            <h3 style="margin-bottom: 15px; font-size: 1.1rem; color: #fff; text-align: right;">${item.name}</h3>
+                        <div style="position: absolute; top: 10px; left: 10px; background: #e74c3c; color: white; padding: 2px 8px; font-size: 10px; font-weight: bold; border-radius: 5px; z-index: 10; border: 1px solid #E3B361;">10% OFF</div>
+                        
+                        <div class="item-info" style="margin-top: 15px;">
+                            <h3 style="margin-bottom: 8px; font-size: 1.1rem; color: #F6E6CF; text-align: right; min-height: 25px;">${item.name}</h3>
+                            <p style="font-size: 12px; color: #bbb; line-height: 1.4; min-height: 45px; margin-bottom: 12px; text-align: right; background: rgba(0,0,0,0.2); padding: 8px; border-radius: 8px;">${item.ing}</p>
                         </div>
                         
-                        ${priceHTML}
-                        ${controlsHTML}
+                        <div class="price-box" style="display: flex; flex-direction: column; align-items: center; margin-bottom: 12px; border-top: 1px solid rgba(227,179,97,0.1); padding-top: 10px;">
+                            <span style="text-decoration: line-through; color: #888; font-size: 12px;">${Math.round(item.price * 1.1)} ج</span>
+                            <span style="color: #E3B361; font-size: 1.4rem; font-weight: bold;">${item.price} ج.م</span>
+                        </div>
+
+                        <div class="qty-control" style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 6px; display: flex; align-items: center; justify-content: space-between; border: 1px solid rgba(227,179,97,0.1);">
+                            <button onclick="updateCart('${item.name}', ${item.price}, -1)" style="color: #F6E6CF; background: rgba(255,255,255,0.05); border: none; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 20px;">-</button>
+                            <span id="qty-${item.name}" style="color: #E3B361; font-weight: bold;">0</span>
+                            <button onclick="updateCart('${item.name}', ${item.price}, 1)" style="color: #1a0505; background: #E3B361; border: none; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 20px;">+</button>
+                        </div>
                     </div>
                 `;
             });
+        })();
+    </script>
+</section>
+
+<section id="waffles" class="menu-section" style="display: none; direction: rtl; text-align: right; padding: 20px 10px 40px; background-color: #1a0505;">
+    
+    <h2 class="section-header" style="text-align: center; color: #E3B361; margin-bottom: 30px; font-size: 28px; font-family: 'Segoe UI', Tahoma, sans-serif;">
+        🧇 ركن الوافل والتحلية
+    </h2>
+    
+    <div class="menu-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto;">
+        
+        <script>
+            // مصفوفة أصناف الوافل بناءً على طلبك
+            const waffleItems = [
+                { name: "وافل شوكولاتة", price: 50 },
+                { name: "وافل وايت", price: 50 },
+                { name: "وافل كراميل", price: 50 },
+                { name: "وافل خوخ", price: 50 },
+                { name: "وافل نص شوكولاتة ونص وايت", price: 60 },
+                { name: "وافل موز", price: 60 },
+                { name: "وافل ميكسات", price: 60 },
+                { name: "وافل مانجا", price: 60 },
+                { name: "وافل أوريو", price: 60 },
+                { name: "وافل بستاشيو", price: 70, isNew: true },
+                { name: "طاجن باوند كيك", price: 60 }
+            ];
+
+            const waffleGrid = document.querySelector('#waffles .menu-grid');
+
+            waffleItems.forEach(item => {
+                waffleGrid.innerHTML += `
+                    <div class="card-item" style="position: relative; border-radius: 20px; background: #2B090A; padding: 15px; display: flex; flex-direction: column; border: 1.5px solid #E3B361; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.3); text-align: center;">
+                        ${item.isNew ? '<span style="position: absolute; top: 10px; left: 10px; background: #e74c3c; color: white; font-size: 9px; padding: 2px 8px; border-radius: 6px; font-weight: bold; border: 1px solid #E3B361;">NEW</span>' : ''}
+                        <h3 style="color: #F6E6CF; margin: 10px 0; font-size: 16px; font-weight: bold; min-height: 40px; display: flex; align-items: center; justify-content: center;">${item.name}</h3>
+                        <div style="color: #E3B361; font-size: 1.4rem; font-weight: bold; margin-bottom: 15px;">${item.price} <small style="font-size: 12px;">ج</small></div>
+                        <div class="qty-control" style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 6px; display: flex; align-items: center; justify-content: space-between; border: 1px solid rgba(227,179,97,0.1);">
+                            <button onclick="updateCart('${item.name}', ${item.price}, -1)" style="color: #F6E6CF; background: none; border: none; width: 32px; height: 32px; cursor: pointer; font-size: 20px;">-</button>
+                            <span id="qty-${item.name}" style="color: #E3B361; font-weight: bold;">0</span>
+                            <button onclick="updateCart('${item.name}', ${item.price}, 1)" style="color: #1a0505; background: #E3B361; border: none; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 20px;">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+        </script>
+
+    </div>
+</section>
+<section id="sandwiches" class="menu-section" style="display: none; direction: rtl; text-align: right; padding: 20px 10px 40px; background-color: #1a0505;">
+    <h2 class="section-header" style="text-align: center; color: #E3B361; margin-bottom: 30px; font-size: 28px; font-family: 'Segoe UI', Tahoma, sans-serif;">
+        <i class="fas fa-bread-slice"></i> قسم السندوتشات 🥖
+    </h2>
+    
+    <div class="menu-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto;">
+        <script>
+            (function() {
+                const sandwichItems = [
+                    { id: "s1", name: "ساندوتش شاورما فراخ", sizes: { "كيدز": 40, "وسط": 50, "فرنساوي": 70 }, isNew: true },
+                    { id: "s2", name: "ساندوتش شاورما لحمة", sizes: { "كيدز": 40, "وسط": 50, "فرنساوي": 70 }, isNew: true },
+                    { id: "s3", name: "ساندوتش دجاج بانيه", sizes: { "وسط": 25, "فرنساوي": 30 } },
+                    { id: "s4", name: "ساندوتش كرسبي حار", sizes: { "وسط": 25, "فرنساوي": 30 } },
+                    { id: "s5", name: "ساندوتش كفتة مشوية", sizes: { "وسط": 25, "فرنساوي": 30 } },
+                    { id: "s6", name: "ساندوتش كبدة اسكندراني", sizes: { "وسط": 25, "فرنساوي": 30 } },
+                    { id: "s7", name: "ساندوتش هوت دوج (سوسيس)", sizes: { "وسط": 25, "فرنساوي": 30 } },
+                    { id: "s8", name: "ساندوتش تشيكن بسنت", sizes: { "عادي": 60, "جامبو": 110 }, isNew: true },
+                    { id: "s9", name: "ساندوتش تكساس", sizes: { "عادي": 60, "دبل": 110 }, isNew: true },
+                    { id: "s10", name: "ساندوتش هامر (مكس لحم)", price: 60, isNew: true },
+                    { id: "s11", name: "ساندوتش برجر لحمة (جديد)", price: 80, isNew: true },
+                    { id: "s12", name: "ساندوتش تشيكن ماجنم", price: 60, isNew: true },
+                    { id: "s13", name: "ساندوتش لبنه", price: 100, isNew: true },
+                    { id: "s14", name: "تشيز برجر ماكدونالدز", price: 50 },
+                    { id: "s15", name: "ساندوتش برجر لحمة", price: 25 },
+                    { id: "s16", name: "ساندوتش برجر بيض", price: 30 },
+                    { id: "s17", name: "تشيكن تشيز برجر", price: 35 },
+                    { id: "s18", name: "ساندوتش سبيشيال برجر", price: 40 },
+                    { id: "s19", name: "زنجر سوبر بريم", price: 60 },
+                    { id: "s20", name: "ساندوتش F 16", price: 65 },
+                    { id: "s21", name: "ساندوتش 122", price: 65 },
+                    { id: "s22", name: "ساندوتش شيش طاووق", price: 60 },
+                    { id: "s23", name: "ساندوتش فاهيتا", price: 70 }
+                ];
+
+                const s_grid = document.querySelector('#sandwiches .menu-grid');
+
+                sandwichItems.forEach(item => {
+                    let priceHTML = '';
+                    let controlsHTML = '';
+
+                    if (item.sizes) {
+                        let firstSize = Object.keys(item.sizes)[0];
+                        let firstPrice = item.sizes[firstSize];
+                        
+                        priceHTML = `
+                            <div class="size-selector" style="display: flex; gap: 4px; margin-bottom: 12px; justify-content: center; flex-wrap: wrap;">
+                                ${Object.entries(item.sizes).map(([size, price], index) => `
+                                    <button onclick="updatePrice('${item.id}', '${size}', ${price}, '${item.name}')" 
+                                            class="size-btn-${item.id} ${index === 0 ? 'active' : ''}" 
+                                            style="font-size: 10px; padding: 4px 6px; border-radius: 6px; cursor: pointer; border: 1px solid #E3B361; 
+                                            background: ${index === 0 ? '#E3B361' : 'transparent'}; 
+                                            color: ${index === 0 ? '#1a0505' : '#E3B361'}; font-weight: bold; transition: 0.2s;">
+                                        ${size}
+                                    </button>
+                                `).join('')}
+                            </div>
+                            <div class="price-box" style="text-align: center; margin-bottom: 12px; border-top: 1px solid rgba(227,179,97,0.1); padding-top: 10px;">
+                                <span id="price-${item.id}" style="color: #E3B361; font-size: 1.3rem; font-weight: bold;">${firstPrice} ج.م</span>
+                            </div>
+                        `;
+                        
+                        controlsHTML = `
+                            <div class="qty-control" style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 6px; display: flex; align-items: center; justify-content: space-between; border: 1px solid rgba(227,179,97,0.1);">
+                                <button onclick="updateCartWithPrice('${item.id}', -1)" style="color: #F6E6CF; background: none; border: none; width: 30px; height: 30px; cursor: pointer; font-size: 18px;">-</button>
+                                <span id="qty-${item.id}" style="color: #E3B361; font-weight: bold;">0</span>
+                                <button onclick="updateCartWithPrice('${item.id}', 1)" style="color: #1a0505; background: #E3B361; border: none; width: 30px; height: 30px; border-radius: 8px; cursor: pointer; font-size: 18px;">+</button>
+                            </div>
+                        `;
+                    } else {
+                        priceHTML = `
+                            <div class="price-box" style="display: flex; flex-direction: column; align-items: center; margin-bottom: 12px; border-top: 1px solid rgba(227,179,97,0.1); padding-top: 10px; margin-top: 15px;">
+                                <span style="color: #E3B361; font-size: 1.3rem; font-weight: bold;">${item.price} ج.م</span>
+                            </div>
+                        `;
+                        controlsHTML = `
+                            <div class="qty-control" style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 6px; display: flex; align-items: center; justify-content: space-between; border: 1px solid rgba(227,179,97,0.1);">
+                                <button onclick="updateCart('${item.name}', ${item.price}, -1)" style="color: #F6E6CF; background: none; border: none; width: 30px; height: 30px; cursor: pointer; font-size: 18px;">-</button>
+                                <span id="qty-${item.name}" style="color: #E3B361; font-weight: bold;">0</span>
+                                <button onclick="updateCart('${item.name}', ${item.price}, 1)" style="color: #1a0505; background: #E3B361; border: none; width: 30px; height: 30px; border-radius: 8px; cursor: pointer; font-size: 18px;">+</button>
+                            </div>
+                        `;
+                    }
+
+                    s_grid.innerHTML += `
+                        <div class="card-item" style="position: relative; border-radius: 20px; background: #2B090A; padding: 15px; display: flex; flex-direction: column; border: 1.5px solid #E3B361; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                            ${item.isNew ? `<div style="position: absolute; top: 10px; left: 10px; background: #e74c3c; color: white; padding: 2px 8px; font-size: 9px; font-weight: bold; border-radius: 5px; z-index: 10; border: 1px solid #E3B361;">NEW ✨</div>` : ''}
+                            
+                            <div class="item-info" style="margin-top: 10px; min-height: 50px; display: flex; align-items: center; justify-content: flex-end;">
+                                <h3 style="font-size: 1.1rem; color: #F6E6CF; text-align: right; margin: 0;">${item.name}</h3>
+                            </div>
+                            
+                            ${priceHTML}
+                            ${controlsHTML}
+                        </div>
+                    `;
+                });
+            })();
         
 
             // وظيفة لتغيير السعر المعروض بناءً على الحجم المختار
@@ -1007,68 +1064,168 @@ items.forEach(item => {
         </script>
     </div>
 </section>
+<style>
+    :root {
+        --main-burgundy: #2B090A;
+        --gold-clr: #E3B361;
+    }
+
+    /* الشريط السفلي اللي كان مختفي */
+    #bottom-cart-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--main-burgundy);
+        border-top: 2px solid var(--gold-clr);
+        padding: 12px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 999;
+        direction: rtl;
+        box-shadow: 0 -5px 15px rgba(0,0,0,0.5);
+    }
+
+    /* السلة الجانبية (الدرج) */
+    .side-cart {
+        position: fixed;
+        top: 0;
+        right: -100%; /* مخفي */
+        width: 100%;
+        max-width: 400px;
+        height: 100%;
+        background: #121212;
+        z-index: 2000;
+        transition: 0.4s ease;
+        padding: 20px;
+        overflow-y: auto;
+        direction: rtl;
+    }
+
+    .side-cart.active { right: 0; }
+
+    /* شكل كارت الصنف زي الصورة بالظبط */
+    .cart-item-card {
+        background: var(--main-burgundy);
+        border-radius: 18px;
+        padding: 15px;
+        margin-bottom: 12px;
+        position: relative;
+        border: 1px solid rgba(227,179,97,0.1);
+    }
+
+    .qty-btn-v2 {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 1px solid #fff;
+        background: transparent;
+        color: #fff;
+        cursor: pointer;
+        font-size: 18px;
+    }
+</style>
+
+<style>
+    :root {
+        --dark-burgundy: #2B090A;
+        --gold-clr: #E3B361;
+    }
+
+    /* السلة تفتح من الشمال */
+    #side-cart {
+        position: fixed;
+        top: 0;
+        left: -100%; 
+        width: 100%;
+        max-width: 400px;
+        height: 100%;
+        background: #121212;
+        z-index: 9999;
+        transition: 0.4s ease-in-out;
+        padding: 20px;
+        overflow-y: auto;
+        direction: rtl;
+        box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+    }
+
+    /* كلاس التفعيل */
+    #side-cart.active { left: 0; }
+
+    /* كارت الصنف بالعنابي المكتوم */
+    .cart-item-card {
+        background: var(--dark-burgundy);
+        border-radius: 20px;
+        padding: 15px;
+        margin-bottom: 15px;
+        border: 1px solid rgba(227,179,97,0.1);
+    }
+
+    /* الشريط السفلي ثابت مكانه */
+    #bottom-cart-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--dark-burgundy);
+        border-top: 2px solid var(--gold-clr);
+        padding: 12px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        direction: rtl;
+    }
+</style>
+
 <div id="bottom-cart-bar">
-    <div style="display:flex; align-items:center; gap:12px;">
-        <div class="b-count" id="b-count">0</div>
+    <div style="display:flex; align-items:center; gap:12px; color: #fff;">
+        <div class="b-count" id="b-count" style="background: var(--gold-clr); color: #000; padding: 2px 10px; border-radius: 8px; font-weight: bold;">0</div>
         <div>
-            <p style="font-size:12px;">الإجمالي:</p>
-            <p style="font-weight:bold;"><span id="b-total">0</span> ج</p>
+            <p style="font-size:11px; margin:0; opacity: 0.8;">إجمالي الحساب:</p>
+            <p style="font-weight:bold; margin:0; color: var(--gold-clr);"><span id="b-total">0</span> ج.م</p>
         </div>
     </div>
-    <button style="background:#fff; color:var(--main-red); border:none; padding:8px 15px; border-radius:10px; font-weight:bold;" onclick="toggleCart()">عرض السلة</button>
+    <button style="background: var(--gold-clr); color: #000; border: none; padding: 10px 20px; border-radius: 10px; font-weight: bold; cursor: pointer;" onclick="toggleCart()">عرض السلة 🛒</button>
 </div>
 
-<div id="side-cart" class="side-cart">
-    <div style="text-align: left; margin-bottom: 10px;">
-        <span onclick="closeAll()" style="cursor: pointer; color: #ff4d4d; font-size: 35px; font-weight: bold; padding: 5px;">&times;</span>
+<div id="side-cart">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+        <h2 style="color: #F6E6CF; margin: 0; font-size: 24px;">سلتك</h2>
+        <div onclick="toggleCart()" style="cursor: pointer; color: #F6E6CF; background: rgba(255,255,255,0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px;">&times;</div>
     </div>
 
-    <h2 style="color:var(--gold); margin-bottom:15px;">مراجعة الطلب 🌯</h2>
-
-    <button onclick="clearFullCart()" style="width: 100%; background: rgba(255, 77, 77, 0.1); color: #ff4d4d; border: 1px solid #ff4d4d; padding: 10px; border-radius: 10px; margin-bottom: 20px; cursor: pointer; font-weight: bold; transition: 0.3s; font-family: 'Cairo', sans-serif;">
-        <i class="fas fa-trash-alt"></i> مسح كل اللي في السلة 🗑️
-    </button>
-    
-    <div id="cart-list" style="max-height: 60vh; overflow-y: auto;">
+    <div id="cart-list">
         </div>
 
-    
-    
-    
-    <div style="margin-top:20px;">
-        <input style="width:100%; padding:12px; margin-bottom:10px; background:#222; border:1px solid #444; color:#fff; border-radius:10px;" type="text" id="u-name" placeholder="الاسم الثنائي">
-        <input style="width:100%; padding:12px; margin-bottom:10px; background:#222; border:1px solid #444; color:#fff; border-radius:10px;" type="tel" id="u-p1" placeholder="  رقم التليفون الاساسي "  >
-        <input style="width:100%; padding:12px; margin-bottom:10px; background:#222; border:1px solid #444; color:#fff; border-radius:10px;" type="tel" id="u-p1" placeholder=" رقم تليفون ثانٍ للتأكيد (اختياري)>
-        <textarea style="width:100%; padding:12px; margin-bottom:10px; background:#222; border:1px solid #444; color:#fff; border-radius:10px; min-height:60px;" id="u-addr" placeholder="العنوان بالتفصيل (المنطقة/الشارع)"></textarea>
-
-        <div style="display: flex; gap: 5px; margin-bottom: 15px;">
-            <input style="flex: 1; padding: 12px; background:#222; border:1px solid #444; color:#fff; border-radius:10px; font-size: 13px;" 
-                   type="text" id="u-location" placeholder="لينك اللوكيشن 📍">
-            
-            <button type="button" onclick="getLocation()" style="background: var(--gold); border: none; border-radius: 10px; padding: 0 15px; cursor: pointer; color: #000;">
-                <i class="fas fa-map-marker-alt"></i>
-            </button>
+    <div style="margin-top: 20px; background: rgba(255,255,255,0.03); padding: 15px; border-radius: 20px;">
+        <input style="width:100%; padding:12px; margin-bottom:10px; background:#1a1a1a; border:1px solid #333; color:#fff; border-radius:12px;" type="text" id="u-name" placeholder="الاسم بالكامل">
+        <input style="width:100%; padding:12px; margin-bottom:10px; background:#1a1a1a; border:1px solid #333; color:#fff; border-radius:12px;" type="tel" id="u-p1" placeholder="رقم التليفون الأساسي">
+        <input style="width:100%; padding:12px; margin-bottom:10px; background:#1a1a1a; border:1px solid #333; color:#fff; border-radius:12px;" type="tel" id="u-p2" placeholder="رقم تليفون ثانٍ (اختياري)">
+        <textarea style="width:100%; padding:12px; margin-bottom:10px; background:#1a1a1a; border:1px solid #333; color:#fff; border-radius:12px;" id="u-addr" placeholder="العنوان بالتفصيل"></textarea>
+        
+        <div style="display: flex; gap: 8px; margin-bottom: 15px;">
+            <input style="flex:1; padding:12px; background:#1a1a1a; border:1px solid #333; color:#fff; border-radius:12px;" type="text" id="u-location" placeholder="لينك اللوكيشن 📍">
+            <button onclick="getLocation()" style="background: var(--gold-clr); border: none; border-radius: 12px; padding: 0 15px; cursor: pointer;"><i class="fas fa-map-marker-alt"></i></button>
         </div>
-    
-        <button class="btn-send" onclick="sendOrder()" style="width:100%; background:#25d366; color:#fff; padding:15px; border:none; border-radius:10px; font-weight:bold; cursor:pointer; font-size: 16px;">
+
+        <button onclick="sendOrder()" style="width:100%; background: var(--gold-clr); color:#1a0505; padding:16px; border:none; border-radius:15px; font-weight:bold; cursor:pointer; font-size: 18px;">
             إرسال واتساب <i class="fab fa-whatsapp"></i>
         </button>
+    </div>
 
-        <div style="text-align: center; margin-top: 25px; padding-top: 15px; border-top: 1px dashed #444;">
-            <p style="font-size: 11px; color: #888; margin: 0; letter-spacing: 1px;">Designed & Developed by</p>
-            <p style="font-size: 14px; color: #ff3333; font-weight: bold; margin: 5px 0 0 0; font-family: sans-serif;">Eng.Mahmoud khaled</p>
-        </div>
-        <div style="text-align: center; margin-top: 30px; padding: 20px 10px; border-top: 1px dashed #444;">
-    
-            <img src="card.png" alt="Eng. Mahmoud khaled" 
-                 style="width: 100%; max-width: 280px; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-          
-        </div>
-        
-    </div> </div>
+    <div style="text-align: center; margin-top: 30px; opacity: 0.6;">
+        <p style="font-size: 14px; color: var(--gold-clr); font-weight: bold;">Eng. Karam Khaled</p>
+    </div>
+</div>
 
-
-
+<script>
+    // الوظيفة الوحيدة لفتح وقفل السلة
+    function toggleCart() {
+        document.getElementById('side-cart').classList.toggle('active');
+    }
+</script>
 
     <footer style="background: linear-gradient(135deg, #1e1e1e 0%, #121212 100%); color: #fff; padding: 50px 5% 30px; border-top: 5px solid #e63946; text-align: right; direction: rtl; font-family: 'Segoe UI', Tahoma, sans-serif; box-shadow: 0 -10px 30px rgba(0,0,0,0.5);">
     
@@ -1268,68 +1425,105 @@ items.forEach(item => {
             });
         }
     
+        // 1. وظيفة تحديد الموقع (GPS)
         function getLocation() {
             const input = document.getElementById('u-location');
             if (navigator.geolocation) {
                 input.value = "جاري التحديد... ⏳";
                 navigator.geolocation.getCurrentPosition(p => {
+                    // تصحيح الرابط ليفتح مباشرة على خرائط جوجل
                     input.value = `https://www.google.com/maps?q=${p.coords.latitude},${p.coords.longitude}`;
-                }, () => { alert("افتح الـ GPS! 📍"); input.value = ""; });
+                }, () => { 
+                    alert("افتح الـ GPS! 📍"); 
+                    input.value = ""; 
+                });
+            } else {
+                alert("متصفحك لا يدعم خاصية تحديد الموقع.");
             }
         }
-    
-     // 1. دالة الإرسال المعدلة (بصمام أمان)
-     function sendOrder() {
-    // 1. جلب كل الخانات اللي جوه السلة (بأي ID وبأي اسم)
-    const inputs = document.querySelectorAll('#side-cart input, #cart-panel input, .cart-sidebar input');
-    
-    // 2. تعريف الخانات بالترتيب (لو مش لاقي الـ IDs)
-    let nInput = document.getElementById('u-name') || inputs[0];
-    let pInput = document.getElementById('u-p1') || inputs[1];
-    let aInput = document.getElementById('u-addr') || inputs[2];
 
-    // 3. فحص أمان أخير
-    if (!nInput || !pInput || !aInput) {
-        return alert("يا هندسة، السلة عندك مفيهاش خانات بيانات! تأكد إنك ضايف <input> للاسم والتليفون والعنوان.");
-    }
+        // 2. دالة الإرسال المعدلة (بصمام أمان وشاملة للوكشين)
+        function sendOrder() {
+            // جلب الخانات من السلة
+            const inputs = document.querySelectorAll('#side-cart input, #cart-panel input, .cart-sidebar input');
+            
+            let nInput = document.getElementById('u-name') || inputs[0];
+            let pInput = document.getElementById('u-p1') || inputs[1];
+            let p2Input = document.getElementById('u-p2'); // التليفون الإضافي
+            let aInput = document.getElementById('u-addr') || inputs[2];
+            let lInput = document.getElementById('u-location'); // خانة اللوكيشن
 
-    const n = nInput.value.trim();
-    const p = pInput.value.trim();
-    const a = aInput.value.trim();
+            // فحص أمان أخير
+            if (!nInput || !pInput || !aInput) {
+                return alert("يا هندسة، السلة عندك مفيهاش خانات بيانات! تأكد إنك ضايف خانات الاسم والتليفون والعنوان.");
+            }
 
-    // 4. الفرملة (التحقق من البيانات)
-    if (n === "") { alert("اكتب اسمك يا بطل! 🌶️"); nInput.focus(); return; }
-    if (p === "") { alert("رقم تليفونك عشان نوصلك! 📱"); pInput.focus(); return; }
-    if (a === "") { alert("فين العنوان بالظبط؟ 📍"); aInput.focus(); return; }
+            const n = nInput.value.trim();
+            const p = pInput.value.trim();
+            const p2 = p2Input ? p2Input.value.trim() : "";
+            const a = aInput.value.trim();
+            const loc = lInput ? lInput.value.trim() : "";
 
-    // 5. تجميع الطلبات من السلة
-    let msg = `*طلب جديد من اسبايسي* 🌶️\n\n*الاسم:* ${n}\n*التليفون:* ${p}\n*العنوان:* ${a}\n\n*الطلبات:* \n`;
-    let total = 0;
-    let hasItems = false;
-    
-    for (let i in cart) {
-        msg += `- ${i} (${cart[i].qty}) = ${cart[i].qty * cart[i].price}ج\n`;
-        total += cart[i].qty * cart[i].price;
-        hasItems = true;
-    }
+            // التحقق من البيانات الأساسية
+            if (n === "") { alert("اكتب اسمك يا بطل! 🌶️"); nInput.focus(); return; }
+            if (p === "") { alert("رقم تليفونك عشان نوصلك! 📱"); pInput.focus(); return; }
+            if (a === "") { alert("فين العنوان بالظبط؟ 📍"); aInput.focus(); return; }
 
+            // تجميع الطلبات من السلة
+            let msg = `*طلب جديد من اسبايسي* 🌶️\n\n`;
+            msg += `*الاسم:* ${n}\n`;
+            msg += `*التليفون:* ${p}\n`;
+            if (p2 !== "") msg += `*تليفون إضافي:* ${p2}\n`;
+            msg += `*العنوان:* ${a}\n`;
+            
+            // إضافة اللوكيشن للرسالة لو موجود
+            if (loc !== "" && loc !== "جاري التحديد... ⏳") {
+                msg += `*اللوكيشن 📍:* ${loc}\n`;
+            }
 
-    if (!hasItems) return alert("السلة فاضية! اطلب أكلك الأول. 😂");
-    msg += `\n*الإجمالي:* ${total} ج.م`;
+            msg += `\n*الطلبات:* \n`;
+            
+            let total = 0;
+            let hasItems = false;
+            
+            // متغير cart لازم يكون مُعرف في الكود الأساسي للمنيو عندك
+            for (let i in cart) {
+                msg += `- ${i} (${cart[i].qty}) = ${cart[i].qty * cart[i].price}ج\n`;
+                total += cart[i].qty * cart[i].price;
+                hasItems = true;
+            }
 
-    // 6. الإرسال للواتساب
-    window.open(`https://wa.me/201013003496?text=${encodeURIComponent(msg)}`, '_blank');
+            if (!hasItems) return alert("السلة فاضية! اطلب أكلك الأول. 😂");
+            
+            msg += `\n*الإجمالي:* ${total} ج.م`;
 
-    // 7. تصفير السلة
-    setTimeout(() => {
-        cart = {};
-        localStorage.removeItem('spicyCart');
-        location.reload();
-    }, 1000);
-}
+            // الإرسال للواتساب (رقمك)
+            window.open(`https://wa.me/201013003496?text=${encodeURIComponent(msg)}`, '_blank');
+
+            // تصفير السلة
+            setTimeout(() => {
+                cart = {};
+                localStorage.removeItem('spicyCart');
+                location.reload();
+            }, 1000);
+        }
+
+        // 3. وظيفة فتح وقفل السلة
+        function toggleCart() {
+            const cartElement = document.getElementById('side-cart');
+            if (cartElement) {
+                cartElement.classList.toggle('active');
+            } else {
+                console.error("لم يتم العثور على عنصر باسم side-cart");
+            }
+        }
+
+        function closeCart() {
+            const cartElement = document.getElementById('side-cart');
+            if (cartElement) {
+                cartElement.classList.remove('active');
+            }
+        }
     </script>
-
 </body>
 </html>
-
- 

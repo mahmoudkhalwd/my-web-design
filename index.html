@@ -220,65 +220,113 @@ body {
         .clear-btn { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #F6E6CF; cursor: pointer; font-size: 22px; opacity: 0.6; }
 
         /* ========================================= */
-        /* التعديل الجديد: تطبيق مقاسات الـ Aspect Ratio */
-        /* ========================================= */
-        
-    /* ========================================= */
-/* السلايدر الـ 3D والفيديو - النسخة النهائية */
-/* ========================================= */
+        /*/* --- السلايدر الجديد - حل مشكلة الفراغات --- */
+#dynamic-slider-container {
+    width: 100%;
+    margin-top: 65px !important; /* مسافة عشان ما يدخلش تحت الهيدر */
+    background: #2B090A;
+}
 
-/* الحاوية الرئيسية */
 .slideshow-box {
     position: relative;
-    width: 95%; /* سيبنا مسافة بسيطة للجوانب */
-    aspect-ratio: 16 / 9 !important; 
-    margin: 20px auto 30px auto !important; 
-    transform-style: preserve-3d;
-    background: #000; /* خلفية سوداء لو الفيديو مقاسه مختلف */
-    border-radius: 25px;
+    width: 100%; /* مالي الشاشة */
+    aspect-ratio: 16 / 9; /* مقاس الفيديو العرضي المظبوط */
+    overflow: hidden;
+    height: auto !important;
 }
 
 .slider-video {
     width: 100%;
     height: 100%;
-    /* 'contain' بتخلي الفيديو يظهر بالكامل بدون أي قص أطراف */
-    object-fit: contain !important; 
-    border-radius: 25px !important;
+    object-fit: cover !important; /* مالي الكادر يمين وشمال */
     display: block;
 }
 
-.slide-item.active {
-    position: absolute;
-    inset: 0;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateZ(50px);
-    z-index: 10;
-}
+/* --- الكود الاحترافي للسلايدر والزراير --- */
 
 .slide-content {
     position: absolute;
-    bottom: 0;
+    bottom: 0; 
     left: 0;
     right: 0;
-    padding: 12px;
+    width: 100%;
+    padding: 60px 20px 25px; 
     text-align: center;
     z-index: 100;
-    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 50%, transparent 100%);
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
-    transform: translateZ(100px);
+    pointer-events: none;
 }
 
-/* تنسيق الخطوط للموبايل */
-.since-text { color:#E3B361; font-size: 10px; font-weight: bold; }
-.slide-content h2 { color: #ffffff; font-size: 18px; margin: 2px 0; font-weight: 800; }
-.slide-content p { color: #eee; font-size: 12px; margin-bottom: 10px; line-height: 1.2; }
+.since-text { 
+    color: #E3B361; 
+    font-size: 11px; 
+    letter-spacing: 2px; 
+    font-weight: bold;
+    margin-bottom: 5px;
+}
 
-/* الزراير للموبايل */
-.slide-btns { display: flex; gap: 8px; justify-content: center; }
-.btn-main { background: #E3B361; color: #2B090A; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 12px; }
-.btn-sub { border: 1px solid #ffffff; color: #ffffff; padding: 7px 17px; border-radius: 20px; text-decoration: none; font-size: 12px; }
+.slide-content h2 { 
+    color: #ffffff !important; 
+    font-size: 24px; 
+    margin: 5px 0; 
+    font-weight: 900; 
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5); 
+}
+
+.slide-content p { 
+    color: #ddd !important; 
+    font-size: 14px; 
+    margin-bottom: 20px; 
+    font-weight: 500;
+}
+
+.slide-btns { 
+    display: flex; 
+    gap: 12px; 
+    justify-content: center; 
+    pointer-events: auto; 
+}
+
+/* الزرار الأول: ذهبي فخم */
+.btn-main { 
+    background: #E3B361 !important;
+    color: #2B090A !important;
+    padding: 10px 25px; 
+    border-radius: 50px; 
+    text-decoration: none !important; 
+    font-weight: 800; 
+    font-size: 14px;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(227, 179, 97, 0.4);
+    border: none !important;
+}
+
+/* الزرار الثاني: أبيض شيك */
+.btn-sub { 
+    background: transparent !important;
+    border: 2px solid #ffffff !important;
+    color: #ffffff !important;
+    padding: 8px 23px; 
+    border-radius: 50px; 
+    text-decoration: none !important; 
+    font-size: 14px; 
+    font-weight: 600;
+    display: inline-block;
+}
+
+#offers {
+    margin-top: 0 !important;
+    padding-top: 15px !important;
+}
+
+.slider-section, .slider-container {
+    display: none !important; 
+}
+
+/* سطر إضافي للتأكد إن الروابط مش زرقاء */
+.slide-btns a { color: inherit; text-decoration: none; }
     </style>
 
 <script>
@@ -318,6 +366,13 @@ body {
         </div>
     </div>
 
+    <div class="search-container">
+        <div class="search-input-wrapper">
+            <input type="text" id="menu-search" onkeyup="searchMenu()" placeholder="ابحث عن أكلتك...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+    </div>
+    
     <section id="dynamic-slider-container">
         <div class="slideshow-box">
             <div class="slide-item active">
@@ -329,8 +384,8 @@ body {
                     <p class="since-text">منذ 2010</p>
                     <h2>اسبايسي — مذاق عالمي</h2>
                     <p>أقوى عروض التوفير يوصلك لحد البيت</p>
-                    <div class="slide-btns">
-                        <a href="#" class="btn-main">المنيو</a>
+                    <div class="slide-btns" style="pointer-events: auto;">
+                        <a href="#offers" class="btn-main">المنيو</a>
                         <a href="tel:19905" class="btn-sub">اتصل</a>
                     </div>
                 </div>

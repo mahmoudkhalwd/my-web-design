@@ -1236,146 +1236,166 @@ body {
     </div>
 </footer>
 <script>
-    // --- 1. البيانات والروابط ---
+    // --- 1. الإعدادات والروابط الأساسية ---
     let cart = JSON.parse(localStorage.getItem('spicyCart')) || {};
     const sheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRP8qlzZo3vEbedBY3AC785fvzkYP1F8WFnmbIkVHlI99_LSXgDFQsOqgzou98BloM_qEfxLkL9phrv/pub?gid=0&single=true&output=csv";
+    window.selectedPizzas = {}; // لحفظ المقاس المختار لكل صنف
 
-    // --- 2. سحب المنيو من جوجل شيت (الإضافة الجديدة) ---
+    // --- 2. سحب المنيو من جوجل شيت بنفس تصميمك الفاخر ---
     async function loadMenuFromSheet() {
         try {
             const response = await fetch(sheetUrl);
             const data = await response.text();
             const rows = data.split('\n').slice(1); 
 
-            const targetSections = { 'بيتزا': 'pizza', 'كريب': 'crepes', 'سندوتش': 'sandwiches', 'وافل': 'waffles', 'إضافات': 'drinks' };
+            const containers = {
+                'بيتزا': 'pizza-container',
+                'كريب': 'crepes-container',
+                'سندوتش': 'sandwiches-container',
+                'وافل': 'waffles-container',
+                'إضافات': 'drinks-container'
+            };
 
-            // تفريغ الأقسام قبل التحميل عشان ميكررش
-            Object.values(targetSections).forEach(id => { 
+            // تفريغ الحاويات قبل التحميل
+            Object.values(containers).forEach(id => { 
                 const el = document.getElementById(id); 
                 if (el) el.innerHTML = ''; 
             });
 
-            rows.forEach(row => {
+            rows.forEach((row, index) => {
                 const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
                 if (cols.length < 2) return;
 
                 const category = cols[0]?.trim();
                 const name     = cols[1]?.trim();
-                const s        = cols[2]?.trim();
-                const m        = cols[3]?.trim();
-                const l        = cols[4]?.trim();
-                const ing      = cols[5]?.trim() || "";
+                const s        = cols[2]?.trim(); // صغير / عادي
+                const m        = cols[3]?.trim(); // وسط
+                const l        = cols[4]?.trim(); // كبير
+                const ing      = cols[5]?.trim() || ""; // مكونات
+                const id       = "itm_" + index; 
 
-                let priceHTML = "";
-                // ربط الأزرار بدالة updateCart الموجودة في كودك الأصلي
+                let sizeSelection = '';
+                let startingPrice = l || m || s || 0;
+
+                // بناء أزرار المقاسات (بنفس الستايل الذهبي بتاعك)
                 if (s && m && l) {
-                    priceHTML = `<div style="display:flex; gap:5px;">
-                        <button class="p-btn" onclick="updateCart('${name} (ص)', ${s}, 1)">ص:${s}</button>
-                        <button class="p-btn" onclick="updateCart('${name} (و)', ${m}, 1)">و:${m}</button>
-                        <button class="p-btn" onclick="updateCart('${name} (ك)', ${l}, 1)">ك:${l}</button>
+                    sizeSelection = `
+                    <div class="pizza-sizes" style="display: flex; gap: 5px; justify-content: center; margin-bottom: 12px;">
+                        <button onclick="handlePizzaSize('${id}', 'صغير', ${s}, '${name}')" class="pz-btn-${id} active" style="font-size: 10px; padding: 4px 8px; border-radius: 6px; cursor: pointer; border: 1px solid #E3B361; background: #E3B361; color: #1a0505;">صغير</button>
+                        <button onclick="handlePizzaSize('${id}', 'وسط', ${m}, '${name}')" class="pz-btn-${id}" style="font-size: 10px; padding: 4px 8px; border-radius: 6px; cursor: pointer; border: 1px solid #E3B361; background: transparent; color: #F6E6CF;">وسط</button>
+                        <button onclick="handlePizzaSize('${id}', 'كبير', ${l}, '${name}')" class="pz-btn-${id}" style="font-size: 10px; padding: 4px 8px; border-radius: 6px; cursor: pointer; border: 1px solid #E3B361; background: transparent; color: #F6E6CF;">كبير</button>
                     </div>`;
+                    startingPrice = s;
                 } else if (m && l) {
-                    priceHTML = `<div style="display:flex; gap:5px;">
-                        <button class="p-btn" onclick="updateCart('${name} (و)', ${m}, 1)">و:${m}</button>
-                        <button class="p-btn" onclick="updateCart('${name} (ك)', ${l}, 1)">ك:${l}</button>
+                    sizeSelection = `
+                    <div class="pizza-sizes" style="display: flex; gap: 5px; justify-content: center; margin-bottom: 12px;">
+                        <button onclick="handlePizzaSize('${id}', 'وسط', ${m}, '${name}')" class="pz-btn-${id} active" style="font-size: 10px; padding: 4px 8px; border-radius: 6px; cursor: pointer; border: 1px solid #E3B361; background: #E3B361; color: #1a0505;">وسط</button>
+                        <button onclick="handlePizzaSize('${id}', 'كبير', ${l}, '${name}')" class="pz-btn-${id}" style="font-size: 10px; padding: 4px 8px; border-radius: 6px; cursor: pointer; border: 1px solid #E3B361; background: transparent; color: #F6E6CF;">كبير</button>
                     </div>`;
+                    startingPrice = m;
                 } else {
-                    priceHTML = `<button class="p-btn" onclick="updateCart('${name}', ${l || m || s}, 1)">${l || m || s} ج +</button>`;
+                    sizeSelection = `<div style="height: 25px; color: #E3B361; font-size: 11px; text-align: center;">سعر موحد</div>`;
                 }
 
-                let targetId = "drinks"; 
-                for (let key in targetSections) { if (category.includes(key)) { targetId = targetSections[key]; break; } }
+                const cardHTML = `
+                <div class="card-item" style="background: #2B090A; border-radius: 15px; padding: 12px; border: 1px solid rgba(227,179,97,0.1); display: flex; flex-direction: column;">
+                    <h3 style="color: #F6E6CF; font-size: 1rem; margin: 5px 0; min-height: 35px;">${name}</h3>
+                    <p style="color: #888; font-size: 10px; margin-bottom: 10px; min-height: 25px;">${ing}</p>
+                    ${sizeSelection}
+                    <div style="text-align: center; margin-bottom: 10px;">
+                        <span id="pz-prc-${id}" style="color: #E3B361; font-weight: bold; font-size: 1.2rem;">${startingPrice} ج.م</span>
+                    </div>
+                    <div class="qty-control" style="background: rgba(0,0,0,0.3); border-radius: 10px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
+                        <button onclick="handlePizzaQty('${id}', -1)" style="color: #F6E6CF; background: none; border: none; width: 30px; height: 30px; cursor: pointer; font-size: 18px;">-</button>
+                        <span id="pz-q-${id}" style="color: #E3B361; font-weight: bold;">0</span>
+                        <button onclick="handlePizzaQty('${id}', 1)" style="color: #1a0505; background: #E3B361; border: none; width: 30px; height: 30px; border-radius: 6px; cursor: pointer; font-size: 18px;">+</button>
+                    </div>
+                </div>`;
 
-                const container = document.getElementById(targetId);
-                if (container) {
-                    container.innerHTML += `
-                        <div class="menu-card" style="display:flex; justify-content:space-between; align-items:center; background:#1a0505; padding:15px; margin-bottom:10px; border-radius:12px; border:1px solid #331111;">
-                            <div>
-                                <h4 style="color:#ff4d4d; margin:0;">${name}</h4>
-                                <small style="color:#888;">${ing}</small>
-                            </div>
-                            <div>${priceHTML}</div>
-                        </div>`;
+                for (let key in containers) {
+                    if (category.includes(key)) {
+                        const container = document.getElementById(containers[key]);
+                        if (container) container.innerHTML += cardHTML;
+                        break;
+                    }
                 }
+
+                window.selectedPizzas[id] = { 
+                    name: name + (s && m && l ? " (صغير)" : (m && l ? " (وسط)" : "")), 
+                    price: startingPrice 
+                };
             });
-        } catch (e) { console.error("Error loading menu:", e); }
+            updateGlobalCounters(); 
+        } catch (e) { console.error("Error Syncing Sheet:", e); }
     }
 
-    // --- 3. تشغيل السلايدر الـ 3D الجديد (كما هو في كودك) ---
+    // --- 3. دوال المقاسات والكميات للمنيو الديناميكي ---
+    window.handlePizzaSize = function(id, size, price, name) {
+        document.getElementById(`pz-prc-${id}`).innerText = price + ' ج.م';
+        window.selectedPizzas[id] = { name: `${name} (${size})`, price: price };
+        document.querySelectorAll(`.pz-btn-${id}`).forEach(b => {
+            if(b.innerText.trim() === size) { b.style.background = '#E3B361'; b.style.color = '#1a0505'; }
+            else { b.style.background = 'transparent'; b.style.color = '#F6E6CF'; }
+        });
+    };
+
+    window.handlePizzaQty = function(id, change) {
+        const item = window.selectedPizzas[id];
+        const qtySpan = document.getElementById(`pz-q-${id}`);
+        let currentQty = parseInt(qtySpan.innerText);
+        let newQty = currentQty + change;
+        if (newQty >= 0) {
+            qtySpan.innerText = newQty;
+            updateCart(item.name, item.price, change);
+        }
+    };
+
+    // --- 4. تشغيل السلايدر الـ 3D الجديد ---
     let spicyIndex = 0;
     function runSpicy3D() {
         const allItems = document.querySelectorAll('.slide-item'); 
         const counterLabel = document.getElementById('slider-num'); 
         if (allItems.length === 0) return; 
-
         allItems.forEach(item => {
             item.classList.remove('active');
             item.style.display = "block"; 
         });
-
         spicyIndex++;
         if (spicyIndex > allItems.length) { spicyIndex = 1; }
         allItems[spicyIndex - 1].classList.add('active');
-        
-        if (counterLabel) {
-            counterLabel.innerText = spicyIndex + " / " + allItems.length;
-        }
+        if (counterLabel) counterLabel.innerText = spicyIndex + " / " + allItems.length;
         setTimeout(runSpicy3D, 2000);
     }
 
-    // --- 4. تحميل الصفحة (دمج الوظائف) ---
+    // --- 5. تحميل الصفحة الشامل ---
     window.onload = () => {
-        runSpicy3D();           // تشغيل السلايدر
-        loadMenuFromSheet();    // سحب المنيو من جوجل
-        if(typeof render === "function") render(); 
-        updateGlobalCounters(); 
+        loadMenuFromSheet(); // جلب المنيو من جوجل
+        runSpicy3D();       // تشغيل السلايدر
+        render();           // رسم السلة
     };
 
-    // --- 5. وظائف السلة والفلترة والطلب (كما هي في كودك دون أي تعديل) ---
+    // --- 6. وظائف السلة وتحديث البيانات ---
     function updateGlobalCounters() {
         for (let name in cart) {
-            const el = document.getElementById(`qty-${name}`) || document.getElementById(`p-qty-${name}`);
-            if (el) el.innerText = cart[name].qty;
+            // بنحاول نحدث العدادات لو الاسم مطابق
+            document.querySelectorAll('.card-item').forEach(card => {
+                if(card.innerText.includes(name)) {
+                    const qtySpan = card.querySelector('[id^="pz-q-"]');
+                    if(qtySpan) qtySpan.innerText = cart[name].qty;
+                }
+            });
         }
     }
 
     function toggleCart() { document.getElementById('side-cart').classList.toggle('active'); }
     function closeCart() { document.getElementById('side-cart').classList.remove('active'); }
 
-    function filterMenu(category) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        const sections = document.querySelectorAll('.menu-section');
-        const slider = document.getElementById('dynamic-slider-container');
-        sections.forEach(section => {
-            if (category === 'all') {
-                section.style.display = 'block';
-                if(slider) slider.style.display = 'block';
-            } else if (section.id === category) {
-                section.style.display = 'block';
-                if(slider) slider.style.display = 'none';
-            } else {
-                section.style.display = 'none';
-            }
-        });
-        closeAll();
-    }
-
-    function closeAll() {
-        const nav = document.getElementById('side-nav');
-        const cart = document.getElementById('side-cart');
-        const overlay = document.getElementById('overlay');
-        if (nav) nav.classList.remove('active');
-        if (cart) cart.classList.remove('active');
-        if (overlay) overlay.style.display = 'none';
-    }
-
     function updateCart(name, price, change) {
         if (!cart[name]) cart[name] = { price: price, qty: 0 };
         cart[name].qty += change;
         if (cart[name].qty <= 0) delete cart[name];
         localStorage.setItem('spicyCart', JSON.stringify(cart));
-        const qtyLabel = document.getElementById(`qty-${name}`) || document.getElementById(`p-qty-${name}`);
-        if(qtyLabel) qtyLabel.innerText = cart[name] ? cart[name].qty : 0;
+        
         if (change > 0) {
             const icon = document.getElementById('cart-icon');
             if (icon) {
@@ -1414,9 +1434,37 @@ body {
         if(bar) count > 0 ? bar.classList.add('active') : bar.classList.remove('active');
     }
 
+    // --- 7. الفلترة والبحث وتحديد الموقع ---
+    function filterMenu(category) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        const sections = document.querySelectorAll('.menu-section');
+        const slider = document.getElementById('dynamic-slider-container');
+        sections.forEach(section => {
+            if (category === 'all') {
+                section.style.display = 'block';
+                if(slider) slider.style.display = 'block';
+            } else if (section.id === category) {
+                section.style.display = 'block';
+                if(slider) slider.style.display = 'none';
+            } else {
+                section.style.display = 'none';
+            }
+        });
+        closeAll();
+    }
+
+    function closeAll() {
+        const nav = document.getElementById('side-nav');
+        const cartEl = document.getElementById('side-cart');
+        const overlay = document.getElementById('overlay');
+        if (nav) nav.classList.remove('active');
+        if (cartEl) cartEl.classList.remove('active');
+        if (overlay) overlay.style.display = 'none';
+    }
+
     function searchMenu() {
         let input = document.getElementById('menu-search').value.toLowerCase().trim();
-        document.querySelectorAll('.menu-card, .pizza-card, .card-item').forEach(card => {
+        document.querySelectorAll('.card-item').forEach(card => {
             card.style.display = card.innerText.toLowerCase().includes(input) ? "flex" : "none";
         });
     }
@@ -1424,7 +1472,8 @@ body {
     function updateDeliveryDisplay() {
         const areaSelect = document.getElementById('u-area');
         if(areaSelect) {
-            const price = areaSelect.options[areaSelect.selectedIndex].getAttribute('data-price') || 0;
+            const selectedOption = areaSelect.options[areaSelect.selectedIndex];
+            const price = selectedOption.getAttribute('data-price') || 0;
             const display = document.getElementById('delivery-cost');
             if(display) display.innerText = price;
         }
@@ -1436,30 +1485,65 @@ body {
             input.value = "جاري التحديد... ⏳";
             navigator.geolocation.getCurrentPosition(p => {
                 input.value = `https://www.google.com/maps?q=${p.coords.latitude},${p.coords.longitude}`;
-            }, () => { alert("افتح الـ GPS! 📍"); input.value = ""; });
+            }, () => { 
+                alert("افتح الـ GPS! 📍"); 
+                input.value = ""; 
+            });
         }
     }
 
+    // --- 8. إرسال الطلب عبر الواتساب ---
     function sendOrder() {
-        const n = document.getElementById('u-name').value;
-        const p = document.getElementById('u-p1').value;
-        const a = document.getElementById('u-addr').value;
+        const nInput = document.getElementById('u-name');
+        const pInput = document.getElementById('u-p1');
+        const p2Input = document.getElementById('u-p2'); 
+        const aInput = document.getElementById('u-addr');
+        const lInput = document.getElementById('u-location'); 
         const areaSelect = document.getElementById('u-area');
-        if(!n || !p || !a || !areaSelect) return alert("كمل بياناتك يا هندسة!");
-        
+
+        if (!nInput || !pInput || !aInput || !areaSelect) return;
+
+        const n = nInput.value.trim();
+        const p = pInput.value.trim();
+        const a = aInput.value.trim();
         const areaName = areaSelect.value;
         const deliveryPrice = parseInt(areaSelect.options[areaSelect.selectedIndex].getAttribute('data-price') || 0);
-        let totalFood = 0;
-        let msg = `*🍱 أوردر جديد - Spicy 🌶️*\n👤 *الاسم:* ${n}\n📱 *التليفون:* ${p}\n📍 *المنطقة:* ${areaName}\n🏠 *العنوان:* ${a}\n\n*🛒 الطلبات:*\n`;
 
+        if (n === "") { alert("اكتب اسمك! 🌶️"); return; }
+        if (p.length !== 11) { alert("رقم التليفون غير صحيح!"); return; }
+        if (areaName === "" || areaName === "0") { alert("اختار المنطقة!"); return; }
+
+        let msg = `*🍱 أوردر جديد - Spicy 🌶️*\n`;
+        msg += `------------------------------\n`;
+        msg += `👤 *الاسم:* ${n}\n`;
+        msg += `📱 *التليفون:* ${p}\n`;
+        msg += `📍 *المنطقة:* ${areaName}\n`;
+        msg += `🏠 *العنوان:* ${a}\n`;
+        if (lInput && lInput.value) msg += `🗺️ *اللوكيشن:* ${lInput.value}\n`;
+
+        msg += `\n*🛒 الطلبات:*\n`;
+        let totalFood = 0;
+        let hasItems = false;
         for (let i in cart) {
-            msg += `▪️ ${i} (${cart[i].qty}) = ${cart[i].qty * cart[i].price}ج\n`;
+            msg += `▪️ ${i} (${cart[i].qty}) ⬅️ ${cart[i].qty * cart[i].price}ج\n`;
             totalFood += cart[i].qty * cart[i].price;
+            hasItems = true;
         }
 
-        msg += `\n💰 *الحساب:* ${totalFood}ج\n🚚 *توصيل:* ${deliveryPrice}ج\n💵 *الإجمالي:* ${totalFood + deliveryPrice}ج`;
+        if (!hasItems) { alert("السلة فاضية!"); return; }
         
+        msg += `\n💰 *الحساب:* ${totalFood} ج\n`;
+        msg += `🚚 *التوصيل:* ${deliveryPrice} ج\n`;
+        msg += `💵 *الإجمالي:* ${totalFood + deliveryPrice} ج.م\n`;
+        msg += `------------------------------\n`;
+        msg += `⚠️ السعر محسوب آلياً بناءً على المنطقة.`;
+        msg += `\n🔢 *كود التأكيد:* ${Math.floor(Math.random() * 9000) + 1000}`;
         window.open(`https://wa.me/201013003496?text=${encodeURIComponent(msg)}`, '_blank');
+        
+        // مسح السلة بعد الطلب
+        cart = {};
+        localStorage.removeItem('spicyCart');
+        setTimeout(() => location.reload(), 1000);
     }
 
     function toggleMenu() {
@@ -1471,11 +1555,5 @@ body {
         }
     }
 </script>
-
-<style>
-    /* لمسة جمالية لزراير الأسعار اللي بتنزل من الشيت */
-    .p-btn { background:#ffcc00; color:black; border:none; padding:5px 10px; border-radius:5px; font-weight:bold; cursor:pointer; font-size:12px; transition:0.3s; }
-    .p-btn:hover { background:#fff; transform: scale(1.05); }
-</style>
 </body>
 </html>

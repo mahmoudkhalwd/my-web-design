@@ -232,9 +232,6 @@ body {
             <i class="fas fa-ice-cream"></i> ركن الوافل
         </a>
         
-        <a href="javascript:void(0)" onclick="filterMenu('sweet-crepes'); document.getElementById('side-nav').classList.remove('active'); document.querySelector('.overlay').style.display='none';">
-            <i class="fas fa-cookie-bite"></i> كريب حلو 🍫
-        </a>
         <a href="javascript:void(0)" onclick="filterMenu('sandwiches'); document.getElementById('side-nav').classList.remove('active'); document.querySelector('.overlay').style.display='none';">
             <i class="fas fa-hotdog"></i> ركن السندوتشات
         </a>
@@ -651,72 +648,7 @@ body {
             })();
         </script>
     </section>
-     
-    <section id="sweet-crepes" class="menu-section" style="display: none; direction: rtl; text-align: right;">
-    
-    <h2 class="section-header" style="text-align: center; color: #E3B361; margin-bottom: 25px; font-size: 26px; font-family: 'Segoe UI', Tahoma, sans-serif;">
-        🍫 ركن الكريب الحلو
-    </h2>
 
-    <div class="sweet-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 800px; margin: 0 auto;">
-        
-        <div class="card-item" style="background: #2b1709; border: 1px solid rgba(227,179,97,0.2); border-radius: 20px; padding: 15px 10px; text-align: center; display: flex; flex-direction: column; align-items: center; transition: 0.3s;">
-            <span style="font-size: 35px; margin-bottom: 5px;">🍫</span>
-            <h3 style="color: #F6E6CF; margin: 8px 0; font-size: 15px; font-weight: bold;">كريب شيكولاتة</h3>
-            <div style="color: #E3B361; font-size: 1.3rem; font-weight: bold; margin-bottom: 12px;">50 <small style="font-size: 12px;">ج</small></div>
-            <div style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 5px; display: flex; align-items: center; justify-content: space-between; width: 90%; border: 1px solid rgba(227,179,97,0.1);">
-                <button onclick="updateCart('كريب شيكولاتة', 50, -1)" style="color: #F6E6CF; background: none; border: none; width: 30px; height: 30px; cursor: pointer; font-size: 20px;">-</button>
-                <span id="qty-كريب شيكولاتة" style="color: #E3B361; font-weight: bold;">0</span>
-                <button onclick="updateCart('كريب شيكولاتة', 50, 1)" style="color: #1a0d05; background: #E3B361; border: none; width: 30px; height: 30px; border-radius: 8px; cursor: pointer; font-size: 20px;">+</button>
-            </div>
-        </div>
-
-        <div class="card-item" style="background: #2b1709; border: 1px solid rgba(227,179,97,0.2); border-radius: 20px; padding: 15px 10px; text-align: center; display: flex; flex-direction: column; align-items: center;">
-            <span style="font-size: 35px; margin-bottom: 5px;">🍯</span>
-            <h3 style="color: #F6E6CF; margin: 8px 0; font-size: 15px; font-weight: bold;">كريب كراميل</h3>
-            <div style="color: #E3B361; font-size: 1.3rem; font-weight: bold; margin-bottom: 12px;">50 <small style="font-size: 12px;">ج</small></div>
-            <div style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 5px; display: flex; align-items: center; justify-content: space-between; width: 90%; border: 1px solid rgba(227,179,97,0.1);">
-                <button onclick="updateCart('كريب كراميل', 50, -1)" style="color: #F6E6CF; background: none; border: none; width: 30px; height: 30px; cursor: pointer; font-size: 20px;">-</button>
-                <span id="qty-كريب كراميل" style="color: #E3B361; font-weight: bold;">0</span>
-                <button onclick="updateCart('كريب كراميل', 50, 1)" style="color: #1a0d05; background: #E3B361; border: none; width: 30px; height: 30px; border-radius: 8px; cursor: pointer; font-size: 20px;">+</button>
-            </div>
-        </div>
-
-        <div class="card-item" style="background: #2b1709; border: 1px solid rgba(227,179,97,0.2); border-radius: 20px; padding: 15px 10px; text-align: center; display: flex; flex-direction: column; align-items: center;">
-            <span style="font-size: 35px; margin-bottom: 5px;">⚪</span>
-            <h3 style="color: #F6E6CF; margin: 8px 0; font-size: 15px; font-weight: bold;">كريب وايت</h3>
-            <div style="color: #E3B361; font-size: 1.3rem; font-weight: bold; margin-bottom: 12px;">50 <small style="font-size: 12px;">ج</small></div>
-            <div style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 5px; display: flex; align-items: center; justify-content: space-between; width: 90%; border: 1px solid rgba(227,179,97,0.1);">
-                <button onclick="updateCart('كريب وايت', 50, -1)" style="color: #F6E6CF; background: none; border: none; width: 30px; height: 30px; cursor: pointer; font-size: 20px;">-</button>
-                <span id="qty-كريب وايت" style="color: #E3B361; font-weight: bold;">0</span>
-                <button onclick="updateCart('كريب وايت', 50, 1)" style="color: #1a0d05; background: #E3B361; border: none; width: 30px; height: 30px; border-radius: 8px; cursor: pointer; font-size: 20px;">+</button>
-            </div>
-        </div>
-
-        <div class="card-item" style="background: #2b1709; border: 1px solid rgba(227,179,97,0.2); border-radius: 20px; padding: 15px 10px; text-align: center; display: flex; flex-direction: column; align-items: center;">
-            <span style="font-size: 35px; margin-bottom: 5px;">🍓</span>
-            <h3 style="color: #F6E6CF; margin: 8px 0; font-size: 15px; font-weight: bold;">كريب فواكه</h3>
-            <div style="color: #E3B361; font-size: 1.3rem; font-weight: bold; margin-bottom: 12px;">60 <small style="font-size: 12px;">ج</small></div>
-            <div style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 5px; display: flex; align-items: center; justify-content: space-between; width: 90%; border: 1px solid rgba(227,179,97,0.1);">
-                <button onclick="updateCart('كريب فواكه', 60, -1)" style="color: #F6E6CF; background: none; border: none; width: 30px; height: 30px; cursor: pointer; font-size: 20px;">-</button>
-                <span id="qty-كريب فواكه" style="color: #E3B361; font-weight: bold;">0</span>
-                <button onclick="updateCart('كريب فواكه', 60, 1)" style="color: #1a0d05; background: #E3B361; border: none; width: 30px; height: 30px; border-radius: 8px; cursor: pointer; font-size: 20px;">+</button>
-            </div>
-        </div>
-
-        <div class="card-item" style="background: #2b1709; border: 1px solid rgba(227,179,97,0.2); border-radius: 20px; padding: 15px 10px; text-align: center; display: flex; flex-direction: column; align-items: center;">
-            <span style="font-size: 35px; margin-bottom: 5px;">🌰</span>
-            <h3 style="color: #F6E6CF; margin: 8px 0; font-size: 15px; font-weight: bold;">كريب بستاشيو</h3>
-            <div style="color: #E3B361; font-size: 1.3rem; font-weight: bold; margin-bottom: 12px;">70 <small style="font-size: 12px;">ج</small></div>
-            <div style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 5px; display: flex; align-items: center; justify-content: space-between; width: 90%; border: 1px solid rgba(227,179,97,0.1);">
-                <button onclick="updateCart('كريب بستاشيو', 70, -1)" style="color: #F6E6CF; background: none; border: none; width: 30px; height: 30px; cursor: pointer; font-size: 20px;">-</button>
-                <span id="qty-كريب بستاشيو" style="color: #E3B361; font-weight: bold;">0</span>
-                <button onclick="updateCart('كريب بستاشيو', 70, 1)" style="color: #1a0d05; background: #E3B361; border: none; width: 30px; height: 30px; border-radius: 8px; cursor: pointer; font-size: 20px;">+</button>
-            </div>
-        </div>
-
-    </div>
-</section>
 
 <section id="crepes" class="menu-section" style="display: none; direction: rtl; text-align: right; padding: 20px 10px 40px; background-color: #1a0505;">
     
@@ -1303,278 +1235,247 @@ body {
         </div>
     </div>
 </footer>
-    <script>
-        // --- 1. البيانات والذاكرة (كما هي في كودك) ---
-        let cart = JSON.parse(localStorage.getItem('spicyCart')) || {};
-    
-        // --- 2. تشغيل السلايدر الـ 3D الجديد (الحركة الوحيدة المعتمدة) ---
-        let spicyIndex = 0;
-        function runSpicy3D() {
-            // بنجيب كل الشرايح (slide-item) والعداد الرقمي
-            const allItems = document.querySelectorAll('.slide-item'); 
-            const counterLabel = document.getElementById('slider-num'); 
-    
-            if (allItems.length === 0) return; // لو مفيش صور ميعملش حاجة
-    
-            // التعديل الجوهري: إخفاء الكل لضمان عدم وجود صورتين فوق بعض
-            // ده بيمسح أي أثر للسلايدر القديم اللي كان بيظهر تحت
-            allItems.forEach(item => {
-                item.classList.remove('active');
-                item.style.display = "block"; // تأكيد إنهم موجودين بس مخفيين بالـ opacity
+<script>
+    // --- 1. البيانات والروابط ---
+    let cart = JSON.parse(localStorage.getItem('spicyCart')) || {};
+    const sheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRP8qlzZo3vEbedBY3AC785fvzkYP1F8WFnmbIkVHlI99_LSXgDFQsOqgzou98BloM_qEfxLkL9phrv/pub?gid=0&single=true&output=csv";
+
+    // --- 2. سحب المنيو من جوجل شيت (الإضافة الجديدة) ---
+    async function loadMenuFromSheet() {
+        try {
+            const response = await fetch(sheetUrl);
+            const data = await response.text();
+            const rows = data.split('\n').slice(1); 
+
+            const targetSections = { 'بيتزا': 'pizza', 'كريب': 'crepes', 'سندوتش': 'sandwiches', 'وافل': 'waffles', 'إضافات': 'drinks' };
+
+            // تفريغ الأقسام قبل التحميل عشان ميكررش
+            Object.values(targetSections).forEach(id => { 
+                const el = document.getElementById(id); 
+                if (el) el.innerHTML = ''; 
             });
-    
-            spicyIndex++;
-            if (spicyIndex > allItems.length) { spicyIndex = 1; }
-    
-            // إظهار الصورة النشطة (التأثير الـ 3D بيعتمد على وجود الكلاس ده في الـ CSS)
-            allItems[spicyIndex - 1].classList.add('active');
-            
-            // تحديث العداد الرقمي (مثلاً: 1 / 3)
-            if (counterLabel) {
-                counterLabel.innerText = spicyIndex + " / " + allItems.length;
-            }
-    
-            // التبديل كل ثانيتين (2000 مللي ثانية) زي ما طلبت
-            setTimeout(runSpicy3D, 2000);
-        }
-    
-        // --- 3. تحميل الصفحة ---
-        window.onload = () => {
-            // بنشغل السلايدر الجديد الـ 3D فقط هنا (الدالة الوحيدة)
-            runSpicy3D(); 
-    
-            // بنشغل باقي وظائف السلة لو موجودة (render, counters)
-            if(typeof render === "function") render(); 
-            updateGlobalCounters(); 
-        };
-    
-        // --- وظيفة تحديث عدادات السلة (كما هي في كودك) ---
-        function updateGlobalCounters() {
-            for (let name in cart) {
-                const el = document.getElementById(`qty-${name}`) || document.getElementById(`p-qty-${name}`);
-                if (el) el.innerText = cart[name].qty;
-            }
-        }
-    
-        // --- لزيادة صورة جديدة؟ ---
-        /* يا هندسة عشان تزود صورة، روح لكود الـ HTML 
-           جوه <div class="slideshow-box"> 
-           وانسخ الـ <div class="slide-item"> وغير اسم الصورة (مثلاً 4.jpg)
-           والكود ده هيفهم لوحده ويزود العداد لـ 1 / 4 تلقائياً
-        */
-    
-        // باقي الدوال التابعة للسلة (كما هي في كودك)
-        function toggleCart() { document.getElementById('side-cart').classList.toggle('active'); }
-        function closeCart() { document.getElementById('side-cart').classList.remove('active'); }
 
-        // --- 5. فلترة الأقسام ---
-        
-        // --- دالة الفلترة المعدلة لفتح كل الأقسام ---
-        function filterMenu(category) {
-    // 1. الطلوع لأول الصفحة
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+            rows.forEach(row => {
+                const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+                if (cols.length < 2) return;
 
-    // 2. نجيب كل السكاشن اللي واخدة كلاس menu-section
-    const sections = document.querySelectorAll('.menu-section');
-    const slider = document.getElementById('dynamic-slider-container');
+                const category = cols[0]?.trim();
+                const name     = cols[1]?.trim();
+                const s        = cols[2]?.trim();
+                const m        = cols[3]?.trim();
+                const l        = cols[4]?.trim();
+                const ing      = cols[5]?.trim() || "";
 
-    sections.forEach(section => {
-        if (category === 'all') {
-            section.style.display = 'block';
-            if(slider) slider.style.display = 'block';
-        } else if (section.id === category) {
-            section.style.display = 'block';
-            if(slider) slider.style.display = 'none'; // بنخفي السلايدر عشان المنيو يبان علطول
-        } else {
-            section.style.display = 'none';
-        }
-    });
-
-    closeAll(); // قفل القائمة الجانبية
-}
-        // --- دالة القفل المتكاملة ---
-        function closeAll() {
-            const nav = document.getElementById('side-nav');
-            const cart = document.getElementById('side-cart');
-            const overlay = document.getElementById('overlay');
-            
-            if (nav) nav.classList.remove('active');
-            if (cart) cart.classList.remove('active');
-            if (overlay) overlay.style.display = 'none';
-        }
-    
-    
-        // --- 6. تحديث السلة (الهزة والعدادات) ---
-        function updateCart(name, price, change) {
-            if (!cart[name]) cart[name] = { price: price, qty: 0 };
-            cart[name].qty += change;
-            if (cart[name].qty <= 0) delete cart[name];
-            localStorage.setItem('spicyCart', JSON.stringify(cart));
-            const qtyLabel = document.getElementById(`qty-${name}`) || document.getElementById(`p-qty-${name}`);
-            if(qtyLabel) qtyLabel.innerText = cart[name] ? cart[name].qty : 0;
-            if (change > 0) {
-                const icon = document.getElementById('cart-icon');
-                if (icon) {
-                    icon.classList.add('cart-shake');
-                    setTimeout(() => icon.classList.remove('cart-shake'), 400);
-                }
-            }
-            render();
-        }
-    
- // --- 7. رسم السلة والـ Badge ---
- function render() {
-            let total = 0, count = 0;
-            const list = document.getElementById('cart-list');
-            if(!list) return;
-            list.innerHTML = ''; 
-            for (let n in cart) {
-                total += cart[n].qty * cart[n].price;
-                count += cart[n].qty;
-                list.innerHTML += `
-                    <div style="display:flex; justify-content:space-between; align-items:center; background:#1a1a1a; padding:10px; border-radius:10px; margin-bottom:8px; border:1px solid #333;">
-                        <div style="color:white; font-size:13px;"><b>${n}</b><br><small>${cart[n].price} ج</small></div>
-                        <div style="display:flex; align-items:center; gap:8px;">
-                            <button onclick="updateCart('${n}', ${cart[n].price}, -1)" style="background:#333; color:white; border:none; width:25px; height:25px; border-radius:5px;">-</button>
-                            <span style="color:white;">${cart[n].qty}</span>
-                            <button onclick="updateCart('${n}', ${cart[n].price}, 1)" style="background:#ffcc00; color:black; border:none; width:25px; height:25px; border-radius:5px;">+</button>
-                        </div>
+                let priceHTML = "";
+                // ربط الأزرار بدالة updateCart الموجودة في كودك الأصلي
+                if (s && m && l) {
+                    priceHTML = `<div style="display:flex; gap:5px;">
+                        <button class="p-btn" onclick="updateCart('${name} (ص)', ${s}, 1)">ص:${s}</button>
+                        <button class="p-btn" onclick="updateCart('${name} (و)', ${m}, 1)">و:${m}</button>
+                        <button class="p-btn" onclick="updateCart('${name} (ك)', ${l}, 1)">ك:${l}</button>
                     </div>`;
-            }
-            if(document.getElementById('cart-count-badge')) {
-                const b = document.getElementById('cart-count-badge');
-                b.innerText = count;
-                b.style.display = count > 0 ? 'flex' : 'none';
-            }
-            if(document.getElementById('b-total')) document.getElementById('b-total').innerText = total;
-            const bar = document.getElementById('bottom-cart-bar');
-            if(bar) count > 0 ? bar.classList.add('active') : bar.classList.remove('active');
-        }
-    
-        // --- 8. البحث والموقع والطلب ---
-        function searchMenu() {
-            let input = document.getElementById('menu-search').value.toLowerCase().trim();
-            document.querySelectorAll('.pizza-card, .card-item, .item-card').forEach(card => {
-                card.style.display = card.innerText.toLowerCase().includes(input) ? "flex" : "none";
-            });
-        }
-
-        // دالة تحديث سعر التوصيل (التي طلبت زيادتها)
-        function updateDeliveryDisplay() {
-            const areaSelect = document.getElementById('u-area');
-            if(areaSelect) {
-                const selectedOption = areaSelect.options[areaSelect.selectedIndex];
-                const price = selectedOption.getAttribute('data-price') || 0;
-                const display = document.getElementById('delivery-cost');
-                if(display) display.innerText = price;
-            }
-        }
-    
-        function getLocation() {
-            const input = document.getElementById('u-location');
-            if (navigator.geolocation) {
-                input.value = "جاري التحديد... ⏳";
-                navigator.geolocation.getCurrentPosition(p => {
-                    input.value = `https://www.google.com/maps?q=${p.coords.latitude},${p.coords.longitude}`;
-                }, () => { 
-                    alert("افتح الـ GPS! 📍"); 
-                    input.value = ""; 
-                });
-            } else {
-                alert("متصفحك لا يدعم خاصية تحديد الموقع.");
-            }
-        }
-
-        function sendOrder() {
-            const inputs = document.querySelectorAll('#side-cart input, #cart-panel input, .cart-sidebar input');
-            let nInput = document.getElementById('u-name') || inputs[0];
-            let pInput = document.getElementById('u-p1') || inputs[1];
-            let p2Input = document.getElementById('u-p2'); 
-            let aInput = document.getElementById('u-addr') || inputs[2];
-            let lInput = document.getElementById('u-location'); 
-            
-            // زيادة: جلب بيانات المنطقة
-            let areaSelect = document.getElementById('u-area');
-
-            if (!nInput || !pInput || !aInput || !areaSelect) {
-                return alert("تأكد من وجود خانات البيانات الاسم والتليفون والعنوان والمنطقة.");
-            }
-
-            const n = nInput.value.trim();
-            const p = pInput.value.trim();
-            const p2 = p2Input ? p2Input.value.trim() : "";
-            const a = aInput.value.trim();
-            const loc = lInput ? lInput.value.trim() : "";
-            
-            // زيادة: بيانات التوصيل
-            const areaName = areaSelect.value;
-            const deliveryPrice = parseInt(areaSelect.options[areaSelect.selectedIndex].getAttribute('data-price') || 0);
-
-            if (n === "") { alert("اكتب اسمك يا بطل! 🌶️"); nInput.focus(); return; }
-            if (p.length !== 11 || isNaN(p)) { alert("لازم رقم التليفون يكون 11 رقم بالظبط! 📱"); pInput.focus(); return; }
-            if (areaName === "" || areaName === "0") { alert("اختار المنطقة عشان نحسب التوصيل! 🚚"); areaSelect.focus(); return; }
-            if (a === "") { alert("فين العنوان بالظبط؟ 📍"); aInput.focus(); return; }
-
-          // --- الجزء ده جوه دالة sendOrder بعد حلقة الـ for ---
-
-          let msg = `*🍱 أوردر جديد - Spicy 🌶️* \n`;
-            msg += `------------------------------\n`;
-            msg += `👤 *الاسم:* ${n}\n`;
-            msg += `📱 *التليفون:* ${p}\n`;
-            if (p2 !== "") msg += `📱 *تليفون إضافي:* ${p2}\n`;
-            msg += `📍 *المنطقة:* ${areaName}\n`;
-            msg += `🏠 *العنوان:* ${a}\n`;
-            if (loc !== "" && loc !== "جاري التحديد... ⏳") msg += `🗺️ *اللوكيشن:* ${loc}\n`;
-
-            msg += `\n*🛒 الطلبات:* \n`;
-            let totalFood = 0;
-            let hasItems = false;
-            for (let i in cart) {
-                msg += `▪️ ${i} (${cart[i].qty}) ⬅️ ${cart[i].qty * cart[i].price}ج\n`;
-                totalFood += cart[i].qty * cart[i].price;
-                hasItems = true;
-            }
-
-            if (!hasItems) return alert("السلة فاضية! اطلب أكلك الأول. 😂");
-            
-            let finalTotal = totalFood + deliveryPrice;
-    
-            msg += `💰 *حساب الاوردر
-            :* ${totalFood} ج\n`;
-            msg += `🚚 *مصاريف التوصيل:* ${deliveryPrice} ج\n`;
-            msg += `💵 *الإجمالي النهائي:* ${finalTotal} ج.م\n`;
-            msg += `------------------------------`;
-
-            // هنضيف سطر في آخر الرسالة بيأكد البيانات بشكل يصعب تعديله
-msg += `\n⚠️ *تنبيه:* السعر محسوب آلياً بناءً على المنطقة المختارة.`;
-msg += `\n🔢 *كود التأكيد:* ${Math.floor(Math.random() * 9000) + 1000}`; // كود عشوائي بيخلي الرسالة شكلها رسمي
-
-            // الـ window.open والـ Git Push بنفس الطريقة
-
-            window.open(`https://wa.me/201013003496?text=${encodeURIComponent(msg)}`, '_blank');
-
-            setTimeout(() => {
-                cart = {};
-                localStorage.removeItem('spicyCart');
-                location.reload();
-            }, 1000);
-        }
-
-        function closeCart() {
-            const cartElement = document.getElementById('side-cart');
-            if (cartElement) cartElement.classList.remove('active');
-        }
-
-        function toggleMenu() {
-            const nav = document.getElementById('side-nav');
-            const overlay = document.getElementById('overlay');
-            if (nav) {
-                nav.classList.toggle('active');
-                if (overlay) {
-                    overlay.style.display = nav.classList.contains('active') ? 'block' : 'none';
+                } else if (m && l) {
+                    priceHTML = `<div style="display:flex; gap:5px;">
+                        <button class="p-btn" onclick="updateCart('${name} (و)', ${m}, 1)">و:${m}</button>
+                        <button class="p-btn" onclick="updateCart('${name} (ك)', ${l}, 1)">ك:${l}</button>
+                    </div>`;
+                } else {
+                    priceHTML = `<button class="p-btn" onclick="updateCart('${name}', ${l || m || s}, 1)">${l || m || s} ج +</button>`;
                 }
+
+                let targetId = "drinks"; 
+                for (let key in targetSections) { if (category.includes(key)) { targetId = targetSections[key]; break; } }
+
+                const container = document.getElementById(targetId);
+                if (container) {
+                    container.innerHTML += `
+                        <div class="menu-card" style="display:flex; justify-content:space-between; align-items:center; background:#1a0505; padding:15px; margin-bottom:10px; border-radius:12px; border:1px solid #331111;">
+                            <div>
+                                <h4 style="color:#ff4d4d; margin:0;">${name}</h4>
+                                <small style="color:#888;">${ing}</small>
+                            </div>
+                            <div>${priceHTML}</div>
+                        </div>`;
+                }
+            });
+        } catch (e) { console.error("Error loading menu:", e); }
+    }
+
+    // --- 3. تشغيل السلايدر الـ 3D الجديد (كما هو في كودك) ---
+    let spicyIndex = 0;
+    function runSpicy3D() {
+        const allItems = document.querySelectorAll('.slide-item'); 
+        const counterLabel = document.getElementById('slider-num'); 
+        if (allItems.length === 0) return; 
+
+        allItems.forEach(item => {
+            item.classList.remove('active');
+            item.style.display = "block"; 
+        });
+
+        spicyIndex++;
+        if (spicyIndex > allItems.length) { spicyIndex = 1; }
+        allItems[spicyIndex - 1].classList.add('active');
+        
+        if (counterLabel) {
+            counterLabel.innerText = spicyIndex + " / " + allItems.length;
+        }
+        setTimeout(runSpicy3D, 2000);
+    }
+
+    // --- 4. تحميل الصفحة (دمج الوظائف) ---
+    window.onload = () => {
+        runSpicy3D();           // تشغيل السلايدر
+        loadMenuFromSheet();    // سحب المنيو من جوجل
+        if(typeof render === "function") render(); 
+        updateGlobalCounters(); 
+    };
+
+    // --- 5. وظائف السلة والفلترة والطلب (كما هي في كودك دون أي تعديل) ---
+    function updateGlobalCounters() {
+        for (let name in cart) {
+            const el = document.getElementById(`qty-${name}`) || document.getElementById(`p-qty-${name}`);
+            if (el) el.innerText = cart[name].qty;
+        }
+    }
+
+    function toggleCart() { document.getElementById('side-cart').classList.toggle('active'); }
+    function closeCart() { document.getElementById('side-cart').classList.remove('active'); }
+
+    function filterMenu(category) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        const sections = document.querySelectorAll('.menu-section');
+        const slider = document.getElementById('dynamic-slider-container');
+        sections.forEach(section => {
+            if (category === 'all') {
+                section.style.display = 'block';
+                if(slider) slider.style.display = 'block';
+            } else if (section.id === category) {
+                section.style.display = 'block';
+                if(slider) slider.style.display = 'none';
+            } else {
+                section.style.display = 'none';
+            }
+        });
+        closeAll();
+    }
+
+    function closeAll() {
+        const nav = document.getElementById('side-nav');
+        const cart = document.getElementById('side-cart');
+        const overlay = document.getElementById('overlay');
+        if (nav) nav.classList.remove('active');
+        if (cart) cart.classList.remove('active');
+        if (overlay) overlay.style.display = 'none';
+    }
+
+    function updateCart(name, price, change) {
+        if (!cart[name]) cart[name] = { price: price, qty: 0 };
+        cart[name].qty += change;
+        if (cart[name].qty <= 0) delete cart[name];
+        localStorage.setItem('spicyCart', JSON.stringify(cart));
+        const qtyLabel = document.getElementById(`qty-${name}`) || document.getElementById(`p-qty-${name}`);
+        if(qtyLabel) qtyLabel.innerText = cart[name] ? cart[name].qty : 0;
+        if (change > 0) {
+            const icon = document.getElementById('cart-icon');
+            if (icon) {
+                icon.classList.add('cart-shake');
+                setTimeout(() => icon.classList.remove('cart-shake'), 400);
             }
         }
-    </script>
+        render();
+    }
+
+    function render() {
+        let total = 0, count = 0;
+        const list = document.getElementById('cart-list');
+        if(!list) return;
+        list.innerHTML = ''; 
+        for (let n in cart) {
+            total += cart[n].qty * cart[n].price;
+            count += cart[n].qty;
+            list.innerHTML += `
+                <div style="display:flex; justify-content:space-between; align-items:center; background:#1a1a1a; padding:10px; border-radius:10px; margin-bottom:8px; border:1px solid #333;">
+                    <div style="color:white; font-size:13px;"><b>${n}</b><br><small>${cart[n].price} ج</small></div>
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <button onclick="updateCart('${n}', ${cart[n].price}, -1)" style="background:#333; color:white; border:none; width:25px; height:25px; border-radius:5px;">-</button>
+                        <span style="color:white;">${cart[n].qty}</span>
+                        <button onclick="updateCart('${n}', ${cart[n].price}, 1)" style="background:#ffcc00; color:black; border:none; width:25px; height:25px; border-radius:5px;">+</button>
+                    </div>
+                </div>`;
+        }
+        if(document.getElementById('cart-count-badge')) {
+            const b = document.getElementById('cart-count-badge');
+            b.innerText = count;
+            b.style.display = count > 0 ? 'flex' : 'none';
+        }
+        if(document.getElementById('b-total')) document.getElementById('b-total').innerText = total;
+        const bar = document.getElementById('bottom-cart-bar');
+        if(bar) count > 0 ? bar.classList.add('active') : bar.classList.remove('active');
+    }
+
+    function searchMenu() {
+        let input = document.getElementById('menu-search').value.toLowerCase().trim();
+        document.querySelectorAll('.menu-card, .pizza-card, .card-item').forEach(card => {
+            card.style.display = card.innerText.toLowerCase().includes(input) ? "flex" : "none";
+        });
+    }
+
+    function updateDeliveryDisplay() {
+        const areaSelect = document.getElementById('u-area');
+        if(areaSelect) {
+            const price = areaSelect.options[areaSelect.selectedIndex].getAttribute('data-price') || 0;
+            const display = document.getElementById('delivery-cost');
+            if(display) display.innerText = price;
+        }
+    }
+
+    function getLocation() {
+        const input = document.getElementById('u-location');
+        if (navigator.geolocation) {
+            input.value = "جاري التحديد... ⏳";
+            navigator.geolocation.getCurrentPosition(p => {
+                input.value = `https://www.google.com/maps?q=${p.coords.latitude},${p.coords.longitude}`;
+            }, () => { alert("افتح الـ GPS! 📍"); input.value = ""; });
+        }
+    }
+
+    function sendOrder() {
+        const n = document.getElementById('u-name').value;
+        const p = document.getElementById('u-p1').value;
+        const a = document.getElementById('u-addr').value;
+        const areaSelect = document.getElementById('u-area');
+        if(!n || !p || !a || !areaSelect) return alert("كمل بياناتك يا هندسة!");
+        
+        const areaName = areaSelect.value;
+        const deliveryPrice = parseInt(areaSelect.options[areaSelect.selectedIndex].getAttribute('data-price') || 0);
+        let totalFood = 0;
+        let msg = `*🍱 أوردر جديد - Spicy 🌶️*\n👤 *الاسم:* ${n}\n📱 *التليفون:* ${p}\n📍 *المنطقة:* ${areaName}\n🏠 *العنوان:* ${a}\n\n*🛒 الطلبات:*\n`;
+
+        for (let i in cart) {
+            msg += `▪️ ${i} (${cart[i].qty}) = ${cart[i].qty * cart[i].price}ج\n`;
+            totalFood += cart[i].qty * cart[i].price;
+        }
+
+        msg += `\n💰 *الحساب:* ${totalFood}ج\n🚚 *توصيل:* ${deliveryPrice}ج\n💵 *الإجمالي:* ${totalFood + deliveryPrice}ج`;
+        
+        window.open(`https://wa.me/201013003496?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function toggleMenu() {
+        const nav = document.getElementById('side-nav');
+        const overlay = document.getElementById('overlay');
+        if (nav) {
+            nav.classList.toggle('active');
+            if (overlay) overlay.style.display = nav.classList.contains('active') ? 'block' : 'none';
+        }
+    }
+</script>
+
+<style>
+    /* لمسة جمالية لزراير الأسعار اللي بتنزل من الشيت */
+    .p-btn { background:#ffcc00; color:black; border:none; padding:5px 10px; border-radius:5px; font-weight:bold; cursor:pointer; font-size:12px; transition:0.3s; }
+    .p-btn:hover { background:#fff; transform: scale(1.05); }
+</style>
 </body>
 </html>

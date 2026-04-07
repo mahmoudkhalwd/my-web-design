@@ -2386,19 +2386,29 @@ function sendOrder() {
     let msg = `📋 طلب #${orderNumber}\n`;
     msg += `━━━━━━━━━━━━━━━━\n`;
     msg += `🍕 اسبايسي\n`;
-    msg += `👤 ${n}\n`;
-    msg += `📱 ${cleanPhone}`;
-    if (p2 !== "") msg += ` / ${p2.replace(/\D/g, '')}`;
-    msg += `\n📍 ${areaName}\n`;
-    msg += `🏠 ${a}\n`;
-    if (loc !== "" && loc !== "جاري التحديد... ⏳") msg += `🗺️ ${loc}\n`;
+    msg += `━━━━━━━━━━━━━━━━\n`;
+    
+    // بيانات العميل والطلب
+    msg += `👤 الاسم: ${n}\n`;
+    msg += `🏠 العنوان: ${a} (${areaName})\n`;
+    msg += `📱 الرقم الأساسي: ${cleanPhone}\n`;
+    
+    // إضافة الرقم الإضافي في سطر مستقل لو موجود
+    if (p2 !== "") {
+        msg += `📞 الرقم الإضافي: ${p2.replace(/\D/g, '')}\n`;
+    }
+
+    // إضافة اللوكيشن لو متاح
+    if (loc !== "" && loc !== "جاري التحديد... ⏳") {
+        msg += `🗺️ اللوكيشن: ${loc}\n`;
+    }
+
     msg += `━━━━━━━━━━━━━━━━\n`;
     msg += `🛒 الطلبات:\n${itemsText}`;
     msg += `━━━━━━━━━━━━━━━━\n`;
-    msg += `💰 الأكل: ${totalFood} ج\n`;
-    msg += `🚚 التوصيل: ${deliveryPrice} ج\n`;
-    msg += `💵 الإجمالي: ${finalTotal} ج`;
-
+    msg += `💰 حساب الأكل: ${totalFood} ج\n`;
+    msg += `🚚 مصاريف التوصيل: ${deliveryPrice} ج\n`;
+    msg += `💵 المبلغ الإجمالي: ${finalTotal} ج`;
     if (!confirm(`🛒 ملخص طلبك\n\n📦 ${Object.keys(cart).length} صنف\n💰 الإجمالي: ${finalTotal} ج\n📍 ${areaName}\n\n✅ تأكيد؟`)) return;
 
     sendingOrder = true;

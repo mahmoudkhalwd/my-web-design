@@ -9,9 +9,21 @@
     
       gtag('config', 'G-C1VL2RTST5');
     </script>
+   
+ <meta property="og:title" content="اسبايسي | SPICY - أقوى مطعم في الجيزة">
+ <meta property="og:description" content="اطلب أكلتك المفضلة أونلاين: كريبات، بيتزا، وافل، سندوتشات. توصيل سريع لجميع المناطق.">
+ <meta property="og:image" content="logo.png">
+ <meta property="og:image:width" content="500">
+ <meta property="og:image:height" content="500">
+ <meta property="og:url" content="https://yourwebsite.com">
+ <meta property="og:type" content="website">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+ <meta name="theme-color" content="#1a0505">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>اسبايسي – البدرشين | Spicy Pro V4</title>
+    <title>اسبايسي – البدرشين | Spicy </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --main-red: #e74c3c; --gold: #f1c40f; --dark-black: #0a0a0a; --card-bg: #1a1a1a; }
@@ -383,34 +395,35 @@ body {
     </div>
 </header>
 
+<!-- ========== شريط البحث (فوق الفيديو) ========== -->
+<div class="search-container" style="position: relative; z-index: 10; margin-top: 10px;">
+    <div class="search-input-wrapper">
+        <input type="text" id="menu-search" onkeyup="searchMenu()" placeholder="ابحث عن أكلتك...">
+        <i class="fas fa-search search-icon"></i>
+    </div>
+</div>
 
-    <div class="search-container">
-        <div class="search-input-wrapper">
-            <input type="text" id="menu-search" onkeyup="searchMenu()" placeholder="ابحث عن أكلتك...">
-            <i class="fas fa-search search-icon"></i>
-        </div>
+<!-- ========== الفيديو ========== -->
+<section id="dynamic-slider-container">
+    <div class="slideshow-box">
+        <video autoplay muted loop playsinline class="slider-video">
+            <source src="spicy-video.mp4" type="video/mp4">
+        </video>
     </div>
     
-    <section id="dynamic-slider-container">
-        <div class="slideshow-box">
-            <video autoplay muted loop playsinline class="slider-video">
-                <source src="spicy-video.mp4" type="video/mp4">
-            </video>
+    <div class="slide-content-safe">
+        <div class="brand-line">
+            <span class="ar">اسبايسي</span>
+            <span class="divider">|</span>
+            <span class="en">SPICY</span>
         </div>
-        
-        <div class="slide-content-safe">
-            <div class="brand-line">
-                <span class="ar">اسبايسي</span>
-                <span class="divider">|</span>
-                <span class="en">SPICY</span>
-            </div>
-            <p>أهم مطعم في الجيزة</p>
-                        <div class="slide-btns">
-                <a href="#offers" class="btn-main">المنيو</a>
-                <a href="tel:19905" class="btn-sub">اطلب الآن</a>
-            </div>
+        <p>أهم مطعم في الجيزة</p>
+        <div class="slide-btns">
+            <a href="#offers" class="btn-main">المنيو</a>
+            <a href="tel:+201013003496" class="btn-sub">اطلب الآن</a>
         </div>
-    </section>
+    </div>
+</section>
     <section id="offers" class="menu-section" style="display: block; direction: rtl; text-align: right; padding: 20px 10px 40px; background-color: #1a0505;">
     
         <h2 class="section-header" style="text-align: center; color: #E3B361; margin-bottom: 30px; font-size: 28px; font-family: 'Segoe UI', Tahoma, sans-serif;">
@@ -1121,8 +1134,8 @@ body {
             <option value="المرازيق" data-price="40">المرازيق (40 ج.م)</option>
             <option value="البدرشين" data-price="20">البدرشين (20 ج.م)</option>
             <option value="العزازيه" data-price="40">العزازيه (40 ج.م)</option>
+            <option value="منطقة أخرى" data-price="50">🚚 منطقة أخرى (50 ج.م)</option>
         </select>
-        
         <p style="font-size:13px; color: var(--gold-clr); margin-bottom:10px;">سعر التوصيل للمنطقة: <span id="delivery-cost">0</span> ج.م</p>
 
         <textarea style="width:100%; padding:12px; margin-bottom:10px; background:#1a1a1a; border:1px solid #333; color:#fff; border-radius:12px;" id="u-addr" placeholder="العنوان بالتفصيل"></textarea>
@@ -1443,13 +1456,22 @@ border-top:1px solid rgba(227,179,97,.18);">
       0%, 100% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
     }
+    .lux-cta.dark {
+  /* التدرج اللوني الرسمي لواتساب */
+  background: linear-gradient(180deg, #25D366, #128C7E);
+  color: #fff;
+  /* حدود خفيفة لتعطي عمق وشكل احترافي */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  /* إضافة ظل خفيف ليعطي تأثير الـ Premium */
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  transition: all 0.3s ease;
+}
 
-    .lux-cta.dark{
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.035));
-      color: #fff;
-      border: 1px solid rgba(255,255,255,.08);
-    }
-
+/* إضافة تأثير عند مرور الماوس (Hover) لزيادة التفاعل */
+.lux-cta.dark:hover {
+  background: linear-gradient(180deg, #128C7E, #075E54);
+  transform: translateY(-2px);
+}
     .lux-cta .ico{
       font-size: 28px;
       line-height: 1;
@@ -1741,54 +1763,42 @@ border-top:1px solid rgba(227,179,97,.18);">
       }
     }
 /* ألوان تيك توك الأصلية (زي الأبلكيشن بالضبط) */
-.lux-social.tiktok{
-    background: #000000;  /* الأسود الأساسي */
-    border: 1px solid rgba(32, 213, 236, 0.3); /* حدود سماوي خفيفة */
-    position: relative;
-    overflow: hidden;
+/* أيقونات السوشيال ميديا (شكلها بس) */
+.lux-social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    text-decoration: none;
 }
 
-/* تأثير التدرج اللي زي شعار تيك توك */
-.lux-social.tiktok::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        135deg,
-        #20D5EC 0%,    /* السماوي */
-        #FF004D 50%,   /* الوردي/الأحمر */
-        #000000 100%   /* الأسود */
-    );
-    opacity: 0.15;
-    animation: tiktokWave 6s ease infinite;
-    z-index: 0;
+.lux-social-icon.fb {
+    background: #1877F2;
+    color: white;
 }
 
-.lux-social.tiktok .em,
-.lux-social.tiktok span {
-    position: relative;
-    z-index: 1;
+.lux-social-icon.insta {
+    background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: white;
 }
 
-.lux-social.tiktok:hover {
-    transform: translateY(-4px) scale(1.02);
-    border-color: #20D5EC;
-    box-shadow: 0 10px 25px rgba(32, 213, 236, 0.3);
+.lux-social-icon.tiktok {
+    background: #000000;
+    color: white;
+    border: 1px solid #20D5EC;
 }
 
-/* تأثير متحرك زي شعار التيك توك */
-@keyframes tiktokWave {
-    0%, 100% {
-        transform: rotate(0deg) scale(1);
-        opacity: 0.1;
-    }
-    50% {
-        transform: rotate(5deg) scale(1.1);
-        opacity: 0.2;
-    }
+.lux-social-icon:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.lux-social-icon.tiktok:hover {
+    box-shadow: 0 0 15px #20D5EC;
 }
   </style>
 
@@ -1838,30 +1848,28 @@ border-top:1px solid rgba(227,179,97,.18);">
       <!-- ... (الكود السابق كما هو حتى قسم "تابعنا") ... -->
 
 <!-- Social Media Section -->
-<!-- Social Media Section -->
 <div class="lux-box">
     <h3 class="lux-title">✨ <span>تابعنا</span></h3>
-  
-    <div class="lux-socials">
-      <!-- انستجرام -->
-      <a href="https://www.instagram.com/spicybadrshein?igsh=NHBwZmo1aGpqZzhm" target="_blank" rel="noopener noreferrer" class="lux-social insta">
-        <span class="em"></span>
-        <span>instagram</span>
-      </a>
-  
-      <!-- فيسبوك -->
-      <a href="https://www.facebook.com/share/1PAZDdpxqm/" target="_blank" rel="noopener noreferrer" class="lux-social fb">
-        <span class="em"></span>
-        <span>facebook</span>
-      </a>
-  
-      <!-- تيك توك - بالألوان الأصلية -->
-      <a href="https://www.tiktok.com/@spicyrestaurant7" target="_blank" rel="noopener noreferrer" class="lux-social tiktok">
-        <span class="em"></span>
-        <span>tiktok</span>
-      </a>
+
+    <div class="lux-socials" style="display: flex; gap: 20px; justify-content: center; align-items: center;">
+        
+        <!-- فيسبوك -->
+        <a href="https://www.facebook.com/share/1PAZDdpxqm/" target="_blank" rel="noopener noreferrer" class="lux-social-icon fb">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <!-- انستجرام -->
+        <a href="https://www.instagram.com/spicybadrshein?igsh=NHBwZmo1aGpqZzhm" target="_blank" rel="noopener noreferrer" class="lux-social-icon insta">
+            <i class="fab fa-instagram"></i>
+        </a>
+
+        <!-- تيك توك -->
+        <a href="https://www.tiktok.com/@spicyrestaurant7" target="_blank" rel="noopener noreferrer" class="lux-social-icon tiktok">
+            <i class="fab fa-tiktok"></i>
+        </a>
+
     </div>
-  </div>
+</div>
   <!-- ... (باقي الكود كما هو) ... -->
 
         <!-- Contact Numbers -->
@@ -2134,16 +2142,34 @@ border-top:1px solid rgba(227,179,97,.18);">
         if(bar) count > 0 ? bar.classList.add('active') : bar.classList.remove('active');
     }
 
-    // =========================
-    // 10) البحث
-    // =========================
+   
     function searchMenu() {
         let input = document.getElementById('menu-search')?.value.toLowerCase().trim() || '';
+        
+        // إضافة تأثير بصري عند البحث
+        const searchWrapper = document.querySelector('.search-input-wrapper');
+        if (input.length > 0) {
+            searchWrapper.style.boxShadow = '0 0 20px rgba(227, 179, 97, 0.6)';
+            searchWrapper.style.borderColor = '#ffcc00';
+        } else {
+            searchWrapper.style.boxShadow = '';
+            searchWrapper.style.borderColor = '#E3B361';
+        }
+        
         document.querySelectorAll('.pizza-card, .card-item, .item-card').forEach(card => {
-            card.style.display = card.innerText.toLowerCase().includes(input) ? "" : "none";
+            const matches = card.innerText.toLowerCase().includes(input);
+            card.style.display = matches ? "" : "none";
+            
+            // إضافة تأثير توهج للعناصر الظاهرة
+            if (matches && input.length > 0) {
+                card.style.animation = 'none';
+                card.offsetHeight; // إعادة تعيين animation
+                card.style.animation = 'fadeGlow 0.4s ease';
+            }
         });
     }
 
+// أضف كمان CSS التأثيرات في الـ Style
     // =========================
     // 11) التوصيل
     // =========================
@@ -2192,20 +2218,41 @@ border-top:1px solid rgba(227,179,97,.18);">
         }
     }
 
-// رقم الطلب (يرجع من 1 بعد 9999)
 // =========================
-let orderCounter = parseInt(localStorage.getItem('orderCounter')) || 0;
-
+// رقم طلب عشوائي (ما يتكررش في نفس اليوم)
+// =========================
 function getNextOrderNumber() {
-    orderCounter++;
+    let today = new Date().toLocaleDateString('ar-EG');
+    let usedNumbers = JSON.parse(localStorage.getItem('usedNumbers')) || {};
     
-    // لو وصل لـ 9999، نبدأ من 0 تاني
-    if (orderCounter > 9999) {
-        orderCounter = 1;
+    // لو يوم جديد، نبدأ من جديد
+    if (usedNumbers.date !== today) {
+        usedNumbers = { date: today, numbers: [] };
     }
     
-    localStorage.setItem('orderCounter', orderCounter);
-    return orderCounter;
+    // توليد رقم عشوائي مش مستخدم
+    let maxAttempts = 100;
+    let newNumber;
+    let found = false;
+    
+    for (let i = 0; i < maxAttempts; i++) {
+        newNumber = Math.floor(Math.random() * 9000) + 1000; // من 1000 إلى 9999
+        if (!usedNumbers.numbers.includes(newNumber)) {
+            found = true;
+            break;
+        }
+    }
+    
+    // لو كل الأرقام خلصت (نادر جداً)، نمسح ونبدأ من جديد
+    if (!found) {
+        usedNumbers.numbers = [];
+        newNumber = Math.floor(Math.random() * 9000) + 1000;
+    }
+    
+    usedNumbers.numbers.push(newNumber);
+    localStorage.setItem('usedNumbers', JSON.stringify(usedNumbers));
+    
+    return newNumber;
 }
 // =========================
 // 2) نافذة عرض رقم الطلب للعميل
@@ -2280,7 +2327,19 @@ function showLastOrderOnReturn() {
 // =========================
 // 5) إرسال الطلب (النسخة النهائية)
 // =========================
+// =========================
+// إرسال الطلب (النسخة النهائية مع منع التكرار)
+// =========================
+let lastOrderTime = 0;
+
 function sendOrder() {
+    // منع التكرار (مرة كل 60 ثانية)
+    let now = Date.now();
+    if (lastOrderTime && (now - lastOrderTime) < 60000) {
+        alert("❌ لا يمكنك إرسال أكثر من طلب في الدقيقة. برجاء الانتظار قليلاً.");
+        return;
+    }
+
     if (sendingOrder) return;
 
     let nInput = document.getElementById('u-name');
@@ -2323,28 +2382,27 @@ function sendOrder() {
     let finalTotal = totalFood + deliveryPrice;
     let orderNumber = getNextOrderNumber();
 
-    // ========== رسالة الواتساب للكاشير ==========
     // ========== رسالة الواتساب (رقم الطلب أول حاجة) ==========
-let msg = `📋 طلب #${orderNumber}\n`;
-msg += `━━━━━━━━━━━━━━━━\n`;
-msg += `🍕 اسبايسي\n`;
-msg += `👤 ${n}\n`;
-msg += `📱 ${cleanPhone}`;
-if (p2 !== "") msg += ` / ${p2.replace(/\D/g, '')}`;
-msg += `\n📍 ${areaName}\n`;
-msg += `🏠 ${a}\n`;
-if (loc !== "" && loc !== "جاري التحديد... ⏳") msg += `🗺️ ${loc}\n`;
-msg += `━━━━━━━━━━━━━━━━\n`;
-msg += `🛒 الطلبات:\n${itemsText}`;
-msg += `━━━━━━━━━━━━━━━━\n`;
-msg += `💰 الأكل: ${totalFood} ج\n`;
-msg += `🚚 التوصيل: ${deliveryPrice} ج\n`;
-msg += `💵 الإجمالي: ${finalTotal} ج`;
-
+    let msg = `📋 طلب #${orderNumber}\n`;
+    msg += `━━━━━━━━━━━━━━━━\n`;
+    msg += `🍕 اسبايسي\n`;
+    msg += `👤 ${n}\n`;
+    msg += `📱 ${cleanPhone}`;
+    if (p2 !== "") msg += ` / ${p2.replace(/\D/g, '')}`;
+    msg += `\n📍 ${areaName}\n`;
+    msg += `🏠 ${a}\n`;
+    if (loc !== "" && loc !== "جاري التحديد... ⏳") msg += `🗺️ ${loc}\n`;
+    msg += `━━━━━━━━━━━━━━━━\n`;
+    msg += `🛒 الطلبات:\n${itemsText}`;
+    msg += `━━━━━━━━━━━━━━━━\n`;
+    msg += `💰 الأكل: ${totalFood} ج\n`;
+    msg += `🚚 التوصيل: ${deliveryPrice} ج\n`;
+    msg += `💵 الإجمالي: ${finalTotal} ج`;
 
     if (!confirm(`🛒 ملخص طلبك\n\n📦 ${Object.keys(cart).length} صنف\n💰 الإجمالي: ${finalTotal} ج\n📍 ${areaName}\n\n✅ تأكيد؟`)) return;
 
     sendingOrder = true;
+    lastOrderTime = Date.now();  // تسجيل وقت الطلب
     saveCustomerData();
 
     // عرض رقم الطلب للعميل
@@ -2360,6 +2418,7 @@ msg += `💵 الإجمالي: ${finalTotal} ج`;
 
     // تنظيف السلة
     setTimeout(() => {
+        lastOrderTime = 0;  // إعادة تعيين بعد التنظيف
         cart = {};
         localStorage.removeItem('spicyCart');
         render();
@@ -2368,8 +2427,6 @@ msg += `💵 الإجمالي: ${finalTotal} ج`;
         sendingOrder = false;
     }, 3000);
 }
-
-
 
 </script>
 </body>

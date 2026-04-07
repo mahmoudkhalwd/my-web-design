@@ -2468,13 +2468,6 @@ function showLastOrderOnReturn() {
 let lastOrderTime = 0;
 
 function sendOrder() {
-    // منع التكرار (مرة كل 60 ثانية)
-    let now = Date.now();
-    if (lastOrderTime && (now - lastOrderTime) < 60000) {
-        alert("❌ لا يمكنك إرسال أكثر من طلب في الدقيقة. برجاء الانتظار قليلاً.");
-        return;
-    }
-
     if (sendingOrder) return;
 
     let nInput = document.getElementById('u-name');
@@ -2516,75 +2509,40 @@ function sendOrder() {
 
     let orderNumber = getNextOrderNumber();
 
-    // ========== جلب سعر التوصيل والنطاق السعري إن وجد ==========
-    let selectedOption = areaSelect.options[areaSelect.selectedIndex];
-    let deliveryPriceText = "";
-    let priceRange = selectedOption.getAttribute('data-price-range');
-    let deliveryPriceValue = Number(selectedOption.getAttribute('data-price') || 0);
-    
-    if (priceRange) {
-        deliveryPriceText = `${priceRange} ج.م (حسب المنطقة)`;
-    } else {
-        deliveryPriceText = `${deliveryPriceValue} ج.م`;
-    }
-
-    // ========== رسالة الواتساب (رقم الطلب أول حاجة) ==========
     let msg = `📋 طلب #${orderNumber}\n`;
     msg += `━━━━━━━━━━━━━━━━\n`;
     msg += `🍕 اسبايسي\n`;
     msg += `━━━━━━━━━━━━━━━━\n`;
-    
-    // بيانات العميل والطلب
     msg += `👤 الاسم: ${n}\n`;
     msg += `🏠 العنوان: ${a} (${areaName})\n`;
     msg += `📱 الرقم الأساسي: ${cleanPhone}\n`;
-    
-    // إضافة الرقم الإضافي في سطر مستقل لو موجود
-    if (p2 !== "") {
-        msg += `📞 الرقم الإضافي: ${p2.replace(/\D/g, '')}\n`;
-    }
-
-    // إضافة اللوكيشن لو متاح
-    if (loc !== "" && loc !== "جاري التحديد... ⏳") {
-        msg += `🗺️ اللوكيشن: ${loc}\n`;
-    }
-
+    if (p2 !== "") msg += `📞 الرقم الإضافي: ${p2.replace(/\D/g, '')}\n`;
+    if (loc !== "" && loc !== "جاري التحديد... ⏳") msg += `🗺️ اللوكيشن: ${loc}\n`;
     msg += `━━━━━━━━━━━━━━━━\n`;
     msg += `🛒 الطلبات:\n${itemsText}`;
     msg += `━━━━━━━━━━━━━━━━\n`;
-    msg += `💰 حساب الأكل: ${totalFood} ج\n`;
-    msg += `🚚 مصاريف التوصيل: ${deliveryPriceText}\n`;
-    msg += `💵 المبلغ الإجمالي: ${totalFood} ج + التوصيل`;
+    msg += `💰 الأكل: ${totalFood} ج\n`;
+    msg += `🚚 التوصيل: ${deliveryPrice} ج (يضاف عند الاستلام)\n`;
+    msg += `💵 الإجمالي: ${totalFood} ج + التوصيل`;
 
-    if (!confirm(`🛒 ملخص طلبك\n\n📦 ${Object.keys(cart).length} صنف\n💰 إجمالي الأكل: ${totalFood} ج\n🚚 التوصيل: ${deliveryPriceText}\n📍 ${areaName}\n\n✅ تأكيد؟`)) return;
+    if (!confirm(`🛒 ملخص طلبك\n\n📦 ${Object.keys(cart).length} صنف\n💰 الإجمالي: ${totalFood} ج\n📍 ${areaName}\n\n✅ تأكيد؟`)) return;
 
     sendingOrder = true;
-    lastOrderTime = Date.now();
     saveCustomerData();
 
-    // عرض رقم الطلب للعميل
-    showOrderNumberOnly(orderNumber, totalFood);
-    
-    // حفظ آخر طلب
-    saveLastOrder(orderNumber, n, totalFood);
-
-    // فتح واتساب الكاشير
-    setTimeout(() => {
-        window.open(`https://wa.me/201013003496?text=${encodeURIComponent(msg)}`, '_blank');
-    }, 500);
+    // ✅ فتح الواتساب مباشرة (بدون رسالة منبثقة)
+    window.open(`https://wa.me/201013003496?text=${encodeURIComponent(msg)}`, '_blank');
 
     // تنظيف السلة
     setTimeout(() => {
-        lastOrderTime = 0;
         cart = {};
         localStorage.removeItem('spicyCart');
         render();
         updateGlobalCounters();
         closeCart();
         sendingOrder = false;
-    }, 3000);
+    }, 1000);
 }
-
 
 let sizeHTML = '';
 if (item.sizes) {

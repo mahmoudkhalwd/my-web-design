@@ -2608,53 +2608,109 @@ if (item.sizes) {
 
 </script>
 <script>
-    // ===== الجزء الأول: منع فتح قسم الوافل وتظهر رسالة =====
+    // ===== التحكم في العروض والوافل =====
     (function() {
-        let originalFilterMenu = window.filterMenu;
+        // دالة للتحقق من اليوم (الأحد أو الاتنين)
+        function isSundayOrMonday() {
+            let now = new Date();
+            let currentDay = now.getDay(); // 0 = الأحد, 1 = الاتنين
+            return (currentDay === 0 || currentDay === 1);
+        }
         
+        // دالة للتحقق من وقت الوافل (8 م لـ 4 ص)
+        function isWaffleTimeOpen() {
+            let now = new Date();
+            let currentMinutes = now.getHours() * 60 + now.getMinutes();
+            let startMinutes = 20 * 60; // 8:00 م
+            let endMinutes = 4 * 60;    // 4:00 ص
+            if (startMinutes < endMinutes) {
+                return (currentMinutes >= startMinutes && currentMinutes <= endMinutes);
+            } else {
+                return (currentMinutes >= startMinutes || currentMinutes <= endMinutes);
+            }
+        }
+        
+        // ===== 1. إضافة النص تحت العروض الأربعة =====
+        function addOfferNote() {
+            let isAvailable = isSundayOrMonday();
+            
+            // البحث عن كل العروض
+            let offers = document.querySelectorAll('.card-item');
+            
+            offers.forEach(offer => {
+                let h3 = offer.querySelector('h3');
+                if (h3) {
+                    let title = h3.innerText;
+                    if (title.includes('العرض الأول') || title.includes('العرض الثاني') || 
+                        title.includes('العرض الثالث') || title.includes('العرض الرابع')) {
+                        
+                        // حذف أي نصوص قديمة
+                        let oldNotes = offer.querySelectorAll('.offer-note-custom');
+                        oldNotes.forEach(note => note.remove());
+                        
+                        // إضافة النص الجديد
+                        let note = document.createElement('div');
+                        note.className = 'offer-note-custom';
+                        note.innerHTML = '📅 متاح أيام الأحد والاتنين فقط من كل أسبوع';
+                        note.style.cssText = 'font-size: 11px; color: #E3B361; margin: 8px 0 5px 0; text-align: center; background: rgba(0,0,0,0.3); padding: 4px; border-radius: 8px;';
+                        
+                        // إضافة النص قبل أزرار التحكم
+                        let qtyControl = offer.querySelector('.qty-control');
+                        if (qtyControl) {
+                            qtyControl.insertAdjacentElement('beforebegin', note);
+                        } else {
+                            offer.appendChild(note);
+                        }
+                    }
+                }
+            });
+        }
+        
+        // ===== 2. منع فتح الوافل بره الوقت =====
+        let originalFilterMenu = window.filterMenu;
         window.filterMenu = function(category) {
             if (category === 'waffles') {
-                let now = new Date();
-                let currentMinutes = now.getHours() * 60 + now.getMinutes();
-                let startMinutes = 20 * 60;
-                let endMinutes = 4 * 60;
-                let isOpen = false;
-                if (startMinutes < endMinutes) {
-                    isOpen = (currentMinutes >= startMinutes && currentMinutes <= endMinutes);
-                } else {
-                    isOpen = (currentMinutes >= startMinutes || currentMinutes <= endMinutes);
-                }
-                
-                if (!isOpen) {
+                if (!isWaffleTimeOpen()) {
                     alert("⏰ ركن الوافل متاح فقط من الساعة 8:00 مساءً حتى 4:00 صباحًا.");
                     return;
                 }
             }
             if (originalFilterMenu) originalFilterMenu(category);
         };
-    })();
-    
-    // ===== الجزء الثاني: إضافة نص تحت منتجات الوافل في القائمة الرئيسية =====
-    (function() {
-        function addWaffleTimeMessage() {
-            let waffleProducts = document.querySelectorAll('.menu-item, .product-card, [class*="product"], [class*="item"]');
+        
+        // ===== 3. إضافة نص تحت منتجات الوافل (اختياري) =====
+        function addWaffleNote() {
+            let isOpen = isWaffleTimeOpen();
+            let waffleItems = document.querySelectorAll('.menu-item, .product-card');
             
-            waffleProducts.forEach(product => {
-                if (product.innerText && (product.innerText.includes('وافل') || product.innerText.includes('waffle'))) {
-                    if (!product.querySelector('.waffle-time-note')) {
-                        let note = document.createElement('div');
-                        note.className = 'waffle-time-note';
+            waffleItems.forEach(item => {
+                if (item.innerText && item.innerText.includes('وافل')) {
+                    let oldNote = item.querySelector('.waffle-note-custom');
+                    if (oldNote) oldNote.remove();
+                    
+                    let note = document.createElement('div');
+                    note.className = 'waffle-note-custom';
+                    if (isOpen) {
+                        note.innerHTML = '✅ متاح الآن';
+                        note.style.cssText = 'font-size: 11px; color: #4caf50; margin-top: 5px;';
+                    } else {
                         note.innerHTML = '🕗 متاح من 8 م إلى 4 ص';
-                        note.style.cssText = 'font-size: 12px; color: #E3B361; margin-top: 5px; font-weight: normal;';
-                        product.appendChild(note);
+                        note.style.cssText = 'font-size: 11px; color: #E3B361; margin-top: 5px;';
                     }
+                    item.appendChild(note);
                 }
             });
         }
-    
-        document.addEventListener('DOMContentLoaded', addWaffleTimeMessage);
-        setTimeout(addWaffleTimeMessage, 2000);
-        setInterval(addWaffleTimeMessage, 5000);
+        
+        // تشغيل كل حاجة
+        document.addEventListener('DOMContentLoaded', function() {
+            addOfferNote();
+            addWaffleNote();
+        });
+        setInterval(function() {
+            addOfferNote();
+            addWaffleNote();
+        }, 2000);
     })();
     </script>
     </script>

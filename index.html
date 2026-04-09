@@ -2536,20 +2536,20 @@ function sendOrder() {
     saveCustomerData();
 
     // 🔥🔥🔥 إرسال البيانات إلى Google Sheets (جديد) 🔥🔥🔥
-    fetch('https://script.google.com/macros/s/AKfycby3Rq0psFZIu9ZGOfruBpp62hNxGqj78EBSqRyyUQHelIxQaCTWzEnGRRMQuXMjZYgffA/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            name: n,
-            phone: cleanPhone,
-            area: areaName,
-            address: a,
-            total: totalFood,
-            items: itemsText
-        })
-    }).catch(err => console.log('خطأ في الحفظ', err));
-
+    fetch('https://script.google.com/macros/s/AKfycbx8W272KcUvKfOt9i2Fh6WOWSicEedeAh-BbdotOHyJLNDnJnP6dFwTcIORlBxjGj0/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+        orderNumber: orderNumber,
+        customerName: n,
+        customerPhone: cleanPhone,
+        area: areaName,
+        address: a,
+        orderDetails: itemsText,
+        totalPrice: totalFood
+    })
+});
     // فتح الواتساب مباشرة
     window.open(`https://wa.me/201013003496?text=${encodeURIComponent(msg)}`, '_blank');
 

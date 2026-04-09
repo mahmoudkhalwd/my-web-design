@@ -2460,7 +2460,6 @@ function showLastOrderOnReturn() {
 }
 
 
-
 let lastOrderTime = 0;
 
 function sendOrder() {
@@ -2485,11 +2484,10 @@ function sendOrder() {
     const cleanPhone = p.replace(/\D/g, '');
     const areaName = areaSelect.value;
     
-    // ========== التعديل هنا: التعامل مع سعر التوصيل ==========
+    // ========== التعامل مع سعر التوصيل ==========
     let deliveryPriceValue = Number(areaSelect.options[areaSelect.selectedIndex]?.getAttribute('data-price') || 0);
     let deliveryPriceText = "";
     
-    // إذا كان السعر 0 أو NaN أو مش رقم صحيح
     if (isNaN(deliveryPriceValue) || deliveryPriceValue <= 0) {
         deliveryPriceText = "حسب الاتفاق";
     } else {
@@ -2529,7 +2527,6 @@ function sendOrder() {
     msg += `🛒 الطلبات:\n${itemsText}`;
     msg += `━━━━━━━━━━━━━━━━\n`;
     msg += `💰 الأكل: ${totalFood} ج\n`;
-    // استخدام النص الجديد لسعر التوصيل
     msg += `🚚 التوصيل: ${deliveryPriceText} (يضاف عند الاستلام)\n`;
     msg += `💵 الإجمالي: ${totalFood} ج + التوصيل`;
 
@@ -2538,7 +2535,22 @@ function sendOrder() {
     sendingOrder = true;
     saveCustomerData();
 
-    // ✅ فتح الواتساب مباشرة
+    // 🔥🔥🔥 إرسال البيانات إلى Google Sheets (جديد) 🔥🔥🔥
+    fetch('https://script.google.com/macros/s/AKfycby3Rq0psFZIu9ZGOfruBpp62hNxGqj78EBSqRyyUQHelIxQaCTWzEnGRRMQuXMjZYgffA/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            name: n,
+            phone: cleanPhone,
+            area: areaName,
+            address: a,
+            total: totalFood,
+            items: itemsText
+        })
+    }).catch(err => console.log('خطأ في الحفظ', err));
+
+    // فتح الواتساب مباشرة
     window.open(`https://wa.me/201013003496?text=${encodeURIComponent(msg)}`, '_blank');
 
     // تنظيف السلة بعد فتح الواتساب
@@ -2551,16 +2563,6 @@ function sendOrder() {
         sendingOrder = false;
     }, 1000);
 }
-    // تنظيف السلة
-    setTimeout(() => {
-        cart = {};
-        localStorage.removeItem('spicyCart');
-        render();
-        updateGlobalCounters();
-        closeCart();
-        sendingOrder = false;
-    }, 1000);
-
 
 let sizeHTML = '';
 if (item.sizes) {

@@ -478,40 +478,39 @@ body {
 
     <div class="menu-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto;">
         
-        <!-- عرض العيلة -->
-        <div class="card-item" style="background: #2B090A; border: 1px solid #E3B361; border-radius: 20px; padding: 12px; text-align: center; position: relative;">
-            <div style="position: absolute; top: -8px; right: 8px; background: #E3B361; color: #1a0505; padding: 2px 10px; border-radius: 20px; font-size: 10px; font-weight: bold;">جديد</div>
-            <div style="position: absolute; top: -8px; left: 8px; background: #e74c3c; color: #fff; padding: 2px 6px; border-radius: 10px; font-size: 10px; font-weight: bold;">وفر 100ج</div>
-            <h3 style="color: #F6E6CF; margin: 15px 0 5px; font-size: 1rem;">عرض العيلة</h3>
-            <p style="color: #bbb; font-size: 10px; margin-bottom: 8px;">10 كريبات زنجر + لتر بيبسي + بطاطس + كاتشب</p>
-            <div style="margin: 8px 0;">
-                <span style="text-decoration: line-through; color: #888; font-size: 11px;">950 ج</span>
-                <span style="color: #E3B361; font-size: 1.3rem; font-weight: bold; display: block;">850 ج.م</span>
-            </div>
-            <div class="qty-control" style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
-                <button onclick="updateCart('عرض العيلة (10 زنجر + بيبسي + بطاطس)', 850, -1)" style="background: none; border: none; color: #F6E6CF; width: 28px; height: 28px; cursor: pointer; font-size: 18px;">-</button>
-                <span id="qty-عرض-العيلة" style="color: #E3B361; font-weight: bold;">0</span>
-                <button onclick="updateCart('عرض العيلة (10 زنجر + بيبسي + بطاطس)', 850, 1)" style="background: #E3B361; border: none; color: #1a0505; width: 28px; height: 28px; border-radius: 8px; cursor: pointer; font-size: 18px;">+</button>
-            </div>
-        </div>
+        <!-- عرض العيلة (بتأثير النور) -->
+<div class="card-item" style="background: #2B090A; border: 2px solid #E3B361; box-shadow: 0 0 20px #E3B361, inset 0 0 10px #E3B361; animation: glow 1.5s infinite alternate; border-radius: 20px; padding: 12px; text-align: center; position: relative;">
+    <span style="position: absolute; top: -10px; right: -10px; background: linear-gradient(45deg, #E3B361, #fff); color: #1a0505; font-size: 11px; padding: 5px 12px; border-radius: 20px; font-weight: bold; box-shadow: 0 2px 10px rgba(0,0,0,0.5); z-index: 20;">الأكثر طلباً 🔥</span>
+    <div style="position: absolute; top: -8px; left: 8px; background: #e74c3c; color: #fff; padding: 2px 6px; border-radius: 10px; font-size: 10px; font-weight: bold;">وفر 100ج</div>
+    <h3 style="color: #F6E6CF; margin: 15px 0 5px; font-size: 1rem;">عرض العيلة</h3>
+    <p style="color: #bbb; font-size: 10px; margin-bottom: 8px;">10 كريبات زنجر + لتر بيبسي + بطاطس + كاتشب</p>
+    <div style="margin: 8px 0;">
+        <span style="text-decoration: line-through; color: #888; font-size: 11px;">950 ج</span>
+        <span style="color: #E3B361; font-size: 1.3rem; font-weight: bold; display: block;">850 ج.م</span>
+    </div>
+    <div class="qty-control" style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
+        <button onclick="updateCart('عرض العيلة (10 زنجر + بيبسي + بطاطس)', 850, -1)" style="background: none; border: none; color: #F6E6CF; width: 28px; height: 28px; cursor: pointer; font-size: 18px;">-</button>
+        <span id="qty-عرض-العيلة" style="color: #E3B361; font-weight: bold;">0</span>
+        <button onclick="updateCart('عرض العيلة (10 زنجر + بيبسي + بطاطس)', 850, 1)" style="background: #E3B361; border: none; color: #1a0505; width: 28px; height: 28px; border-radius: 8px; cursor: pointer; font-size: 18px;">+</button>
+    </div>
+</div>
 
-        <!-- عرض الصحاب -->
-        <div class="card-item" style="background: #2B090A; border: 1px solid #E3B361; border-radius: 20px; padding: 12px; text-align: center; position: relative;">
-            <div style="position: absolute; top: -8px; right: 8px; background: #E3B361; color: #1a0505; padding: 2px 10px; border-radius: 20px; font-size: 10px; font-weight: bold;">جديد</div>
-            <div style="position: absolute; top: -8px; left: 8px; background: #e74c3c; color: #fff; padding: 2px 6px; border-radius: 10px; font-size: 10px; font-weight: bold;">وفر 50ج</div>
-            <h3 style="color: #F6E6CF; margin: 15px 0 5px; font-size: 1rem;">عرض الصحاب</h3>
-            <p style="color: #bbb; font-size: 10px; margin-bottom: 8px;">10 كريبات بانيه +  لتر بيبسي + بطاطس + كاتشب</p>
-            <div style="margin: 8px 0;">
-                <span style="text-decoration: line-through; color: #888; font-size: 11px;">650 ج</span>
-                <span style="color: #E3B361; font-size: 1.3rem; font-weight: bold; display: block;">600 ج.م</span>
-            </div>
-            <div class="qty-control" style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
-                <button onclick="updateCart('عرض الصحاب (10 بانيه + بيبسي + بطاطس)', 600, -1)" style="background: none; border: none; color: #F6E6CF; width: 28px; height: 28px; cursor: pointer; font-size: 18px;">-</button>
-                <span id="qty-عرض-الصحاب" style="color: #E3B361; font-weight: bold;">0</span>
-                <button onclick="updateCart('عرض الصحاب (10 بانيه + بيبسي + بطاطس)', 600, 1)" style="background: #E3B361; border: none; color: #1a0505; width: 28px; height: 28px; border-radius: 8px; cursor: pointer; font-size: 18px;">+</button>
-            </div>
-        </div>
-
+<!-- عرض الصحاب (بتأثير النور) -->
+<div class="card-item" style="background: #2B090A; border: 2px solid #E3B361; box-shadow: 0 0 20px #E3B361, inset 0 0 10px #E3B361; animation: glow 1.5s infinite alternate; border-radius: 20px; padding: 12px; text-align: center; position: relative;">
+    <span style="position: absolute; top: -10px; right: -10px; background: linear-gradient(45deg, #E3B361, #fff); color: #1a0505; font-size: 11px; padding: 5px 12px; border-radius: 20px; font-weight: bold; box-shadow: 0 2px 10px rgba(0,0,0,0.5); z-index: 20;">الأكثر طلباً 🔥</span>
+    <div style="position: absolute; top: -8px; left: 8px; background: #e74c3c; color: #fff; padding: 2px 6px; border-radius: 10px; font-size: 10px; font-weight: bold;">وفر 50ج</div>
+    <h3 style="color: #F6E6CF; margin: 15px 0 5px; font-size: 1rem;">عرض الصحاب</h3>
+    <p style="color: #bbb; font-size: 10px; margin-bottom: 8px;">10 كريبات بانيه + لتر بيبسي + بطاطس + كاتشب</p>
+    <div style="margin: 8px 0;">
+        <span style="text-decoration: line-through; color: #888; font-size: 11px;">650 ج</span>
+        <span style="color: #E3B361; font-size: 1.3rem; font-weight: bold; display: block;">600 ج.م</span>
+    </div>
+    <div class="qty-control" style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 5px; display: flex; align-items: center; justify-content: space-between;">
+        <button onclick="updateCart('عرض الصحاب (10 بانيه + لتر بيبسي + بطاطس)', 600, -1)" style="background: none; border: none; color: #F6E6CF; width: 28px; height: 28px; cursor: pointer; font-size: 18px;">-</button>
+        <span id="qty-عرض-الصحاب" style="color: #E3B361; font-weight: bold;">0</span>
+        <button onclick="updateCart('عرض الصحاب (10 بانيه +  لتر بيبسي + بطاطس)', 600, 1)" style="background: #E3B361; border: none; color: #1a0505; width: 28px; height: 28px; border-radius: 8px; cursor: pointer; font-size: 18px;">+</button>
+    </div>
+</div>
         <!-- العرض الأول (عمار) -->
         <div class="card-item" style="background: #2B090A; border: 1px solid #E3B361; border-radius: 20px; padding: 12px; text-align: center; position: relative;">
             <div style="position: absolute; top: -8px; right: 8px; background: #e74c3c; color: #fff; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: bold;">وفر 20ج</div>
@@ -1236,7 +1235,8 @@ body {
             <option value="ميت رهينة" data-price="25">ميت رهينة (25 ج.م)</option>
             <option value="الجابري" data-price="30">الجابري (30 ج.م)</option>
             <option value="كوبري المرور" data-price="30">كوبري المرور (30 ج.م)</option>
-        </select>
+            <option value="منطقة أخرى" data-price="0">منطقة أخرى (السعر حسب الاتفاق)</option>
+                </select>
         </select>
         <p style="font-size:13px; color: var(--gold-clr); margin-bottom:10px;">سعر التوصيل للمنطقة: <span id="delivery-cost">0</span> ج.م</p>
 
@@ -1722,7 +1722,7 @@ border-top:1px solid rgba(227,179,97,.18);">
       align-items: center;
       gap: 12px;
     }
-
+لب
     .lux-dev-label{
       color: rgba(255,255,255,.5);
       font-size: 12px;
@@ -2459,12 +2459,8 @@ function showLastOrderOnReturn() {
     }, 1500);
 }
 
-// =========================
-// 5) إرسال الطلب (النسخة النهائية)
-// =========================
-// =========================
-// إرسال الطلب (النسخة النهائية مع منع التكرار)
-// =========================
+
+
 let lastOrderTime = 0;
 
 function sendOrder() {
@@ -2488,7 +2484,18 @@ function sendOrder() {
     const loc = lInput ? lInput.value.trim() : "";
     const cleanPhone = p.replace(/\D/g, '');
     const areaName = areaSelect.value;
-    const deliveryPrice = Number(areaSelect.options[areaSelect.selectedIndex]?.getAttribute('data-price') || 0);
+    
+    // ========== التعديل هنا: التعامل مع سعر التوصيل ==========
+    let deliveryPriceValue = Number(areaSelect.options[areaSelect.selectedIndex]?.getAttribute('data-price') || 0);
+    let deliveryPriceText = "";
+    
+    // إذا كان السعر 0 أو NaN أو مش رقم صحيح
+    if (isNaN(deliveryPriceValue) || deliveryPriceValue <= 0) {
+        deliveryPriceText = "حسب الاتفاق";
+    } else {
+        deliveryPriceText = deliveryPriceValue + " ج";
+    }
+   
 
     if (n === "") { alert("اكتب اسمك"); nInput.focus(); return; }
     if (cleanPhone.length !== 11) { alert("رقم التليفون 11 رقم"); pInput.focus(); return; }
@@ -2522,7 +2529,8 @@ function sendOrder() {
     msg += `🛒 الطلبات:\n${itemsText}`;
     msg += `━━━━━━━━━━━━━━━━\n`;
     msg += `💰 الأكل: ${totalFood} ج\n`;
-    msg += `🚚 التوصيل: ${deliveryPrice} ج (يضاف عند الاستلام)\n`;
+    // استخدام النص الجديد لسعر التوصيل
+    msg += `🚚 التوصيل: ${deliveryPriceText} (يضاف عند الاستلام)\n`;
     msg += `💵 الإجمالي: ${totalFood} ج + التوصيل`;
 
     if (!confirm(`🛒 ملخص طلبك\n\n📦 ${Object.keys(cart).length} صنف\n💰 الإجمالي: ${totalFood} ج\n📍 ${areaName}\n\n✅ تأكيد؟`)) return;
@@ -2530,10 +2538,10 @@ function sendOrder() {
     sendingOrder = true;
     saveCustomerData();
 
-    // ✅ فتح الواتساب مباشرة (بدون رسالة منبثقة)
+    // ✅ فتح الواتساب مباشرة
     window.open(`https://wa.me/201013003496?text=${encodeURIComponent(msg)}`, '_blank');
 
-    // تنظيف السلة
+    // تنظيف السلة بعد فتح الواتساب
     setTimeout(() => {
         cart = {};
         localStorage.removeItem('spicyCart');
@@ -2543,6 +2551,16 @@ function sendOrder() {
         sendingOrder = false;
     }, 1000);
 }
+    // تنظيف السلة
+    setTimeout(() => {
+        cart = {};
+        localStorage.removeItem('spicyCart');
+        render();
+        updateGlobalCounters();
+        closeCart();
+        sendingOrder = false;
+    }, 1000);
+
 
 let sizeHTML = '';
 if (item.sizes) {
@@ -2586,9 +2604,57 @@ if (item.sizes) {
     `;
 }
 
-
-
 </script>
-
+<script>
+    // ===== الجزء الأول: منع فتح قسم الوافل وتظهر رسالة =====
+    (function() {
+        let originalFilterMenu = window.filterMenu;
+        
+        window.filterMenu = function(category) {
+            if (category === 'waffles') {
+                let now = new Date();
+                let currentMinutes = now.getHours() * 60 + now.getMinutes();
+                let startMinutes = 20 * 60;
+                let endMinutes = 4 * 60;
+                let isOpen = false;
+                if (startMinutes < endMinutes) {
+                    isOpen = (currentMinutes >= startMinutes && currentMinutes <= endMinutes);
+                } else {
+                    isOpen = (currentMinutes >= startMinutes || currentMinutes <= endMinutes);
+                }
+                
+                if (!isOpen) {
+                    alert("⏰ ركن الوافل متاح فقط من الساعة 8:00 مساءً حتى 4:00 صباحًا.");
+                    return;
+                }
+            }
+            if (originalFilterMenu) originalFilterMenu(category);
+        };
+    })();
+    
+    // ===== الجزء الثاني: إضافة نص تحت منتجات الوافل في القائمة الرئيسية =====
+    (function() {
+        function addWaffleTimeMessage() {
+            let waffleProducts = document.querySelectorAll('.menu-item, .product-card, [class*="product"], [class*="item"]');
+            
+            waffleProducts.forEach(product => {
+                if (product.innerText && (product.innerText.includes('وافل') || product.innerText.includes('waffle'))) {
+                    if (!product.querySelector('.waffle-time-note')) {
+                        let note = document.createElement('div');
+                        note.className = 'waffle-time-note';
+                        note.innerHTML = '🕗 متاح من 8 م إلى 4 ص';
+                        note.style.cssText = 'font-size: 12px; color: #E3B361; margin-top: 5px; font-weight: normal;';
+                        product.appendChild(note);
+                    }
+                }
+            });
+        }
+    
+        document.addEventListener('DOMContentLoaded', addWaffleTimeMessage);
+        setTimeout(addWaffleTimeMessage, 2000);
+        setInterval(addWaffleTimeMessage, 5000);
+    })();
+    </script>
+    </script>
 </body>
 </html>

@@ -1232,7 +1232,7 @@ body {
             <option value="الريغة" data-price="80">الريغة (80 ج.م)</option>
             <option value="المرازيق" data-price="50">المرازيق (50 ج.م)</option>
             <option value="الطرفاية" data-price="25">الطرفاية (25 ج.م)</option>
-            <option value="ميت رهينة" data-price="25">ميت رهينة (25 ج.م)</option>
+            <option value="ميت رهينة" data-price="25">ميت رهينة (25 ج.م)</option> 
             <option value="الجابري" data-price="30">الجابري (30 ج.م)</option>
             <option value="كوبري المرور" data-price="30">كوبري المرور (30 ج.م)</option>
             <option value="منطقة أخرى" data-price="0">منطقة أخرى (السعر حسب الاتفاق)</option>
@@ -1242,6 +1242,12 @@ body {
 
         <textarea style="width:100%; padding:12px; margin-bottom:10px; background:#1a1a1a; border:1px solid #333; color:#fff; border-radius:12px;" id="u-addr" placeholder="العنوان بالتفصيل"></textarea>
         
+        <p style="font-size:12px; color:#E3B361; margin-bottom:5px;">
+            📝 ملاحظات إضافية <span style="color:#888;">(اختياري)</span>
+        </p>
+        <textarea style="width:100%; padding:12px; margin-bottom:10px; background:#1a1a1a; border:1px solid #333; color:#fff; border-radius:12px;" 
+                  id="u-notes" 
+                  placeholder="مثال: كريب بدون جبن، بيتزا بدون فلفل"></textarea>
         <div style="display: flex; gap: 8px; margin-bottom: 15px;">
             <input style="flex:1; padding:12px; background:#1a1a1a; border:1px solid #333; color:#981b1b; border-radius:12px;" type="text" id="u-location" placeholder="لينك اللوكيشن 📍">
             <button onclick="getLocation()" style="background: var(--gold-clr); border: none; border-radius: 12px; padding: 0 15px; cursor: pointer;"><i class="fas fa-map-marker-alt"></i></button>
@@ -1250,12 +1256,26 @@ body {
         <button onclick="sendOrder()" style="width:100%; background: var(--gold-clr); color:#1a0505; padding:16px; border:none; border-radius:15px; font-weight:bold; cursor:pointer; font-size: 18px;">
             إرسال واتساب <i class="fab fa-whatsapp"></i>
         </button>
-    </div>
 
-    <div style="text-align: center; margin-top: 30px; opacity: 0.6;">
-        <p style="font-size: 14px; color: var(--gold-clr); font-weight: bold;">Eng. Mahmoud Khaled</p>
+        <!-- اسم المصمم جوه السلة (في الآخر) -->
+        <div style="text-align: center; margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(227,179,97,0.15);">
+            <p style="font-size: 13px; color: #E3B361; font-weight: bold; margin: 0; text-shadow: 0 0 6px rgba(227,179,97,0.5); animation: cartGlow 2s ease-in-out infinite;">
+                Software Engineer | Mahmoud Khaled
+            </p>
+            <p style="font-size: 10px; color: #888; margin: 4px 0 0;">
+                تصميم المواقع
+            </p>
+        </div>
     </div>
 </div>
+
+<style>
+@keyframes cartGlow {
+    0% { text-shadow: 0 0 2px rgba(227,179,97,0.2); }
+    50% { text-shadow: 0 0 10px rgba(227,179,97,0.7); }
+    100% { text-shadow: 0 0 2px rgba(227,179,97,0.2); }
+}
+</style>
 
 <script>
     // الوظيفة الوحيدة لفتح وقفل السلة
@@ -1263,10 +1283,6 @@ body {
         document.getElementById('side-cart').classList.toggle('active');
     }
 </script>
-<footer dir="rtl" style="position:relative;overflow:hidden;background:
-linear-gradient(180deg,#120304 0%,#1a0607 45%,#0f0203 100%);
-color:#fff;padding:0;margin:0;font-family:'Segoe UI',Tahoma,sans-serif;
-border-top:1px solid rgba(227,179,97,.18);">
 
   <style>
     * {
@@ -2481,6 +2497,8 @@ function sendOrder() {
     const p2 = p2Input ? p2Input.value.trim() : "";
     const a = aInput.value.trim();
     const loc = lInput ? lInput.value.trim() : "";
+    let notesInput = document.getElementById('u-notes');
+    let notes = notesInput ? notesInput.value.trim() : "";
     const cleanPhone = p.replace(/\D/g, '');
     const areaName = areaSelect.value;
     
@@ -2523,6 +2541,7 @@ function sendOrder() {
     msg += `📱 الرقم الأساسي: ${cleanPhone}\n`;
     if (p2 !== "") msg += `📞 الرقم الإضافي: ${p2.replace(/\D/g, '')}\n`;
     if (loc !== "" && loc !== "جاري التحديد... ⏳") msg += `🗺️ اللوكيشن: ${loc}\n`;
+    if (notes !== "") msg += `📝 ملاحظات: ${notes}\n`;
     msg += `━━━━━━━━━━━━━━━━\n`;
     msg += `🛒 الطلبات:\n${itemsText}`;
     msg += `━━━━━━━━━━━━━━━━\n`;

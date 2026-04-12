@@ -1,30 +1,75 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head><!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C1VL2RTST5"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-C1VL2RTST5');
-    </script>
-   
- <meta property="og:title" content="اسبايسي | SPICY - أقوى مطعم في الجيزة">
- <meta property="og:description" content="اطلب أكلتك المفضلة أونلاين: كريبات، بيتزا، وافل، سندوتشات. توصيل سريع لجميع المناطق.">
- <meta property="og:image" content="logo.png">
- <meta property="og:image:width" content="500">
- <meta property="og:image:height" content="500">
- <meta property="og:url" content="https://yourwebsite.com">
- <meta property="og:type" content="website">
- <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
- <meta name="theme-color" content="#1a0505">
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>اسبايسي – البدرشين | Spicy </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<head>
+
+  <!-- ================= BASIC META ================= -->
+  <meta charset="UTF-8">
+  <title>اسبايسي | SPICY – مطعم كريبات وبيتزا في البدرشين</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+  <meta name="theme-color" content="#1a0505">
+  <meta name="robots" content="index, follow">
+
+  <!-- ✅ وصف احترافي قوي (مهم جدًا لما تشتري دومين) -->
+  <meta name="description"
+        content="مطعم اسبايسي – SPICY في البدرشين يقدم كريبات، بيتزا، سندوتشات ووافل بمكونات طازة يوميًا. أسعار واضحة، جودة ثابتة، وخدمة توصيل سريعة داخل البدرشين والمناطق القريبة. اطلب دلوقتي أونلاين أو عبر واتساب." />
+
+  <!-- ✅ كلمات مفتاحية مظبوطة -->
+  <meta name="keywords"
+        content="مطعم اسبايسي, Spicy, كريبات البدرشين, بيتزا البدرشين, وافل, سندوتشات, توصيل البدرشين" />
+
+  <meta name="author" content="Spicy Restaurant - El Badrshein">
+
+  <!-- ================= Open Graph (WhatsApp / Facebook) ================= -->
+  <meta property="og:title" content="اسبايسي | SPICY – مطعم كريبات وبيتزا في البدرشين">
+  <meta property="og:description"
+        content="أقوى طعم في البدرشين – كريبات، بيتزا، وافل وسندوتشات مع توصيل سريع." />
+  <meta property="og:image" content="logo.png">
+  <meta property="og:image:width" content="500">
+  <meta property="og:image:height" content="500">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_EG">
+
+  <!-- ✅ بعد شراء الدومين عدّل الرابط فقط -->
+  <meta property="og:url" content="https://www.spicy-badrshein.com">
+
+  <!-- ================= Performance ================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- ================= Icons & Fonts ================= -->
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- ================= Google Analytics (زي ما هو) ================= -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C1VL2RTST5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-C1VL2RTST5');
+  </script>
+
+  <!-- ================= Structured Data (ثقة لجوجل) ================= -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Spicy Restaurant",
+    "image": "logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "البدرشين",
+      "addressCountry": "EG"
+    },
+    "servesCuisine": ["Crepes", "Pizza", "Sandwiches", "Waffles"],
+    "priceRange": "$$",
+    "telephone": "+201013003496"
+  }
+  </script>
+
+  <!-- ✅ سيب الـ STYLE بتاعك زي ما هو تحت ده -->
     <style>
         :root { --main-red: #e74c3c; --gold: #f1c40f; --dark-black: #0a0a0a; --card-bg: #1a1a1a; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; -webkit-tap-highlight-color: transparent; }
@@ -458,15 +503,10 @@ body {
 
 
 <!-- ========== شريط البحث (فوق الفيديو) ========== -->
-<div class="search-container" style="position: relative; z-index: 10; margin-top: 10px;">
-    <div class="search-input-wrapper">
-        <input type="text" id="menu-search" onkeyup="searchMenu()" placeholder="ابحث عن أكلتك...">
-        <i class="fas fa-search search-icon"></i>
-    </div>
-</div>
+
 
 <!-- ========== الفيديو ========== -->
-<!--
+
 <section id="dynamic-slider-container">
     <div class="slideshow-box">
         <video autoplay muted loop playsinline class="slider-video">
@@ -474,16 +514,16 @@ body {
         </video>
     </div>
 </section>
--->
 
 
 
-<!-- ========== الصورة (نشطة حالياً) ========== -->
-   <section id="dynamic-slider-container">
+
+<!-- <section id="dynamic-slider-container">
     <div class="slideshow-box">
         <img src="1.jpg" alt="صورة" class="slider-image">
     </div>
-</section>   
+</section>    -->
+   
 
 
       
@@ -2763,107 +2803,6 @@ if (item.sizes) {
     })();
     </script>
     
-    <script>
-        // تحديد التاريخين 12 و 13 أبريل 2026
-        const startDate = new Date(2026, 3, 12);
-        const endDate = new Date(2026, 3, 13);
-        const today = new Date();
-        const isHoliday = today >= startDate && today <= endDate;
-        
-        if (isHoliday) {
-            // إضافة التأثير
-            document.write(`
-                <div id="easterEffect" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; overflow: hidden;">
-                    <canvas id="easterCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></canvas>
-                </div>
-                <div id="easterMessage" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #9b59b6, #e91e63); color: white; padding: 12px 25px; border-radius: 60px; font-weight: bold; font-size: 16px; z-index: 10000; text-align: center; box-shadow: 0 0 25px rgba(155,89,182,0.8); animation: easterGlow 1s ease-in-out infinite; direction: rtl; white-space: nowrap;">
-                    🐣 كل سنة وحضراتكم طيبين ❤️ عيد قيامة مجيد 🐰🥚
-                </div>
-                <style>
-                    @keyframes easterGlow {
-                        0% { box-shadow: 0 0 10px rgba(155,89,182,0.5); }
-                        50% { box-shadow: 0 0 30px rgba(233,30,99,0.8); }
-                        100% { box-shadow: 0 0 10px rgba(155,89,182,0.5); }
-                    }
-                </style>
-            `);
-            
-            // تأثير البيض الملون
-            setTimeout(() => {
-                const canvas = document.getElementById('easterCanvas');
-                if (!canvas) return;
-                const ctx = canvas.getContext('2d');
-                let width = window.innerWidth;
-                let height = window.innerHeight;
-                let eggs = [];
-                let animationId;
-                
-                const eggColors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD', '#F39C12', '#E74C3C', '#9B59B6'];
-                
-                function resizeCanvas() {
-                    width = window.innerWidth;
-                    height = window.innerHeight;
-                    canvas.width = width;
-                    canvas.height = height;
-                }
-                
-                function createEggs() {
-                    eggs = [];
-                    for (let i = 0; i < 60; i++) {
-                        eggs.push({
-                            x: Math.random() * width,
-                            y: Math.random() * height,
-                            radiusX: Math.random() * 8 + 6,
-                            radiusY: Math.random() * 10 + 8,
-                            color: eggColors[Math.floor(Math.random() * eggColors.length)],
-                            speed: Math.random() * 1 + 0.3,
-                            rotation: Math.random() * Math.PI * 2
-                        });
-                    }
-                }
-                
-                function drawEggs() {
-                    ctx.clearRect(0, 0, width, height);
-                    for (let egg of eggs) {
-                        ctx.save();
-                        ctx.translate(egg.x, egg.y);
-                        ctx.rotate(egg.rotation);
-                        ctx.beginPath();
-                        ctx.ellipse(0, 0, egg.radiusX, egg.radiusY, 0, 0, Math.PI * 2);
-                        ctx.fillStyle = egg.color;
-                        ctx.fill();
-                        ctx.restore();
-                        egg.y += egg.speed;
-                        if (egg.y > height + 30) {
-                            egg.y = -30;
-                            egg.x = Math.random() * width;
-                        }
-                    }
-                    animationId = requestAnimationFrame(drawEggs);
-                }
-                
-                window.addEventListener('resize', () => {
-                    resizeCanvas();
-                    createEggs();
-                });
-                
-                resizeCanvas();
-                createEggs();
-                drawEggs();
-                
-                // 🔥 إخفاء كل حاجة بعد 3 ثواني (البيض + الرسالة) 🔥
-                setTimeout(() => {
-                    // إيقاف حركة البيض
-                    if (animationId) cancelAnimationFrame(animationId);
-                    // إخفاء العناصر
-                    const effect = document.getElementById('easterEffect');
-                    const message = document.getElementById('easterMessage');
-                    if (effect) effect.remove();
-                    if (message) message.remove();
-                }, 3000); // 3 ثواني بالضبط
-            }, 100);
-        }
-    </script>
     </script>
 </body>
 </html>

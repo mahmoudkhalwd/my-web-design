@@ -404,6 +404,21 @@ body {
     text-decoration: none !important;
 }
 
+.slider-image {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    display: block;
+    margin: auto;
+    box-shadow: 0 20px 35px -10px rgba(0,0,0,0.5);
+    transition: all 0.4s ease;
+    border-radius: 12px;
+}
+
+.slider-image:hover {
+    transform: perspective(800px) translateZ(30px) rotateX(3deg);
+    box-shadow: 0 35px 50px -15px rgba(0,0,0,0.6);
+}
 /* إخفاء أي بواقي قديمة تعمل زحمة */
 .slider-section, .slider-container, .slider-wrapper { display: none !important; }
     </style>
@@ -441,6 +456,7 @@ body {
     </div>
 </header>
 
+
 <!-- ========== شريط البحث (فوق الفيديو) ========== -->
 <div class="search-container" style="position: relative; z-index: 10; margin-top: 10px;">
     <div class="search-input-wrapper">
@@ -450,13 +466,27 @@ body {
 </div>
 
 <!-- ========== الفيديو ========== -->
+<!--
 <section id="dynamic-slider-container">
     <div class="slideshow-box">
         <video autoplay muted loop playsinline class="slider-video">
             <source src="spicy-video.mp4" type="video/mp4">
         </video>
     </div>
-    
+</section>
+-->
+
+
+
+<!-- ========== الصورة (نشطة حالياً) ========== -->
+   <section id="dynamic-slider-container">
+    <div class="slideshow-box">
+        <img src="1.jpg" alt="صورة" class="slider-image">
+    </div>
+</section>   
+
+
+      
     <div class="slide-content-safe">
         <div class="brand-line">
             <span class="ar">اسبايسي</span>
@@ -2732,6 +2762,7 @@ if (item.sizes) {
         }, 2000);
     })();
     </script>
+    
     </script>
 </body>
 </html>
